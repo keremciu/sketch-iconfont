@@ -1,0 +1,86 @@
+@import "library.cocoascript";
+
+var onFontawesome = function(context) {
+  // onRun function with context, json file path, title and font name.
+  onRun(context,"fontawesome.json","Font Awesome","FontAwesome");
+}
+
+var onMaterial = function(context) {
+  // onRun function with context, json file path, title and font name.
+  onRun(context,"material.json","Material Icons","Material Icons");
+}
+
+var onRun = function(context,icon_path,title,fontname) {
+
+  var doc = context.document       // the current document (MSDocument)
+  var plugin = context.plugin      // the plugin (MSPluginBundle)
+  var page = [doc currentPage]     // the current page (MSPage)
+  var icon_source = [plugin urlForResourceNamed:icon_path]
+
+  // call getIcons function from library file.
+  var icons = Library.getIcons(icon_source)
+  var icon_list = Library.iconValues(icons,fontname)
+  
+  // create a wrapper window
+  var mainwindow = Library.components.window(title + " - Add an icon with combobox", "Choose an icon")
+  var wrapper = mainwindow[0]
+  var content = mainwindow[1]
+
+  var selectedItemIndex = selectedItemIndex || 0
+
+  // create combobox
+  var selectbox = [[NSComboBox alloc] initWithFrame:NSMakeRect(50,160,100,50)]
+  [selectbox setFont:[NSFont fontWithName:@''+fontname size:24.0]]
+  [selectbox setBackgroundColor: [NSColor clearColor]];
+  [selectbox setTextColor:[NSColor blackColor]]
+  [selectbox addItemsWithObjectValues:icon_list[0]]
+  [selectbox setItemHeight:50]
+  [selectbox setButtonBordered:false]
+  [selectbox setIntercellSpacing:NSMakeSize(50.0, 30.0)]
+  [selectbox selectItemAtIndex:selectedItemIndex]
+  [selectbox setEditable:false];
+  [content addSubview:selectbox]
+
+  // copy button for icon name
+  submitButton = Library.components.submit("Submit",NSMakeRect(200, 147, 200, 50))
+  submitButton.setWantsLayer(true)
+  // submit button layer
+  var buttonlayer = [CATextLayer layer]
+  [buttonlayer setBackgroundColor:[NSColor blackColor]]
+  [buttonlayer setForegroundColor:CGColorCreateGenericRGB(215/255, 159/255, 0/255, 1.0)]
+  [buttonlayer setFontSize:18];
+  // [buttonlayer setFont:[NSFont boldSystemFontOfSize:12]]
+  buttonlayer.contentsScale = [[NSScreen mainScreen] backingScaleFactor];
+  buttonlayer.string = "+ Add/Change Icon"
+  [submitButton setLayer:buttonlayer]
+  [submitButton setCOSJSTargetFunction:function(sender) {
+    [wrapper orderOut:nil]
+    [NSApp stopModalWithCode:NSOKButton]
+  }];
+  [content addSubview:submitButton]
+
+  var response = [NSApp runModalForWindow:wrapper];
+  var selected_icon = [selectbox indexOfSelectedItem]
+  var icon_name     = icon_list[1][selected_icon]
+  var get_selected_icon = [selectbox objectValueOfSelectedItem]
+
+  // if is the response is ok, add icon to the layer
+  if (response == NSOKButton) {
+    // select the text layer
+    var textLayer = page.selectedLayers().firstObject()
+
+    // if is it a text layer run it. if it is not give an error.
+    if (textLayer && [textLayer stringValue]) {
+      // set selected icon as the layer's value
+      [textLayer setStringValue: get_selected_icon];
+      // set icon name as the layer's name
+      [textLayer setName: icon_name];
+    } else {
+      textLayer = Library.addTextLayer(page, {"text": get_selected_icon, "name": icon_name});
+    }
+
+    // set icon font
+    [textLayer setFontPostscriptName:fontname];
+  }
+
+};

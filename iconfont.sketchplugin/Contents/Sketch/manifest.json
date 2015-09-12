@@ -1,0 +1,89 @@
+{
+  "name" : "Icon Fonts",
+  "description" : "Its a nice plugin to use icon fonts in Sketch for developers and designers.",
+  "version" : "1.0",
+  "commands" : [
+    {
+      "script" : "learn_icon_name.cocoascript",
+      "handler" : "onFontawesome",
+      "shortcut" : "cmd ctrl u",
+      "name" : "What is the icon's name?",
+      "identifier" : "awesome_learn_icon_name"
+    },
+    {
+      "script" : "add_icon.cocoascript",
+      "handler" : "onFontawesome",
+      "shortcut" : "cmd ctrl i",
+      "name" : "Add an icon with name",
+      "identifier" : "awesome_add_icon"
+    },
+    {
+      "script" : "add_icon_combobox.cocoascript",
+      "handler" : "onFontawesome",
+      "shortcut" : "cmd ctrl c",
+      "name" : "Add an icon with combobox",
+      "identifier" : "awesome_add_icon_combobox"
+    },
+    {
+      "script" : "add_icon_radiolist.cocoascript",
+      "handler" : "onFontawesome",
+      "shortcut" : "cmd ctrl l",
+      "name" : "Add an icon with list",
+      "identifier" : "awesome_add_icon_radiolist"
+    },
+    {
+      "script" : "learn_icon_name.cocoascript",
+      "handler" : "onMaterial",
+      "shortcut" : "cmd alt u",
+      "name" : "What is the icon's name?",
+      "identifier" : "material_learn_icon_name"
+    },
+    {
+      "script" : "add_icon.cocoascript",
+      "handler" : "onMaterial",
+      "shortcut" : "cmd alt i",
+      "name" : "Add an icon with name",
+      "identifier" : "material_add_icon"
+    },
+    {
+      "script" : "add_icon_combobox.cocoascript",
+      "handler" : "onMaterial",
+      "shortcut" : "cmd alt c",
+      "name" : "Add an icon with combobox",
+      "identifier" : "material_add_icon_combobox"
+    },
+    {
+      "script" : "add_icon_radiolist.cocoascript",
+      "handler" : "onMaterial",
+      "shortcut" : "cmd alt l",
+      "name" : "Add an icon with list",
+      "identifier" : "material_add_icon_radiolist"
+    },
+  ],
+  "menu": {
+    "title" : "Icon Fonts",
+    "items": [
+      {
+        "title" : "Fontawesome",
+        "items" : [
+          "awesome_learn_icon_name",
+          "awesome_add_icon",
+          "awesome_add_icon_combobox",
+          "awesome_add_icon_radiolist"
+        ]
+      },
+      {
+        "title" : "Material",
+        "items" : [
+          "material_learn_icon_name",
+          "material_add_icon",
+          "material_add_icon_combobox",
+          "material_add_icon_radiolist"
+        ]
+      },
+    ],
+  },
+  "identifier" : "com.keremciu.sketch.materialicons",
+  "author" : "Kerem Sevencan",
+  "authorEmail" : "info@kerem.ws",
+}
