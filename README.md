@@ -58,4 +58,4 @@ It's not working with sketch beta. Because sketch beta is not supporting NSFont,
 
 MIT
 
-[demo-image]: http://i.imgur.com/4bg2Es9.gif
+[demo-image]: http://i.imgur.com/EBGmlSe.gif
