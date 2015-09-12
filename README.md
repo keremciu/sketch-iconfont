@@ -52,7 +52,7 @@ It's not working with sketch beta. Because sketch beta is not supporting NSFont,
 
 # Note
 
-
+I've started to develop this plugin after https://github.com/keremciu/sketch-use-fontawesome this plugin. I'd like to add more icon font support. If you want to some icon font, you can create an issue about it. I hope you like it :)
 
 # License
 
