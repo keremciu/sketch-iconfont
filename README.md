@@ -37,19 +37,6 @@ https://github.com/google/material-design-icons/blob/master/iconfont/MaterialIco
 
 It's not working with sketch beta. Because sketch beta is not supporting NSFont, I'll be fix it when it will be finished.
 
-# Usage
-
-#### for designer
-
-1. Insert a text layer in sketch document.
-2. Select `Add Icon with Alias` under the plugin in `Plugins` menu.
-3. Write the alias of icon which you want to add.
-
-#### for developer
-
-1. Select the text layer of icon.
-2. Select `Get Alias of Icon` under the plugin in `Plugins` menu.
-
 # Note
 
 I've started to develop this plugin after https://github.com/keremciu/sketch-use-fontawesome this plugin. I'd like to add more icon font support. If you want to some icon font, you can create an issue about it. I hope you like it :)
