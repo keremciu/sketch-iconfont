@@ -1,6 +1,6 @@
 Its a nice plugin to use icon fonts in Sketch for developers and designers.
 
-We've font awesome and material icons support now. Sure, I would like to add more.
+Now it support font awesome and material icons but sure, I would like to add more. Maybe I can create a custom(like flat) icon font uploader to this plugin.
 
 ## Demo
 ![demo][demo-image]
