@@ -1,6 +1,7 @@
 Its a nice plugin to use icon fonts in Sketch for developers and designers.
 
-Now it support font awesome and material icons but sure, I would like to add more. Maybe I can create a custom(like flat) icon font uploader to this plugin.
+Now it supports font awesome and material icons but sure, I would like to add more. 
+Maybe we can create a custom icon font uploader, it would be so cool.
 
 ## Demo
 ![demo][demo-image]
@@ -36,6 +37,8 @@ https://github.com/google/material-design-icons/blob/master/iconfont/MaterialIco
 # Problem
 
 It's not working with sketch beta. Because sketch beta is not supporting NSFont, I'll be fix it when it will be finished.
+
+I'd like to search area in "add icon with list" command.
 
 # Note
 
