@@ -227,7 +227,7 @@ var Library = {
       // call custom function to build help button
       var helpButton = Library.components.custombutton(helpbuttonimage,NSMakeRect(520, 5, 36, 36));
       [helpButton setCOSJSTargetFunction:function(sender) {
-          var url = [NSURL URLWithString:@"https://github.com/keremciu/sketch-icon-font/blob/master/HELP.md"]
+          var url = [NSURL URLWithString:@"https://github.com/keremciu/sketch-iconfont/blob/master/HELP.md"]
           if( ![[NSWorkspace sharedWorkspace] openURL:url] ){
               sketchLog(@"Failed to open url:" + [url description])
           }    
