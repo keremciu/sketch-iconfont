@@ -20,7 +20,7 @@ Maybe we can create a custom icon font uploader, it would be so cool.
 
 # Dependencies
 
-1. You need to install icon fonts to your os system. You can download from here.
+You need to install icon fonts to your OS:
 
 For fontawesome:
 https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/FontAwesome.otf
