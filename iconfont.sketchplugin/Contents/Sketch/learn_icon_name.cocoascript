@@ -42,10 +42,14 @@ var onRun = function(context,icon_path,title,fontname) {
       var escapedicon = Library.escapeUnicode(icon_alias)
 
       // icon with html
-      var wrappedicon = '<i class="fa fa-'+icon_name+'"></i>';
+      if (fontname == "FontAwesome") {
+        var wrappedicon = '<i class="fa fa-'+icon_name+'"></i>';
+      } else {
+        var wrappedicon = '<i class="material-icons">'+icon_name+'</i>';
+      }
       
       // create a wrapper window
-      var mainwindow = Library.components.window(title + " - What is the icon's name?", "fa-"+icon_name, plugin)
+      var mainwindow = Library.components.window(title + " - What is the icon's name?", icon_name, plugin)
       var wrapper = mainwindow[0]
       var content = mainwindow[1]
 
@@ -62,7 +66,7 @@ var onRun = function(context,icon_path,title,fontname) {
       [content addSubview:copybutton3]
 
       // create a code area
-      var iconCode = [[NSTextField alloc] initWithFrame:NSMakeRect(25, 190, 240, 30)]
+      var iconCode = [[NSTextField alloc] initWithFrame:NSMakeRect(25, 190, 330, 30)]
       [iconCode setEditable:false]
       [iconCode setBezeled:true]
       [iconCode setBezelStyle:NSRoundedBezelStyle]

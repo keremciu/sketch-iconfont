@@ -26,7 +26,7 @@ var onRun = function(context,icon_path,title,fontname) {
   var list_height = Math.ceil(row_count * 50);
 
   // create a wrapper window
-  var mainwindow = Library.components.window(title + " - Add an icon from table", "Choose an icon")
+  var mainwindow = Library.components.window(title + " - Add an icon with list", "Choose an icon")
   var wrapper = mainwindow[0]
   var content = mainwindow[1]
 
