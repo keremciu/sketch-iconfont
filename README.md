@@ -14,7 +14,7 @@ Maybe we can create a custom icon font uploader, it would be so cool.
 - You can easily add it now in sketch.
 
 > `A Problem of the Developer:` 
-> When you want to learn the alias of the icon which is added from a designer, you don't need to look all of too much icons to find it.
+> When you want to learn name of the icon which is added from a designer, you don't need to look too much icons to find it.
 
 - You can easily learn it now in sketch.
 
@@ -36,13 +36,13 @@ https://github.com/google/material-design-icons/blob/master/iconfont/MaterialIco
 
 # Problem
 
-It's not working with sketch beta. Because sketch beta is not supporting NSFont, I'll be fix it when it will be finished.
+It's not working with sketch beta. Because sketch beta is not supporting NSFont.
 
-I'd like to search area in "add icon with list" command.
+I'd like to add a search area in "add icon with list" command to easily find an icon.
 
 # Note
 
-I've started to develop this plugin after https://github.com/keremciu/sketch-use-fontawesome this plugin. I'd like to add more icon font support. If you want to some icon font, you can create an issue about it. I hope you like it :)
+I've started to develop this plugin after https://github.com/keremciu/sketch-use-fontawesome this plugin. I'd like to add more icon font support. If you want to use a different icon font, you can create an issue about it. I hope you like it :)
 
 # License
 
