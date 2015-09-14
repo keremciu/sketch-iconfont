@@ -30,9 +30,15 @@ https://github.com/google/material-design-icons/blob/master/iconfont/MaterialIco
 
 # Install
 
+### Manual
+
 1. Download ZIP of this repo.
 2. Extract and rename folder to what would you like.
 3. Put the folder in your Sketch plugin folder (Use `Plugins > Reveal Plugins Folder` to find the plugin folder).
+
+### with Sketch Toolbox
+
+1. You can install 'Sketch Iconfont' plugin directly.
 
 # Problem
 
