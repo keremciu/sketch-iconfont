@@ -18,12 +18,6 @@ Maybe we can create a custom icon font uploader, it would be so cool.
 
 - You can easily learn it now in sketch.
 
-# Install
-
-1. Download ZIP of this repo.
-2. Extract and rename folder to what would you like.
-3. Put the folder in your Sketch plugin folder (Use `Plugins > Reveal Plugins Folder` to find the plugin folder).
-
 # Dependencies
 
 1. You need to install icon fonts to your os system. You can download from here.
@@ -34,11 +28,22 @@ https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/FontAwesome.otf
 For materialicon:
 https://github.com/google/material-design-icons/blob/master/iconfont/MaterialIcons-Regular.ttf
 
+# Install
+
+1. Download ZIP of this repo.
+2. Extract and rename folder to what would you like.
+3. Put the folder in your Sketch plugin folder (Use `Plugins > Reveal Plugins Folder` to find the plugin folder).
+
 # Problem
 
 It's not working with sketch beta. Because sketch beta is not supporting NSFont.
 
-I'd like to add a search area in "add icon with list" command to easily find an icon.
+# Next Steps
+
+- I'd like to add a search area in "add icon with list" command to easily find an icon.
+- I'm trying to build a svg icon font parser to use custom icon fonts in sketch.
+
+You can follow me on twitter to get updates about new icon fonts.
 
 # Note
 
