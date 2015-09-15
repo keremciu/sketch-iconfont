@@ -22,11 +22,13 @@ var onRun = function(context,icon_path,title,fontname) {
   var icon_list = Library.iconValues(icons,fontname)
   var icon_count = icon_list[0].length;
   // row count and height calculate
-  var row_count = Math.ceil(icon_count / 10);
-  var list_height = Math.ceil(row_count * 50);
+  var list_width = 545;
+  var col_size = Math.ceil(list_width / 50);
+  var row_size = Math.ceil(icon_count / col_size);
+  var list_height = Math.ceil(row_size * 50);
 
   // create a wrapper window
-  var mainwindow = Library.components.window(title + " - Add an icon with list", "Choose an icon")
+  var mainwindow = Library.components.window(title + " - Add an icon with grid", "Choose an icon")
   var wrapper = mainwindow[0]
   var content = mainwindow[1]
 
@@ -40,8 +42,8 @@ var onRun = function(context,icon_path,title,fontname) {
   [prototype setBezeled:true]
   [prototype setBezelStyle:NSThickSquareBezelStyle]
 
-  var iconMatrix = [[NSMatrix alloc] initWithFrame:NSMakeRect(0, 45, 545, list_height)
-    mode:NSListModeMatrix prototype:prototype numberOfRows:row_count numberOfColumns:10];
+  var iconMatrix = [[NSMatrix alloc] initWithFrame:NSMakeRect(0, 45, list_width, list_height)
+    mode:NSListModeMatrix prototype:prototype numberOfRows:row_size numberOfColumns:col_size];
   var cellArray = [iconMatrix cells];
   [iconMatrix setFont:[NSFont fontWithName:@""+fontname size:20.0]]
   [iconMatrix setCellSize:NSMakeSize(47, 47)];

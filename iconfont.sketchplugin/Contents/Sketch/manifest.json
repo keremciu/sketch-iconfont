@@ -21,14 +21,14 @@
       "script" : "add_icon_combobox.cocoascript",
       "handler" : "onFontawesome",
       "shortcut" : "cmd ctrl c",
-      "name" : "Add an icon with combobox",
+      "name" : "Add an icon with dropdown",
       "identifier" : "awesome_add_icon_combobox"
     },
     {
       "script" : "add_icon_radiolist.cocoascript",
       "handler" : "onFontawesome",
       "shortcut" : "cmd ctrl l",
-      "name" : "Add an icon with list",
+      "name" : "Add an icon with grid",
       "identifier" : "awesome_add_icon_radiolist"
     },
     {
@@ -49,14 +49,14 @@
       "script" : "add_icon_combobox.cocoascript",
       "handler" : "onMaterial",
       "shortcut" : "cmd alt c",
-      "name" : "Add an icon with combobox",
+      "name" : "Add an icon with dropdown",
       "identifier" : "material_add_icon_combobox"
     },
     {
       "script" : "add_icon_radiolist.cocoascript",
       "handler" : "onMaterial",
       "shortcut" : "cmd alt l",
-      "name" : "Add an icon with list",
+      "name" : "Add an icon with grid",
       "identifier" : "material_add_icon_radiolist"
     },
   ],
@@ -83,7 +83,7 @@
       },
     ],
   },
-  "identifier" : "com.keremciu.sketch.materialicons",
+  "identifier" : "com.keremciu.sketch.iconfonts",
   "author" : "Kerem Sevencan",
   "authorEmail" : "info@kerem.ws",
 }
