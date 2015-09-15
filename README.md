@@ -1,3 +1,5 @@
+[![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Its a nice plugin to use icon fonts in Sketch for developers and designers.
 
 Now it supports font awesome and material icons but sure, I would like to add more. 
@@ -5,7 +7,6 @@ Maybe we can create a custom icon font uploader, it would be so cool.
 
 ## Demo
 
-[![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![demo][demo-image]
 
 # Features
