@@ -70,7 +70,7 @@ var onRun = function(context,icon_path,title,fontname) {
       // select the text layer
       var textLayer = page.selectedLayers().firstObject()
       // if is it a text layer run it. if it is not give an error.
-      if (textLayer && [textLayer stringValue]) {
+      if (textLayer && textLayer.isKindOfClass(MSTextLayer)) {
         // set selected icon as the layer's value
         [textLayer setStringValue: get_selected_icon];
         // set icon name as the layer's name
