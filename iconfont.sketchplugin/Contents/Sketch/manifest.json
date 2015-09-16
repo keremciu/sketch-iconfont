@@ -40,24 +40,52 @@
     },
     {
       "script" : "add_icon.cocoascript",
-      "handler" : "onMaterial",
+      "handler" : "onIon",
       "shortcut" : "cmd alt i",
       "name" : "Add an icon with name",
-      "identifier" : "material_add_icon"
+      "identifier" : "ion_add_icon"
     },
     {
       "script" : "add_icon_combobox.cocoascript",
-      "handler" : "onMaterial",
+      "handler" : "onIon",
       "shortcut" : "cmd alt c",
       "name" : "Add an icon with dropdown",
-      "identifier" : "material_add_icon_combobox"
+      "identifier" : "ion_add_icon_combobox"
     },
     {
       "script" : "add_icon_radiolist.cocoascript",
-      "handler" : "onMaterial",
+      "handler" : "onIon",
       "shortcut" : "cmd alt l",
       "name" : "Add an icon with grid",
-      "identifier" : "material_add_icon_radiolist"
+      "identifier" : "ion_add_icon_radiolist"
+    },
+    {
+      "script" : "learn_icon_name.cocoascript",
+      "handler" : "onIon",
+      "shortcut" : "cmd alt u",
+      "name" : "What is the icon's name?",
+      "identifier" : "ion_learn_icon_name"
+    },
+    {
+      "script" : "add_icon.cocoascript",
+      "handler" : "onIon",
+      "shortcut" : "cmd alt i",
+      "name" : "Add an icon with name",
+      "identifier" : "ion_add_icon"
+    },
+    {
+      "script" : "add_icon_combobox.cocoascript",
+      "handler" : "onIon",
+      "shortcut" : "cmd alt c",
+      "name" : "Add an icon with dropdown",
+      "identifier" : "ion_add_icon_combobox"
+    },
+    {
+      "script" : "add_icon_radiolist.cocoascript",
+      "handler" : "onIon",
+      "shortcut" : "cmd alt l",
+      "name" : "Add an icon with grid",
+      "identifier" : "ion_add_icon_radiolist"
     },
   ],
   "menu": {
@@ -79,6 +107,15 @@
           "material_add_icon",
           "material_add_icon_combobox",
           "material_add_icon_radiolist"
+        ]
+      },
+      {
+        "title" : "Ion Icons",
+        "items" : [
+          "ion_learn_icon_name",
+          "ion_add_icon",
+          "ion_add_icon_combobox",
+          "ion_add_icon_radiolist"
         ]
       },
     ],
