@@ -4,7 +4,7 @@ Its a nice plugin to use icon fonts in Sketch for developers and designers.
 
 ##### Update: Ion icons added.
 
-Now it supports font awesome, material and ion icons but sure, I would like to add more. 
+Now it supports **font awesome, material and ion icons** but sure, I would like to add more. 
 Maybe we can create a custom icon font uploader, it would be so cool.
 
 ## Demo
@@ -30,8 +30,11 @@ You need to install icon fonts to your OS:
 For fontawesome:
 https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/FontAwesome.otf
 
-For materialicon:
-https://github.com/google/material-design-icons/blob/master/iconfont/MaterialIcons-Regular.ttf
+For ion icons:
+https://github.com/driftyco/ionicons/raw/master/fonts/ionicons.ttf
+
+For material icons:
+https://github.com/google/material-design-icons/raw/master/iconfont/MaterialIcons-Regular.ttf
 
 # Install
 
