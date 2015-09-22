@@ -1,7 +1,7 @@
 {
   "name" : "Icon Fonts",
   "description" : "Its a nice plugin to use icon fonts in Sketch for developers and designers.",
-  "version" : "0.3.1",
+  "version" : "0.3.2",
   "commands" : [
     {
       "script" : "learn_icon_name.cocoascript",
@@ -40,24 +40,24 @@
     },
     {
       "script" : "add_icon.cocoascript",
-      "handler" : "onIon",
+      "handler" : "onMaterial",
       "shortcut" : "cmd alt i",
       "name" : "Add an icon with name",
-      "identifier" : "ion_add_icon"
+      "identifier" : "material_add_icon"
     },
     {
       "script" : "add_icon_combobox.cocoascript",
-      "handler" : "onIon",
+      "handler" : "onMaterial",
       "shortcut" : "cmd alt c",
-      "name" : "Add an icon with dropdown",
-      "identifier" : "ion_add_icon_combobox"
+      "name" : "Add an icon with combobox",
+      "identifier" : "material_add_icon_combobox"
     },
     {
       "script" : "add_icon_radiolist.cocoascript",
-      "handler" : "onIon",
+      "handler" : "onMaterial",
       "shortcut" : "cmd alt l",
       "name" : "Add an icon with grid",
-      "identifier" : "ion_add_icon_radiolist"
+      "identifier" : "material_add_icon_radiolist"
     },
     {
       "script" : "learn_icon_name.cocoascript",
