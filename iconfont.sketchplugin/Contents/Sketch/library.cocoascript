@@ -119,8 +119,27 @@ var Library = {
   //  text (a string)
   //  fontSize (a number)
   // returns the newly created text layer
-  "addTextLayer": function (container, parameters) {
+  "addTextLayer": function (doc,container, parameters) {
     var textLayer = this.addLayer(container, "text", parameters);
+    // deselect all selected layers
+    [[doc currentPage] deselectAllLayers];
+    // textlayer vertically centered
+    var midY = container.absoluteRect().midY();
+    var targetY = Math.ceil(midY - textLayer.frame().height() / 2);
+    textLayer.absoluteRect().setY(targetY);
+    // textlayer horizontally centered
+    var midX = container.absoluteRect().midX();
+    var targetX = Math.ceil(midX - textLayer.frame().width() / 2);
+    textLayer.absoluteRect().setX(targetX);
+    // select the text layer
+    [textLayer select:true byExpandingSelection:true];
+    // set the font-size
+    textLayer.fontSize = 24;
+
+    // zoom to the icon
+    // var view = doc.currentView();
+    // view.zoomToSelection();
+    
     if (typeof(parameters.text) !== 'undefined') {
       textLayer.stringValue = parameters.text;
       if (typeof(parameters.name) == 'undefined') {

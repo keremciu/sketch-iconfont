@@ -20,6 +20,7 @@ var onRun = function(context,icon_path,title,fontname) {
   var doc = context.document       // the current document (MSDocument)
   var plugin = context.plugin      // the plugin (MSPluginBundle)
   var page = [doc currentPage]     // the current page (MSPage)
+  var artboard = [page currentArtboard] || page
   var icon_source = [plugin urlForResourceNamed:icon_path]
 
   // call getIcons function from library file.
@@ -96,7 +97,7 @@ var onRun = function(context,icon_path,title,fontname) {
       // set icon name as the layer's name
       [textLayer setName: icon_name];
     } else {
-      textLayer = Library.addTextLayer(page, {"text": get_selected_icon, "name": icon_name});
+      textLayer = Library.addTextLayer(doc, artboard, {"text": get_selected_icon, "name": icon_name});
     }
 
     // set icon font
