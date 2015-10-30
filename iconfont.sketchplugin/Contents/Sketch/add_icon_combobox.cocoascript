@@ -89,4 +89,5 @@ var onRun = function(context,icon_path,title,fontname) {
     [textLayer setFontPostscriptName:fontname];
   }
 
+  Library.util.releaseButtonsInView([wrapper contentView])
 };

@@ -87,4 +87,5 @@ var onRun = function(context,icon_path,title,fontname) {
     }
   }
 
+  Library.util.releaseButtonsInView([wrapper contentView])
 };
