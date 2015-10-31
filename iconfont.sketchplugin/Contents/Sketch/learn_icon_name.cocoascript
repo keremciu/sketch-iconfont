@@ -1,0 +1,99 @@
+@import "library.cocoascript";
+
+var onRun = function(context) {
+
+  var doc = context.document       // the current document (MSDocument)
+  var plugin = context.plugin      // the plugin (MSPluginBundle)
+  var page = [doc currentPage]     // the current page (MSPage)
+
+  // select the text layer
+  var textLayer = page.selectedLayers().firstObject()
+
+  // if is it a text layer run it. if it is not give an error.
+  if (textLayer && textLayer.isKindOfClass(MSTextLayer)) {
+    // get value of the the layer
+    var layer_text = [textLayer stringValue]
+    // get font name of the layer
+    var fontname = textLayer.font().fontName();
+    // wrapped icon list, json file path, title and font name.
+    if (fontname == "FontAwesome") {
+      var icon_path = "fontawesome.json";
+      var title = "FontAwesome";
+      var wrapper_icon = '<i class="fa fa-';
+    } else if (fontname == "Ionicons") {
+      var icon_path = "ion.json";
+      var title = "Ion Icons";
+      var wrapper_icon = '<i class="ion-';
+    } else {
+      var icon_path = "material.json";
+      var title = "Material Icons";
+      var wrapper_icon = '<i class="material-icons">';
+    }
+    // get icon_source
+    var icon_source = [plugin urlForResourceNamed:icon_path]
+    // call getIcons function from library file.
+    var icons = Library.getIcons(icon_source)
+    // get hex code of the layer text
+    var unicode = Library.parseHex(layer_text)
+    // learn icon's name with a match function / Search unicode in Icon List
+    var matched_icon = Library.searchUnicode(unicode,icons,fontname)
+    // get only icon name
+    var icon_name = matched_icon.alias
+    // get wrapper icon
+    var wrappedicon = wrapper_icon + icon_name + '</i>';
+    // get only icon unicode
+    var icon_alias = '\\u' + matched_icon.unicode
+
+    if (icon_name != "" && icon_name != undefined) {
+
+      // escaped icon
+      var escapedicon = Library.escapeUnicode(icon_alias)
+      
+      // create a wrapper window
+      var mainwindow = Library.components.window(title + " - What is the icon's name?", icon_name, plugin)
+      var wrapper = mainwindow[0]
+      var content = mainwindow[1]
+
+      // copy button for icon name
+      copybutton1 = Library.components.copy(icon_name,NSMakeRect(400, 290, 100, 30))
+      [content addSubview:copybutton1]
+
+      // copy button for html wrapper icon
+      copybutton2 = Library.components.copy(wrappedicon,NSMakeRect(400, 190, 100, 30))
+      [content addSubview:copybutton2]
+
+      // copy button for icon unicode
+      copybutton3 = Library.components.copy(escapedicon,NSMakeRect(400, 70, 100, 30))
+      [content addSubview:copybutton3]
+
+      // create a code area
+      var iconCode = [[NSTextField alloc] initWithFrame:NSMakeRect(25, 190, 330, 30)]
+      [iconCode setEditable:false]
+      [iconCode setBezeled:true]
+      [iconCode setBezelStyle:NSRoundedBezelStyle]
+      [iconCode setFont:[NSFont systemFontOfSize:13]]
+      [iconCode setStringValue:wrappedicon]
+      [content addSubview:iconCode]
+
+      // show icon
+      var iconField = [[NSTextField alloc] initWithFrame:NSMakeRect(25, 70, 300, 50)]
+      [iconField setEditable:false]
+      [iconField setBordered:false]
+      [iconField setDrawsBackground:false]
+      [iconField setFont:[NSFont fontWithName:@""+fontname size:40]]
+      [iconField setStringValue:escapedicon]
+      [content addSubview:iconField]
+
+      [NSApp runModalForWindow:wrapper];
+
+      Library.util.releaseButtonsInView([wrapper contentView])
+    }
+
+    // final code to show icon informations.
+
+  } else {
+    // give an error to select an icon
+    Library.components.alert('Select an icon','Please firstly select a text layer which contains an icon.')
+  }
+
+};

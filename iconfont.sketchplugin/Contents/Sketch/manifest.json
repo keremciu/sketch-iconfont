@@ -1,0 +1,87 @@
+{
+  "name" : "Icon Fonts",
+  "description" : "Its a nice plugin to use icon fonts in Sketch for developers and designers.",
+  "version" : "0.4.4",
+  "commands" : [
+    {
+      "script" : "learn_icon_name.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "cmd ctrl u",
+      "name" : "What is the icon's name?",
+      "identifier" : "learn_icon_name"
+    },
+    {
+      "script" : "add_icon.cocoascript",
+      "handler" : "onFontawesome",
+      "shortcut" : "cmd ctrl i",
+      "name" : "Add an icon with name",
+      "identifier" : "awesome_add_icon"
+    },
+    {
+      "script" : "add_icon_grid.cocoascript",
+      "handler" : "onFontawesome",
+      "shortcut" : "cmd ctrl l",
+      "name" : "Add an icon with grid",
+      "identifier" : "awesome_add_icon_radiolist"
+    },
+    {
+      "script" : "add_icon.cocoascript",
+      "handler" : "onMaterial",
+      "shortcut" : "cmd alt i",
+      "name" : "Add an icon with name",
+      "identifier" : "material_add_icon"
+    },
+    {
+      "script" : "add_icon_grid.cocoascript",
+      "handler" : "onMaterial",
+      "shortcut" : "cmd alt l",
+      "name" : "Add an icon with grid",
+      "identifier" : "material_add_icon_radiolist"
+    },
+    {
+      "script" : "add_icon.cocoascript",
+      "handler" : "onIon",
+      "shortcut" : "cmd alt i",
+      "name" : "Add an icon with name",
+      "identifier" : "ion_add_icon"
+    },
+    {
+      "script" : "add_icon_grid.cocoascript",
+      "handler" : "onIon",
+      "shortcut" : "cmd alt l",
+      "name" : "Add an icon with grid",
+      "identifier" : "ion_add_icon_radiolist"
+    },
+  ],
+  "menu": {
+    "title" : "Icon Fonts",
+    "items": [
+      "learn_icon_name",
+      {
+        "title" : "Fontawesome",
+        "items" : [
+          
+          "awesome_add_icon",
+          "awesome_add_icon_radiolist"
+        ]
+      },
+      {
+        "title" : "Material",
+        "items" : [
+          "material_add_icon",
+          "material_add_icon_radiolist"
+        ]
+      },
+      {
+        "title" : "Ion Icons",
+        "items" : [
+          "ion_add_icon",
+          "ion_add_icon_radiolist"
+        ]
+      },
+    ],
+  },
+  "identifier" : "com.keremciu.sketch.iconfonts",
+  "author" : "Kerem Sevencan",
+  "authorEmail" : "info@kerem.ws",
+}
