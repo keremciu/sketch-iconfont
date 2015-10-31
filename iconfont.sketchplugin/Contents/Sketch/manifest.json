@@ -1,6 +1,7 @@
 {
   "name" : "Icon Fonts",
   "description" : "Its a nice plugin to use icon fonts in Sketch for developers and designers.",
+<<<<<<< HEAD
   "version" : "0.4.4",
   "commands" : [
     {
@@ -9,6 +10,16 @@
       "shortcut" : "cmd ctrl u",
       "name" : "What is the icon's name?",
       "identifier" : "learn_icon_name"
+=======
+  "version" : "0.3.2",
+  "commands" : [
+    {
+      "script" : "learn_icon_name.cocoascript",
+      "handler" : "onFontawesome",
+      "shortcut" : "cmd ctrl u",
+      "name" : "What is the icon's name?",
+      "identifier" : "awesome_learn_icon_name"
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
     },
     {
       "script" : "add_icon.cocoascript",
@@ -18,13 +29,34 @@
       "identifier" : "awesome_add_icon"
     },
     {
+<<<<<<< HEAD
       "script" : "add_icon_grid.cocoascript",
+=======
+      "script" : "add_icon_combobox.cocoascript",
+      "handler" : "onFontawesome",
+      "shortcut" : "cmd ctrl c",
+      "name" : "Add an icon with dropdown",
+      "identifier" : "awesome_add_icon_combobox"
+    },
+    {
+      "script" : "add_icon_radiolist.cocoascript",
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
       "handler" : "onFontawesome",
       "shortcut" : "cmd ctrl l",
       "name" : "Add an icon with grid",
       "identifier" : "awesome_add_icon_radiolist"
     },
     {
+<<<<<<< HEAD
+=======
+      "script" : "learn_icon_name.cocoascript",
+      "handler" : "onMaterial",
+      "shortcut" : "cmd alt u",
+      "name" : "What is the icon's name?",
+      "identifier" : "material_learn_icon_name"
+    },
+    {
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
       "script" : "add_icon.cocoascript",
       "handler" : "onMaterial",
       "shortcut" : "cmd alt i",
@@ -32,13 +64,34 @@
       "identifier" : "material_add_icon"
     },
     {
+<<<<<<< HEAD
       "script" : "add_icon_grid.cocoascript",
+=======
+      "script" : "add_icon_combobox.cocoascript",
+      "handler" : "onMaterial",
+      "shortcut" : "cmd alt c",
+      "name" : "Add an icon with combobox",
+      "identifier" : "material_add_icon_combobox"
+    },
+    {
+      "script" : "add_icon_radiolist.cocoascript",
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
       "handler" : "onMaterial",
       "shortcut" : "cmd alt l",
       "name" : "Add an icon with grid",
       "identifier" : "material_add_icon_radiolist"
     },
     {
+<<<<<<< HEAD
+=======
+      "script" : "learn_icon_name.cocoascript",
+      "handler" : "onIon",
+      "shortcut" : "cmd alt u",
+      "name" : "What is the icon's name?",
+      "identifier" : "ion_learn_icon_name"
+    },
+    {
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
       "script" : "add_icon.cocoascript",
       "handler" : "onIon",
       "shortcut" : "cmd alt i",
@@ -46,7 +99,18 @@
       "identifier" : "ion_add_icon"
     },
     {
+<<<<<<< HEAD
       "script" : "add_icon_grid.cocoascript",
+=======
+      "script" : "add_icon_combobox.cocoascript",
+      "handler" : "onIon",
+      "shortcut" : "cmd alt c",
+      "name" : "Add an icon with dropdown",
+      "identifier" : "ion_add_icon_combobox"
+    },
+    {
+      "script" : "add_icon_radiolist.cocoascript",
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
       "handler" : "onIon",
       "shortcut" : "cmd alt l",
       "name" : "Add an icon with grid",
@@ -56,26 +120,47 @@
   "menu": {
     "title" : "Icon Fonts",
     "items": [
+<<<<<<< HEAD
       "learn_icon_name",
       {
         "title" : "Fontawesome",
         "items" : [
           
           "awesome_add_icon",
+=======
+      {
+        "title" : "Fontawesome",
+        "items" : [
+          "awesome_learn_icon_name",
+          "awesome_add_icon",
+          "awesome_add_icon_combobox",
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
           "awesome_add_icon_radiolist"
         ]
       },
       {
         "title" : "Material",
         "items" : [
+<<<<<<< HEAD
           "material_add_icon",
+=======
+          "material_learn_icon_name",
+          "material_add_icon",
+          "material_add_icon_combobox",
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
           "material_add_icon_radiolist"
         ]
       },
       {
         "title" : "Ion Icons",
         "items" : [
+<<<<<<< HEAD
           "ion_add_icon",
+=======
+          "ion_learn_icon_name",
+          "ion_add_icon",
+          "ion_add_icon_combobox",
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
           "ion_add_icon_radiolist"
         ]
       },

@@ -26,32 +26,35 @@ var onRun = function(context,icon_path,title,fontname) {
   // call getIcons function from library file.
   var icons = Library.getIcons(icon_source)
   var icon_list = Library.iconValues(icons,fontname)
-
+  
   // create a wrapper window
-<<<<<<< HEAD
-  var mainwindow = Library.components.window(title + " - Add an icon with its name", "Write an icon name")
-=======
-  var mainwindow = Library.components.window(title + " - Add an icon with input", "Write an icon name")
->>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
+  var mainwindow = Library.components.window(title + " - Add an icon with combobox", "Choose an icon")
   var wrapper = mainwindow[0]
   var content = mainwindow[1]
 
   var selectedItemIndex = selectedItemIndex || 0
 
-  var searchbox = [[NSTextField alloc] initWithFrame:NSMakeRect(40,175,150,24)]
-  [searchbox setBackgroundColor: [NSColor clearColor]];
-  [content addSubview:searchbox]
+  // create combobox
+  var selectbox = [[NSComboBox alloc] initWithFrame:NSMakeRect(50,160,100,50)]
+  [selectbox setFont:[NSFont fontWithName:@''+fontname size:24.0]]
+  [selectbox setBackgroundColor: [NSColor clearColor]];
+  [selectbox setTextColor:[NSColor blackColor]]
+  [selectbox addItemsWithObjectValues:icon_list[0]]
+  [selectbox setItemHeight:50]
+  [selectbox setButtonBordered:false]
+  [selectbox setIntercellSpacing:NSMakeSize(50.0, 30.0)]
+  [selectbox selectItemAtIndex:selectedItemIndex]
+  [selectbox setEditable:false];
+  [content addSubview:selectbox]
 
   // copy button for icon name
-  submitButton = Library.components.submit("Submit",NSMakeRect(250, 150, 200, 50))
+  submitButton = Library.components.submit("Submit",NSMakeRect(200, 147, 200, 50))
   submitButton.setWantsLayer(true)
-
   // submit button layer
   var buttonlayer = [CATextLayer layer]
   [buttonlayer setBackgroundColor:[NSColor blackColor]]
   [buttonlayer setForegroundColor:CGColorCreateGenericRGB(215/255, 159/255, 0/255, 1.0)]
   [buttonlayer setFontSize:18];
-
   // [buttonlayer setFont:[NSFont boldSystemFontOfSize:12]]
   buttonlayer.contentsScale = [[NSScreen mainScreen] backingScaleFactor];
   buttonlayer.string = "+ Add/Change Icon"
@@ -62,37 +65,28 @@ var onRun = function(context,icon_path,title,fontname) {
   }];
   [content addSubview:submitButton]
 
-  [NSApp activateIgnoringOtherApps:true]
   var response = [NSApp runModalForWindow:wrapper];
-  var input_value = [searchbox stringValue];
-  var finded_icon = Library.searchAlias([input_value lowercaseString],icons)
-    
+  var selected_icon = [selectbox indexOfSelectedItem]
+  var icon_name     = icon_list[1][selected_icon]
+  var get_selected_icon = [selectbox objectValueOfSelectedItem]
+
   // if is the response is ok, add icon to the layer
   if (response == NSOKButton) {
-<<<<<<< HEAD
-    if (finded_icon.unicode != undefined) {
-=======
-    if (finded_icon.alias != undefined) {
->>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
-      var icon_name     = finded_icon.alias
-      var get_selected_icon = Library.escapeUnicode('\\u' + finded_icon.unicode)
-      // select the text layer
-      var textLayer = page.selectedLayers().firstObject()
-      // if is it a text layer run it. if it is not give an error.
-      if (textLayer && textLayer.isKindOfClass(MSTextLayer)) {
-        // set selected icon as the layer's value
-        [textLayer setStringValue: get_selected_icon];
-        // set icon name as the layer's name
-        [textLayer setName: icon_name];
-      } else {
-        textLayer = Library.addTextLayer(doc, artboard, {"text": get_selected_icon, "name": icon_name});
-      }
-      // set icon font
-      [textLayer setFontPostscriptName:fontname];
+    // select the text layer
+    var textLayer = page.selectedLayers().firstObject()
+
+    // if is it a text layer run it. if it is not give an error.
+    if (textLayer && textLayer.isKindOfClass(MSTextLayer)) {
+      // set selected icon as the layer's value
+      [textLayer setStringValue: get_selected_icon];
+      // set icon name as the layer's name
+      [textLayer setName: icon_name];
     } else {
-      // give an error to write an icon
-      Library.components.alert('You need to write a correct icon name','Please try again that.')
+      textLayer = Library.addTextLayer(doc, artboard, {"text": get_selected_icon, "name": icon_name});
     }
+
+    // set icon font
+    [textLayer setFontPostscriptName:fontname];
   }
 
   Library.util.releaseButtonsInView([wrapper contentView])

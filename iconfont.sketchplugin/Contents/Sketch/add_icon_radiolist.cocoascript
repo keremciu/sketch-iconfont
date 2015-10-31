@@ -1,0 +1,108 @@
+@import "library.cocoascript";
+
+var onFontawesome = function(context) {
+  // onRun function with context, json file path, title and font name.
+  onRun(context,"fontawesome.json","Font Awesome","FontAwesome");
+}
+
+var onMaterial = function(context) {
+  // onRun function with context, json file path, title and font name.
+  onRun(context,"material.json","Material Icons","Material Icons");
+}
+
+var onIon = function(context) {
+  // onRun function with context, json file path, title and font name.
+  onRun(context,"ion.json","Ion Icons","Ionicons");
+}
+
+var onRun = function(context,icon_path,title,fontname) {
+
+  var doc = context.document       // the current document (MSDocument)
+  var plugin = context.plugin      // the plugin (MSPluginBundle)
+  var page = [doc currentPage]     // the current page (MSPage)
+  var artboard = [page currentArtboard] || page
+  var icon_source = [plugin urlForResourceNamed:icon_path]
+
+  // call getIcons function from library file.
+  var icons = Library.getIcons(icon_source)
+  var icon_list = Library.iconValues(icons,fontname)
+  var icon_count = icon_list[0].length;
+  // row count and height calculate
+  var list_width = 545;
+  var col_size = Math.ceil(list_width / 50);
+  var row_size = Math.ceil(icon_count / col_size);
+  var list_height = Math.ceil(row_size * 50);
+
+  // create a wrapper window
+  var mainwindow = Library.components.window(title + " - Add an icon with grid", "Choose an icon")
+  var wrapper = mainwindow[0]
+  var content = mainwindow[1]
+
+  var selectedItemIndex = selectedItemIndex || 0
+
+  var listContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(25,25,554,260)]
+
+  var prototype = [[NSButtonCell alloc] init];
+  [prototype setButtonType:NSToggleButton];
+  [prototype setTitle:"-"];
+  [prototype setBezeled:true]
+  [prototype setBezelStyle:NSThickSquareBezelStyle]
+
+  var iconMatrix = [[NSMatrix alloc] initWithFrame:NSMakeRect(0, 45, list_width, list_height)
+    mode:NSListModeMatrix prototype:prototype numberOfRows:row_size numberOfColumns:col_size];
+  var cellArray = [iconMatrix cells];
+  [iconMatrix setFont:[NSFont fontWithName:@""+fontname size:20.0]]
+  [iconMatrix setCellSize:NSMakeSize(47, 47)];
+  [iconMatrix setIntercellSpacing:NSMakeSize(2, 2)];
+  for (var k=0; k < icon_count; k++)
+  {
+      [[cellArray objectAtIndex:k] setTitle:icon_list[0][k]];
+      [[cellArray objectAtIndex:k] setAlternateTitle:""+k];
+  }
+  [listContainer setDocumentView:iconMatrix];
+  [listContainer setHasVerticalScroller:true];
+  [content addSubview:listContainer]
+
+  // copy button for icon name
+  submitButton = Library.components.submit("Submit",NSMakeRect(440, 274, 200, 50))
+  submitButton.setWantsLayer(true)
+  // submit button layer
+  var buttonlayer = [CATextLayer layer]
+  [buttonlayer setBackgroundColor:[NSColor blackColor]]
+  [buttonlayer setForegroundColor:CGColorCreateGenericRGB(215/255, 159/255, 0/255, 1.0)]
+  [buttonlayer setFontSize:16]
+  buttonlayer.contentsScale = [[NSScreen mainScreen] backingScaleFactor];
+  buttonlayer.string = "+ Add/Change Icon"
+  [submitButton setLayer:buttonlayer]
+  [submitButton setCOSJSTargetFunction:function(sender) {
+    [wrapper orderOut:nil]
+    [NSApp stopModalWithCode:NSOKButton]
+  }];
+  [content addSubview:submitButton]
+
+  var response = [NSApp runModalForWindow:wrapper];
+  var selected_icon = [[iconMatrix selectedCell] alternateTitle]
+  var icon_name     = icon_list[1][selected_icon]
+  var get_selected_icon = [[iconMatrix selectedCell] title];
+
+  // if is the response is ok, add icon to the layer
+  if (response == NSOKButton) {
+    // select the text layer
+    var textLayer = page.selectedLayers().firstObject()
+
+    // if is it a text layer run it. if it is not give an error.
+    if (textLayer && textLayer.isKindOfClass(MSTextLayer)) {
+      // set selected icon as the layer's value
+      [textLayer setStringValue: get_selected_icon];
+      // set icon name as the layer's name
+      [textLayer setName: icon_name];
+    } else {
+      textLayer = Library.addTextLayer(doc, artboard, {"text": get_selected_icon, "name": icon_name});
+    }
+
+    // set icon font
+    [textLayer setFontPostscriptName:fontname];
+  }
+
+  Library.util.releaseButtonsInView([wrapper contentView])
+};

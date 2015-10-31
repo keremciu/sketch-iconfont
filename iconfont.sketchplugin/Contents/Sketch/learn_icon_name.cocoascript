@@ -1,10 +1,36 @@
 @import "library.cocoascript";
 
+<<<<<<< HEAD
 var onRun = function(context) {
+=======
+var onFontawesome = function(context) {
+  // onRun function with context, json file path, title and font name.
+  onRun(context,"fontawesome.json","Font Awesome","FontAwesome");
+}
+
+var onMaterial = function(context) {
+  // onRun function with context, json file path, title and font name.
+  onRun(context,"material.json","Material Icons","Material Icons");
+}
+
+var onIon = function(context) {
+  // onRun function with context, json file path, title and font name.
+  onRun(context,"ion.json","Ion Icons","Ionicons");
+}
+
+var onRun = function(context,icon_path,title,fontname) {
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
 
   var doc = context.document       // the current document (MSDocument)
   var plugin = context.plugin      // the plugin (MSPluginBundle)
   var page = [doc currentPage]     // the current page (MSPage)
+<<<<<<< HEAD
+=======
+  var icon_source = [plugin urlForResourceNamed:icon_path]
+
+  // call getIcons function from library file.
+  var icons = Library.getIcons(icon_source)
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
 
   // select the text layer
   var textLayer = page.selectedLayers().firstObject()
@@ -13,6 +39,7 @@ var onRun = function(context) {
   if (textLayer && textLayer.isKindOfClass(MSTextLayer)) {
     // get value of the the layer
     var layer_text = [textLayer stringValue]
+<<<<<<< HEAD
     // get font name of the layer
     var fontname = textLayer.font().fontName();
     // wrapped icon list, json file path, title and font name.
@@ -33,14 +60,19 @@ var onRun = function(context) {
     var icon_source = [plugin urlForResourceNamed:icon_path]
     // call getIcons function from library file.
     var icons = Library.getIcons(icon_source)
+=======
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
     // get hex code of the layer text
     var unicode = Library.parseHex(layer_text)
     // learn icon's name with a match function / Search unicode in Icon List
     var matched_icon = Library.searchUnicode(unicode,icons,fontname)
     // get only icon name
     var icon_name = matched_icon.alias
+<<<<<<< HEAD
     // get wrapper icon
     var wrappedicon = wrapper_icon + icon_name + '</i>';
+=======
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
     // get only icon unicode
     var icon_alias = '\\u' + matched_icon.unicode
 
@@ -48,6 +80,18 @@ var onRun = function(context) {
 
       // escaped icon
       var escapedicon = Library.escapeUnicode(icon_alias)
+<<<<<<< HEAD
+=======
+
+      // icon with html
+      if (fontname == "FontAwesome") {
+        var wrappedicon = '<i class="fa fa-'+icon_name+'"></i>';
+      } else if (fontname == "Ionicons") {
+        var wrappedicon = '<i class="ion-'+icon_name+'"></i>';
+      } else {
+        var wrappedicon = '<i class="material-icons">'+icon_name+'</i>';
+      }
+>>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
       
       // create a wrapper window
       var mainwindow = Library.components.window(title + " - What is the icon's name?", icon_name, plugin)
