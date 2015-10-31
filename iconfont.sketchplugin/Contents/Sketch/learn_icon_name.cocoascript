@@ -92,6 +92,7 @@ var onRun = function(context,icon_path,title,fontname) {
 
       [NSApp runModalForWindow:wrapper];
 
+      Library.util.releaseButtonsInView([wrapper contentView])
     }
 
     // final code to show icon informations.

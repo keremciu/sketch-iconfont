@@ -201,7 +201,7 @@ var Library = {
       [content setLayer:contentLayer]
 
       // content area shadow
-      dropShadow = [[[NSShadow alloc] init] autorelease];
+      dropShadow = [[NSShadow alloc] init];
       [dropShadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.4]];
       [dropShadow setShadowBlurRadius:8];
       [dropShadow setShadowOffset:NSMakeSize(0,0)];
@@ -351,6 +351,17 @@ var Library = {
     "setFillColor": function(layer, color) {
       var fill = [[[layer style] fills] addNewStylePart];
       [fill setColor: color];
+    },
+
+    "releaseButtonsInView": function(view) {
+      var subviews = [view subviews]
+      for (var i = 0; i < [subviews count]; i++) {
+        var subview = subviews[i]
+        if ([subview isKindOfClass:[NSButton class]]) {
+          [subview setCOSJSTargetFunction:nil]
+        }
+        Library.util.releaseButtonsInView(subview)
+      }
     }
   }
 };
