@@ -83,10 +83,7 @@ var Library = {
     for (var i=0 ; i < [list count]; i++)
     {
       if (list[i].id == alias) {
-<<<<<<< HEAD
         log(2)
-=======
->>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
         result.alias = list[i]["id"];
         result.unicode = list[i]["unicode"];
       }
@@ -161,11 +158,7 @@ var Library = {
       [wrapper setToolbar:nil]
       [wrapper makeKeyWindow]
       [wrapper becomeKeyWindow]
-<<<<<<< HEAD
       // [wrapper setAnimationBehavior:NSWindowAnimationBehaviorNone]
-=======
-      [wrapper setAnimationBehavior:NSWindowAnimationBehaviorNone]
->>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
       // I had problems with NSBorderlessWindowMask and setIsVisible solution.
       // [wrapper setIsVisible:true]
       // [wrapper becomeFirstResponder:true]
@@ -208,11 +201,7 @@ var Library = {
       [contentLayer setCornerRadius: 6.0]
       [content setLayer:contentLayer]
 
-<<<<<<< HEAD
       // // content area shadow
-=======
-      // content area shadow
->>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
       dropShadow = [[NSShadow alloc] init];
       [dropShadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.4]];
       [dropShadow setShadowBlurRadius:8];
@@ -364,19 +353,11 @@ var Library = {
       var fill = [[[layer style] fills] addNewStylePart];
       [fill setColor: color];
     },
-<<<<<<< HEAD
-=======
-
->>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
     "releaseButtonsInView": function(view) {
       var subviews = [view subviews]
       for (var i = 0; i < [subviews count]; i++) {
         var subview = subviews[i]
-<<<<<<< HEAD
         if ([subview isKindOfClass:[NSButton class]] || [subview isKindOfClass:[NSCell class]]) {
-=======
-        if ([subview isKindOfClass:[NSButton class]]) {
->>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
           [subview setCOSJSTargetFunction:nil]
         }
         Library.util.releaseButtonsInView(subview)

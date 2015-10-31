@@ -28,11 +28,7 @@ var onRun = function(context,icon_path,title,fontname) {
   var icon_list = Library.iconValues(icons,fontname)
 
   // create a wrapper window
-<<<<<<< HEAD
   var mainwindow = Library.components.window(title + " - Add an icon with its name", "Write an icon name")
-=======
-  var mainwindow = Library.components.window(title + " - Add an icon with input", "Write an icon name")
->>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
   var wrapper = mainwindow[0]
   var content = mainwindow[1]
 
@@ -69,11 +65,7 @@ var onRun = function(context,icon_path,title,fontname) {
     
   // if is the response is ok, add icon to the layer
   if (response == NSOKButton) {
-<<<<<<< HEAD
     if (finded_icon.unicode != undefined) {
-=======
-    if (finded_icon.alias != undefined) {
->>>>>>> 53a7d169ca1cfde2b0b899f8b29e02ce3ab4aee1
       var icon_name     = finded_icon.alias
       var get_selected_icon = Library.escapeUnicode('\\u' + finded_icon.unicode)
       // select the text layer
