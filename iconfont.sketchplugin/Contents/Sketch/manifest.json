@@ -1,5 +1,5 @@
 {
-  "name" : "Icon Fonts",
+  "name" : "Development - Icon Fonts",
   "description" : "Its a nice plugin to use icon fonts in Sketch for developers and designers.",
   "version" : "0.4.4",
   "commands" : [
@@ -54,7 +54,7 @@
     },
   ],
   "menu": {
-    "title" : "Icon Fonts",
+    "title" : "Development - November - Icon Fonts",
     "items": [
       "learn_icon_name",
       {
@@ -81,7 +81,7 @@
       },
     ],
   },
-  "identifier" : "com.keremciu.sketch.iconfonts",
+  "identifier" : "com.keremciu.sketch.development",
   "author" : "Kerem Sevencan",
   "authorEmail" : "info@kerem.ws",
 }
