@@ -5,10 +5,10 @@ Its a nice plugin to use icon fonts in Sketch for developers and designers.
 
 ##### Big Update: You can add an icon with one click.
 
+![demo][quick-gif] 
+(sorry for bad quality, I'll add a video gif)
+
 ##### Update: It works with 3.4.1 now. I've changed menu of the plugin, its really useful now. You can see the name of icon when mouseover the icon, it has tooltip.
-
-![demo][quick-gif] (sorry for bad quality, I'll add a video gif)
-
 And also thanks to @bricklife.
 
 Now it supports **font awesome, material and ion icons** but sure, I would like to add more. 
