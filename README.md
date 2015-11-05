@@ -5,7 +5,7 @@ Its a nice plugin to use icon fonts in Sketch for developers and designers.
 
 ##### Big Update: You can add an icon with one click.
 
-##### Update: It works with 3.4.1 now. I've changed menu of the plugin, its really useful now.
+##### Update: It works with 3.4.1 now. I've changed menu of the plugin, its really useful now. You can see the name of icon when mouseover the icon, it has tooltip.
 
 And also thanks to @bricklife.
 
