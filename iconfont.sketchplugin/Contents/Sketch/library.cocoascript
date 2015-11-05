@@ -72,18 +72,17 @@ var Library = {
     return result;
   },
   //
+  // Search Alias in Icon List
+  // valid types for alias is 'text'
+  // valid types for icon_list is 'JSON'
   //
-  //
-  //
-  //
-  "searchAlias": function(alias,icon_list) {
+  "searchAlias": function(name,icon_list) {
     var result = [[NSObject alloc] init];
     var list = [icon_list objectForKey:@"icons"];
 
     for (var i=0 ; i < [list count]; i++)
     {
-      if (list[i].id == alias) {
-        log(2)
+      if (list[i]["id"] == @""+name) {
         result.alias = list[i]["id"];
         result.unicode = list[i]["unicode"];
       }
@@ -155,44 +154,23 @@ var Library = {
     "window": function (title, subtitle) {
       // create a wrapper window
       var wrapper = [[NSWindow alloc] init]
-      [wrapper setToolbar:nil]
-      [wrapper makeKeyWindow]
-      [wrapper becomeKeyWindow]
-      // [wrapper setAnimationBehavior:NSWindowAnimationBehaviorNone]
-      // I had problems with NSBorderlessWindowMask and setIsVisible solution.
-      // [wrapper setIsVisible:true]
-      // [wrapper becomeFirstResponder:true]
-      // [wrapper orderFront:nil];
-      // [wrapper makeKeyAndOrderFront:self];
-      // [wrapper setStyleMask:NSBorderlessWindowMask]
-      [wrapper setFrame:[[NSScreen mainScreen] frame] display: true]
-      [wrapper setHasShadow:false]
-      [wrapper setOpaque:false]
-      [wrapper setBackgroundColor:NSColor.clearColor()]
-
-      var x = ([[NSScreen mainScreen] frame].size.width / 2) - 320;
-      var y = ([[NSScreen mainScreen] frame].size.height / 2) - 200;
+      [wrapper setFrame:NSMakeRect(0, 0, 600, 420) display:false]
+      [wrapper setBackgroundColor:NSColor.whiteColor()]
+      [wrapper setTitle:@""+title];
+      var x = 0;
+      var y = 0;
 
       // create a body
-      var body = [[NSView alloc] initWithFrame:NSMakeRect(500, 0, 640, 480)]
+      var body = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 600, 480)]
       body.setWantsLayer(true)
 
       // create a header
-      var header = [[NSView alloc] initWithFrame:NSMakeRect(x, y+352, 600, 48)]
+      var header = [[NSView alloc] initWithFrame:NSMakeRect(x, 350, 600, 48)]
       header.setWantsLayer(true)
 
-      // header fixer
-      var headerfixer = [[NSView alloc] initWithFrame:NSMakeRect(0, 352, 600, 20)]
-      headerfixer.setWantsLayer(true)
-      var fixbg = [CALayer layer]
-      [fixbg setBackgroundColor:CGColorCreateGenericRGB(255/255, 189/255, 0/255, 1.0)]
-      [headerfixer setLayer:fixbg]
-
       // create a content area
-      var content = [[NSView alloc] initWithFrame:NSMakeRect(x, y, 600, 400)]
+      var content = [[NSView alloc] initWithFrame:NSMakeRect(x, y, 600, 440)]
       content.setWantsLayer(true)
-
-      [content addSubview:headerfixer]
 
       // create a layer to content
       var contentLayer = [CALayer layer]
@@ -201,34 +179,14 @@ var Library = {
       [contentLayer setCornerRadius: 6.0]
       [content setLayer:contentLayer]
 
-      // // content area shadow
-      dropShadow = [[NSShadow alloc] init];
-      [dropShadow setShadowColor:[NSColor colorWithCalibratedWhite:0.0 alpha:0.4]];
-      [dropShadow setShadowBlurRadius:8];
-      [dropShadow setShadowOffset:NSMakeSize(0,0)];
-      [content setShadow: dropShadow];
-
       // content append to body
       [body addSubview:content]
 
       // set body as content view of wrapper
       [wrapper setContentView:body];
 
-      // title add to header
-      var titleField = Library.components.title(title,14,[NSColor blackColor],NSMakeRect(16, 5, 400, 30));
-      [titleField setAlphaValue:0.6]
-      [header addSubview:titleField]
-
-      // set background to header
-      var headerBG = [CALayer layer]
-      [headerBG setBackgroundColor:CGColorCreateGenericRGB(255/255, 189/255, 0/255, 1.0)] //RGB plus Alpha Channel
-      [headerBG setMasksToBounds:true]
-      [headerBG setCornerRadius:6.0]
-      [header setClipsToBounds:true]
-      [header setLayer:headerBG]
-
       // subtitle in window
-      var subTitleField = Library.components.title(subtitle,22,[NSColor blackColor],NSMakeRect(x+25, y+300, 300, 30));
+      var subTitleField = Library.components.title(subtitle,22,[NSColor blackColor],NSMakeRect(x+25, 355, 300, 30));
       [[wrapper contentView] addSubview:subTitleField]
 
       // create a cancel button

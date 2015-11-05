@@ -1,45 +1,32 @@
 @import "library.cocoascript";
 
-var onFontawesome = function(context) {
-  // onRun function with context, json file path, title and font name.
-  onRun(context,"fontawesome.json","Font Awesome","FontAwesome");
-}
-
-var onMaterial = function(context) {
-  // onRun function with context, json file path, title and font name.
-  onRun(context,"material.json","Material Icons","Material Icons");
-}
-
-var onIon = function(context) {
-  // onRun function with context, json file path, title and font name.
-  onRun(context,"ion.json","Ion Icons","Ionicons");
-}
-
-var onRun = function(context,icon_path,title,fontname) {
+var onRun = function(context) {
 
   var doc = context.document       // the current document (MSDocument)
   var plugin = context.plugin      // the plugin (MSPluginBundle)
   var page = [doc currentPage]     // the current page (MSPage)
   var artboard = [page currentArtboard] || page
-  var icon_source = [plugin urlForResourceNamed:icon_path]
-
-  // call getIcons function from library file.
-  var icons = Library.getIcons(icon_source)
-  var icon_list = Library.iconValues(icons,fontname)
 
   // create a wrapper window
-  var mainwindow = Library.components.window(title + " - Add an icon with its name", "Write an icon name")
+  var mainwindow = Library.components.window("Add an icon with its name", "Select icon font")
   var wrapper = mainwindow[0]
   var content = mainwindow[1]
+  var font_list  = ["FontAwesome", "Material", "Ion"]
 
-  var selectedItemIndex = selectedItemIndex || 0
+  // create combobox
+  var selectbox = [[NSComboBox alloc] initWithFrame:NSMakeRect(40,175,150,24)]
+  [selectbox addItemsWithObjectValues:font_list]
+  [selectbox selectItemAtIndex:0]
+  [selectbox setEditable:false];
+  [content addSubview:selectbox]
 
-  var searchbox = [[NSTextField alloc] initWithFrame:NSMakeRect(40,175,150,24)]
+  var searchbox = [[NSTextField alloc] initWithFrame:NSMakeRect(200,175,150,24)]
   [searchbox setBackgroundColor: [NSColor clearColor]];
+  [searchbox setPlaceholderString: "Write an icon name here"]
   [content addSubview:searchbox]
 
   // copy button for icon name
-  submitButton = Library.components.submit("Submit",NSMakeRect(250, 150, 200, 50))
+  submitButton = Library.components.submit("Submit",NSMakeRect(390, 150, 200, 50))
   submitButton.setWantsLayer(true)
 
   // submit button layer
@@ -50,23 +37,47 @@ var onRun = function(context,icon_path,title,fontname) {
 
   // [buttonlayer setFont:[NSFont boldSystemFontOfSize:12]]
   buttonlayer.contentsScale = [[NSScreen mainScreen] backingScaleFactor];
-  buttonlayer.string = "+ Add/Change Icon"
+  buttonlayer.string = "+ Add Icon"
   [submitButton setLayer:buttonlayer]
   [submitButton setCOSJSTargetFunction:function(sender) {
     [wrapper orderOut:nil]
     [NSApp stopModalWithCode:NSOKButton]
+    [submitButton setCOSJSTargetFunction:nil]
   }];
   [content addSubview:submitButton]
 
-  [NSApp activateIgnoringOtherApps:true]
   var response = [NSApp runModalForWindow:wrapper];
-  var input_value = [searchbox stringValue];
-  var finded_icon = Library.searchAlias([input_value lowercaseString],icons)
     
   // if is the response is ok, add icon to the layer
   if (response == NSOKButton) {
-    if (finded_icon.unicode != undefined) {
-      var icon_name     = finded_icon.alias
+    var selected_font = [selectbox objectValueOfSelectedItem]
+    var fontname = "";
+    var icon_path = "";
+    if (selected_font == "FontAwesome") {
+      icon_path = "fontawesome.json";
+      fontname = "FontAwesome";
+    } else if (selected_font == "Material") {
+      icon_path = "material.json";
+      fontname = "Material Icons";
+    } else {
+      icon_path = "ion.json";
+      fontname = "IonIcons";
+    }
+
+    var icon_source = [plugin urlForResourceNamed:icon_path]
+    // call getIcons function from library file.
+    var icons = Library.getIcons(icon_source)
+    // commended icon_list because we don't need icon values.
+    // var icon_list = Library.iconValues(icons,"a")
+    // get input value
+    var input_value = [searchbox stringValue];
+    // find icon in the json file
+    var finded_icon = Library.searchAlias([input_value lowercaseString],icons)
+
+    if (finded_icon.alias != undefined) {
+      // get the name of the icon from the finded_icon object
+      var icon_name = finded_icon.alias + ' - ' + fontname
+      // escape the unicode of the icon
       var get_selected_icon = Library.escapeUnicode('\\u' + finded_icon.unicode)
       // select the text layer
       var textLayer = page.selectedLayers().firstObject()
@@ -80,7 +91,7 @@ var onRun = function(context,icon_path,title,fontname) {
         textLayer = Library.addTextLayer(doc, artboard, {"text": get_selected_icon, "name": icon_name});
       }
       // set icon font
-      [textLayer setFontPostscriptName:fontname];
+      [textLayer setFont:[NSFont fontWithName:@""+fontname size:20.0]]
     } else {
       // give an error to write an icon
       Library.components.alert('You need to write a correct icon name','Please try again that.')

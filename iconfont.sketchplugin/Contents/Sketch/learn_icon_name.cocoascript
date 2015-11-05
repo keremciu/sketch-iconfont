@@ -55,7 +55,7 @@ var onRun = function(context) {
       var content = mainwindow[1]
 
       // copy button for icon name
-      copybutton1 = Library.components.copy(icon_name,NSMakeRect(400, 290, 100, 30))
+      copybutton1 = Library.components.copy(icon_name,NSMakeRect(20, 290, 100, 30))
       [content addSubview:copybutton1]
 
       // copy button for html wrapper icon
