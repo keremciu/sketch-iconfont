@@ -20,7 +20,7 @@ var onRun = function(context,icon_path,title,fontname) {
   var doc           = context.document       // the current document (MSDocument)
   var plugin        = context.plugin      // the plugin (MSPluginBundle)
   var page          = [doc currentPage]     // the current page (MSPage)
-  var artboard      = [page currentArtboard] || page
+  var artboard      = [[page artboards] firstObject]
   var icon_source   = [plugin urlForResourceNamed:icon_path]
 
   // call getIcons function from library file.

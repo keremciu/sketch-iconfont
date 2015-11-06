@@ -2,31 +2,31 @@
 
 var onRun = function(context) {
 
-  var doc = context.document       // the current document (MSDocument)
-  var plugin = context.plugin      // the plugin (MSPluginBundle)
-  var page = [doc currentPage]     // the current page (MSPage)
-  var artboard = [page currentArtboard] || page
+  var doc         = context.document       // the current document (MSDocument)
+  var plugin      = context.plugin      // the plugin (MSPluginBundle)
+  var page        = [doc currentPage]     // the current page (MSPage)
+  var artboard    = [[page artboards] firstObject]
 
   // create a wrapper window
-  var mainwindow = Library.components.window("Add an icon with its name", "Select icon font")
-  var wrapper = mainwindow[0]
-  var content = mainwindow[1]
-  var font_list  = ["FontAwesome", "Material", "Ion"]
+  var mainwindow  = Library.components.window("Add an icon with its name", "Select icon font")
+  var wrapper     = mainwindow[0]
+  var content     = mainwindow[1]
+  var font_list   = ["FontAwesome", "Material", "Ion"]
 
   // create combobox
-  var selectbox = [[NSComboBox alloc] initWithFrame:NSMakeRect(40,175,150,24)]
+  var selectbox   = [[NSComboBox alloc] initWithFrame:NSMakeRect(40,175,150,24)]
   [selectbox addItemsWithObjectValues:font_list]
   [selectbox selectItemAtIndex:0]
   [selectbox setEditable:false];
   [content addSubview:selectbox]
 
-  var searchbox = [[NSTextField alloc] initWithFrame:NSMakeRect(200,175,150,24)]
+  var searchbox   = [[NSTextField alloc] initWithFrame:NSMakeRect(200,175,150,24)]
   [searchbox setBackgroundColor: [NSColor clearColor]];
   [searchbox setPlaceholderString: "Write an icon name here"]
   [content addSubview:searchbox]
 
   // copy button for icon name
-  submitButton = Library.components.submit("Submit",NSMakeRect(390, 150, 200, 50))
+  submitButton    = Library.components.submit("Submit",NSMakeRect(390, 150, 200, 50))
   submitButton.setWantsLayer(true)
 
   // submit button layer
