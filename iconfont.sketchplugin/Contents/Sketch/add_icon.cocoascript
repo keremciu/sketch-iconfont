@@ -5,7 +5,7 @@ var onRun = function(context) {
   var doc         = context.document       // the current document (MSDocument)
   var plugin      = context.plugin      // the plugin (MSPluginBundle)
   var page        = [doc currentPage]     // the current page (MSPage)
-  var artboard    = [[page artboards] firstObject]
+  var artboard    = [[page artboards] firstObject] || page
 
   // create a wrapper window
   var mainwindow  = Library.components.window("Add an icon with its name", "Select icon font")
