@@ -2,9 +2,9 @@
 
 var onRun = function(context) {
 
-  var doc         = context.document       // the current document (MSDocument)
-  var plugin      = context.plugin      // the plugin (MSPluginBundle)
-  var page        = [doc currentPage]     // the current page (MSPage)
+  var doc         = context.document        // the current document (MSDocument)
+  var plugin      = context.plugin          // the plugin (MSPluginBundle)
+  var page        = [doc currentPage]       // the current page (MSPage)
   var artboard    = [[page artboards] firstObject] || page
 
   // create a wrapper window
@@ -19,11 +19,6 @@ var onRun = function(context) {
   [selectbox selectItemAtIndex:0]
   [selectbox setEditable:false];
   [content addSubview:selectbox]
-
-  var searchbox   = [[NSTextField alloc] initWithFrame:NSMakeRect(200,175,150,24)]
-  [searchbox setBackgroundColor: [NSColor clearColor]];
-  [searchbox setPlaceholderString: "Write an icon name here"]
-  [content addSubview:searchbox]
 
   // copy button for icon name
   submitButton    = Library.components.submit("Submit",NSMakeRect(390, 150, 200, 50))
@@ -45,6 +40,11 @@ var onRun = function(context) {
     [submitButton setCOSJSTargetFunction:nil]
   }];
   [content addSubview:submitButton]
+
+  var searchbox   = [[NSTextField alloc] initWithFrame:NSMakeRect(200,175,150,24)]
+  [searchbox setBackgroundColor: [NSColor clearColor]];
+  [searchbox setPlaceholderString: "Write an icon name here"]
+  [content addSubview:searchbox]
 
   var response = [NSApp runModalForWindow:wrapper];
     

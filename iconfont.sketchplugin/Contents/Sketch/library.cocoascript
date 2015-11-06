@@ -21,6 +21,9 @@ var Library = {
     return hex;
   },
   //
+  // Parse icon values
+  //
+  //
   "iconValues": function(icons,fontname) {
     var list = [icons objectForKey:@"icons"];
     var icons = [];
@@ -32,6 +35,28 @@ var Library = {
       var icon_name = list[i]["id"] + ' - ' + fontname;
       names.push(icon_name);
       icons.push(hexcode);
+    }
+
+    return [icons, names];
+  },
+  //
+  // Parse icon values
+  //
+  //
+  "searchIcons": function(key,icons,fontname) {
+    var list = [icons objectForKey:@"icons"];
+    var icons = [];
+    var names = [];
+
+    for (var i=0 ; i < [list count]; i++)
+    {
+      var icon = list[i]["name"]
+      if ([icon lowercaseString].indexOf(key) > -1) {
+        var hexcode = this.escapeUnicode('\\u' + list[i]["unicode"]);
+        var icon_name = list[i]["id"] + ' - ' + fontname;
+        names.push(icon_name);
+        icons.push(hexcode); 
+      }
     }
 
     return [icons, names];

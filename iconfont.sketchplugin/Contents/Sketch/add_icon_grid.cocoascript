@@ -69,6 +69,34 @@ var onRun = function(context,icon_path,title,fontname) {
       [[cellArray objectAtIndex:k] setAction:"callAction:"]
   }
 
+  var searchbox   = [[NSTextField alloc] initWithFrame:NSMakeRect(200,357,150,24)]
+  [searchbox setBackgroundColor: [NSColor clearColor]];
+  [searchbox setPlaceholderString: "Search an icon..."]
+  [searchbox setTarget:self];
+  [searchbox setCOSJSTargetFunction:function(sender) {
+    // search "key"
+    var value           = [searchbox stringValue];
+    // find icons with the "key"
+    icon_list       = Library.searchIcons(value,icons,fontname)
+    var fCount          = icon_list[0].length
+    row_size            = Math.ceil(fCount / col_size);
+    list_height         = Math.ceil(row_size * 50);
+    if (fCount > col_size) { newcol = col_size; } else { newcol = fCount; }
+    // renew rows of icon matrix for new icons.
+    newFrame = NSMakeRect(0, 45, list_width, list_height);
+    [iconMatrix setFrame:newFrame];
+    [iconMatrix renewRows:row_size columns:newcol];
+
+    for (var i=0; i < fCount; i++)
+    {
+      [iconMatrix setToolTip:@""+icon_list[1][i] forCell:[cellArray objectAtIndex:i]];
+      [[cellArray objectAtIndex:i] setTitle:icon_list[0][i]];
+      [[cellArray objectAtIndex:i] setTag:i];
+    }
+  }];
+  [searchbox setAction:"callAction:"]
+  [content addSubview:searchbox]
+
   [listContainer setDocumentView:iconMatrix];
   [listContainer setHasVerticalScroller:true];
   [content addSubview:listContainer]

@@ -1,7 +1,7 @@
 {
   "name" : "Icon Fonts",
   "description" : "Its a nice plugin to use icon fonts in Sketch for developers and designers.",
-  "version" : "1.0.0",
+  "version" : "1.2.1",
   "commands" : [
     {
       "script" : "learn_icon_name.cocoascript",
