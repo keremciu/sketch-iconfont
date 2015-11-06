@@ -75,5 +75,7 @@ I've started to develop this plugin after https://github.com/keremciu/sketch-use
 
 MIT
 
+If you want you can buy me a beer guys, https://www.paypal.me/keremsevencan :)
+
 [demo-image]: http://i.imgur.com/EBGmlSe.gif
 [quick-gif]: http://i.imgur.com/nYLJhIE.gif
