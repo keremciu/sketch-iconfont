@@ -4,6 +4,8 @@
 Its a nice plugin to use icon fonts in Sketch for developers and designers.
 
 #### New Update: You can search an icon in grid view.
+https://pbs.twimg.com/tweet_video/CTKBEtoUwAQ3DC0.mp4
+
 ##### Big Update: You can add an icon with one click.
 
 ![demo][quick-gif] 
