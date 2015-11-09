@@ -71,7 +71,9 @@ You can follow me on twitter to get updates about new icon fonts.
 
 # Note
 
-I've started to develop this plugin after https://github.com/keremciu/sketch-use-fontawesome this plugin. I'd like to add more icon font support. If you want to use a different icon font, you can create an issue about it. I hope you like it :)
+I've started to develop this plugin after https://github.com/keremciu/sketch-use-fontawesome this plugin. 
+
+I'm trying to add custom icon-fonts in this plugin, I will share it soon.
 
 # License
 
