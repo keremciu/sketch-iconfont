@@ -86,9 +86,9 @@ var onRun = function(context,path,fontname) {
     // get filter
     var q               = searchbox.stringValue()
     // search icons with filter
-    var found           = Library.parse.research(q,icons)
+    icons               = Library.parse.research(q,icons)
     // find icons with the "key"
-    newCount            = found.unicodes.length
+    newCount            = icons.unicodes.length
     newRows             = Math.ceil(newCount / col_size)
     newHeight           = Math.ceil(newRows * 50)
     if (newCount > col_size) {
@@ -105,9 +105,9 @@ var onRun = function(context,path,fontname) {
     for (var i=0; i < newCount; i++)
     {
       newCell = cellArray.objectAtIndex(i)
-      [matrix setToolTip:@""+ found.names[i] forCell:newCell];
-      [newCell setTitle:found.unicodes[i]];
-      [newCell setTag:i];
+      [matrix setToolTip:@""+ icons.names[i] forCell:newCell];
+      newCell.setTitle(icons.unicodes[i])
+      newCell.setTag(i)
     }
   }];
 
@@ -121,12 +121,12 @@ var onRun = function(context,path,fontname) {
   var response = NSApp.runModalForWindow(wrapper.window)
 
   selected                = matrix.selectedCell().tag()
+  icon                    = matrix.selectedCell().title()
+  
   if (filtered) {
-    name                  = found.names[selected] + ' - ' + fontname
-    icon                  = Library.parse.escape('\\u' + found.unicodes[selected])
+    name                  = icons.names[selected] + ' - ' + fontname
   } else {
     name                  = icons[selected].name + ' - ' + fontname
-    icon                  = Library.parse.escape('\\u' + icons[selected].unicode)
   }
 
   // if is the response is ok, add icon
