@@ -1,0 +1,127 @@
+@import "library.cocoascript";
+
+var onFontawesome = function(context) {
+  // onRun function with context, json file path, title and font name.
+  onRun(context,"fontawesome.json","Font Awesome","FontAwesome");
+}
+
+var onMaterial = function(context) {
+  // onRun function with context, json file path, title and font name.
+  onRun(context,"material.json","Material Icons","Material Icons");
+}
+
+var onIon = function(context) {
+  // onRun function with context, json file path, title and font name.
+  onRun(context,"ion.json","Ion Icons","Ionicons");
+}
+
+var onRun = function(context,icon_path,title,fontname) {
+
+  var doc           = context.document       // the current document (MSDocument)
+  var plugin        = context.plugin      // the plugin (MSPluginBundle)
+  var page          = [doc currentPage]     // the current page (MSPage)
+  var artboard      = [[page artboards] firstObject] || page
+  var icon_source   = [plugin urlForResourceNamed:icon_path]
+
+  // call getIcons function from library file.
+  var icons         = Library.getIcons(icon_source)
+  var icon_list     = Library.iconValues(icons,fontname)
+  var icon_count    = icon_list[0].length;
+  // row count and height calculate
+  var list_width    = 545;
+  var col_size      = Math.ceil(list_width / 50);
+  var row_size      = Math.ceil(icon_count / col_size);
+  var list_height   = Math.ceil(row_size * 50);
+
+  // create a wrapper window
+  var mainwindow    = Library.components.window(title + " - Add an icon", "Choose an icon")
+  var wrapper       = mainwindow[0]
+  var content       = mainwindow[1]
+  var listContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(25,25,554,320)]
+  var prototype     = [[NSButtonCell alloc] init];
+  [prototype setButtonType:NSToggleButton];
+  [prototype setTitle:"-"];
+  [prototype setBezeled:true]
+  [prototype setBezelStyle:NSThickSquareBezelStyle]
+
+  var iconMatrix    = [[NSMatrix alloc] initWithFrame:NSMakeRect(0, 45, list_width, list_height)
+    mode:NSRadioModeMatrix prototype:prototype numberOfRows:row_size numberOfColumns:col_size];
+  var cellArray     = [iconMatrix cells];
+  [iconMatrix setFont:[NSFont fontWithName:@""+fontname size:20.0]]
+  [iconMatrix setCellSize:NSMakeSize(47, 47)];
+  [iconMatrix setIntercellSpacing:NSMakeSize(2, 2)];
+
+  for (var k=0; k < icon_count; k++)
+  {
+      // tooltip for every cell
+      [iconMatrix setToolTip:@""+icon_list[1][k] forCell:[cellArray objectAtIndex:k]];
+      // title for every cell
+      [[cellArray objectAtIndex:k] setTitle:icon_list[0][k]];
+      // set index into tag variable for every cell
+      [[cellArray objectAtIndex:k] setTag:k];
+      // set target itself because we need to click everycell
+      [[cellArray objectAtIndex:k] setTarget:self];
+      [[cellArray objectAtIndex:k] setCOSJSTargetFunction:function(sender) {
+        [wrapper orderOut:nil]
+        [[NSApplication sharedApplication] stopModalWithCode:NSOKButton]
+        [cellArray setCOSJSTargetFunction:nil]
+      }];
+      [[cellArray objectAtIndex:k] setAction:"callAction:"]
+  }
+
+  var searchbox   = [[NSTextField alloc] initWithFrame:NSMakeRect(200,357,150,24)]
+  [searchbox setBackgroundColor: [NSColor clearColor]];
+  [searchbox setPlaceholderString: "Search an icon..."]
+  [searchbox setTarget:self];
+  [searchbox setCOSJSTargetFunction:function(sender) {
+    // search "key"
+    var value           = [searchbox stringValue];
+    // find icons with the "key"
+    icon_list       = Library.searchIcons(value,icons,fontname)
+    var fCount          = icon_list[0].length
+    row_size            = Math.ceil(fCount / col_size);
+    list_height         = Math.ceil(row_size * 50);
+    if (fCount > col_size) { newcol = col_size; } else { newcol = fCount; }
+    // renew rows of icon matrix for new icons.
+    newFrame = NSMakeRect(0, 45, list_width, list_height);
+    [iconMatrix setFrame:newFrame];
+    [iconMatrix renewRows:row_size columns:newcol];
+
+    for (var i=0; i < fCount; i++)
+    {
+      [iconMatrix setToolTip:@""+icon_list[1][i] forCell:[cellArray objectAtIndex:i]];
+      [[cellArray objectAtIndex:i] setTitle:icon_list[0][i]];
+      [[cellArray objectAtIndex:i] setTag:i];
+    }
+  }];
+  [searchbox setAction:"callAction:"]
+  [content addSubview:searchbox]
+
+  [listContainer setDocumentView:iconMatrix];
+  [listContainer setHasVerticalScroller:true];
+  [content addSubview:listContainer]
+
+  var response            = [NSApp runModalForWindow:wrapper];
+  var selected_icon       = [[iconMatrix selectedCell] tag]
+  var icon_name           = icon_list[1][selected_icon]
+  var get_selected_icon   = [[iconMatrix selectedCell] title];
+
+  // if is the response is ok, add icon to the layer
+  if (response == NSOKButton) {
+    // select the text layer
+    var textLayer = page.selectedLayers().firstObject();
+    // if is it a text layer run it. if it is not give an error.
+    if (textLayer && textLayer.isKindOfClass(MSTextLayer)) {
+      // set selected icon as the layer's value
+      [textLayer setStringValue: get_selected_icon];
+      // set icon name as the layer's name
+      [textLayer setName: icon_name];
+    } else {
+      textLayer = Library.addTextLayer(doc, artboard, {"text": get_selected_icon, "name": icon_name});
+    }
+    // set icon font
+    [textLayer setFontPostscriptName:fontname];
+  }
+
+  Library.util.releaseButtonsInView([wrapper contentView])
+};
