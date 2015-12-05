@@ -4,16 +4,14 @@
 Use icon fonts like a boss in Sketch!
 
 =======
+#### Update 5 December
+The codes rewritten, you can read them easily. Soon custom-iconfont support is coming.
+
 #### New Update: You can search an icon in grid view.
 https://pbs.twimg.com/tweet_video/CTKBEtoUwAQ3DC0.mp4
 
-##### Big Update: You can add an icon with one click.
-
 ![demo][quick-gif] 
 (sorry for bad quality, I'll add a video gif)
-
-##### Update: It works with 3.4.1 now. I've changed menu of the plugin, its really useful now. You can see the name of icon when mouseover the icon, it has tooltip.
-And also thanks to @bricklife.
 
 Now it supports **font awesome, material and ion icons** but sure, I would like to add more. 
 Maybe we can create a custom icon font uploader, it would be so cool.
