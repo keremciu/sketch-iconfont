@@ -4,10 +4,10 @@
 Use icon fonts like a boss in Sketch!
 
 =======
-#### Update 5 December
+#### Update: 5 December
 The codes rewritten, you can read them easily. Soon custom-iconfont support is coming.
 
-#### New Update: You can search an icon in grid view.
+## Update: You can search an icon in grid view.
 https://pbs.twimg.com/tweet_video/CTKBEtoUwAQ3DC0.mp4
 
 ![demo][quick-gif] 
