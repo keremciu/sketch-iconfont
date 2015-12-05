@@ -63,7 +63,7 @@ It's not working with sketch beta. Because sketch beta is not supporting NSFont.
 
 # Next Steps
 
-- I'd like to add a search area in "add icon with list" command to easily find an icon.
+~~- I'd like to add a search area in "add icon with list" command to easily find an icon.~~ Added.
 - I'm trying to build a svg icon font parser to use custom icon fonts in sketch.
 
 You can follow me on twitter to get updates about new icon fonts.
