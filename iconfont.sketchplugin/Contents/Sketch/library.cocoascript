@@ -1,291 +1,310 @@
+//
+//  library.js
+//
+//  Created by Kerem Sevencan
+//  Copyright (c) 2015. All rights reserved.
+//
+
 var Library = {
-  // 
-  // Get Icons
-  // valid types for source is 'text'
-  //
-  "getIcons": function(source) {
-    var icons_json = [NSData dataWithContentsOfFile: source];
-    var icons_parse = [NSJSONSerialization JSONObjectWithData:icons_json options:nil error:nil];
-    return icons_parse;
-  },
-  //
-  // Parse Hexcode to Unicode
-  // valid types for layer_text is 'text'
-  //
-  "parseHex": function(layer_text) {
-    var code = layer_text.charCodeAt(0);
-    var hex = code.toString(16);
-    while (hex.length < 4) {
-        hex = '0' + hex;
-    }
-    return hex;
-  },
-  //
-  // Parse icon values
-  //
-  //
-  "iconValues": function(icons,fontname) {
-    var list = [icons objectForKey:@"icons"];
-    var icons = [];
-    var names = [];
+  "create": {
+    //
+    // Create icon layer
+    // Valid types for doc is Object
+    // Valid types for selection is Object
+    // Valid types for fontname is String
+    // Valid types for name is String
+    // Valid types for icon is String
+    //
+    "icon": function(doc, selection, fontname, name, icon) {
+      var page          = doc.currentPage()
+      var artboard      = page.currentArtboard() || page
 
-    for (var i=0 ; i < [list count]; i++)
-    {
-      var hexcode = this.escapeUnicode('\\u' + list[i]["unicode"]);
-      var icon_name = list[i]["id"] + ' - ' + fontname;
-      names.push(icon_name);
-      icons.push(hexcode);
-    }
-
-    return [icons, names];
-  },
-  //
-  // Parse icon values
-  //
-  //
-  "searchIcons": function(key,icons,fontname) {
-    var list = [icons objectForKey:@"icons"];
-    var icons = [];
-    var names = [];
-
-    for (var i=0 ; i < [list count]; i++)
-    {
-      var icon = list[i]["name"]
-      if ([icon lowercaseString].indexOf(key) > -1) {
-        var hexcode = this.escapeUnicode('\\u' + list[i]["unicode"]);
-        var icon_name = list[i]["id"] + ' - ' + fontname;
-        names.push(icon_name);
-        icons.push(hexcode); 
+      if (selection && selection.isKindOfClass(MSTextLayer)) {
+        // set icon
+        selection.setStringValue(icon)
+        // set icon name
+        selection.setName(name)
+      } else {
+        // create a text layer contains the icon
+        selection = Library.create.textLayer(doc, artboard, {"text": icon, "name": name});
       }
-    }
 
-    return [icons, names];
-  },
-  //
-  // escape hexcode
-  //
-  //
-  "escapeUnicode": function(unicode) {
-    var r = /\\u([\d\w]{4})/gi;
-    x = unicode.replace(r, function (match, grp) {
-        return String.fromCharCode(parseInt(grp, 16)); } 
-    );
-    return unescape(x);
-  },
-  //
-  // Search Unicode in Icon List
-  // valid types for unicode is 'text'
-  // valid types for icon_list is 'JSON'
-  //
-  "searchUnicode": function(unicode,icon_list,fontname) {
-    var result = [[NSObject alloc] init];
-    var list = [icon_list objectForKey:@"icons"];
+      // 8. set selected font
+      selection.setFont([NSFont fontWithName:@""+fontname size:20.0])
+    },
+    //
+    // Create a layer
+    // Valid types for container is Object
+    // Valid types for type is String
+    // Valid types for parameters is Array
+    //
+    "layer": function (container, type, parameters) {
+      var layer = container.addLayerOfType(type);
+      if (typeof(parameters.name) !== 'undefined') layer.name = parameters.name;
+      if (typeof(parameters.rect) !== 'undefined') layer.rect = parameters.rect;
+      if (typeof(parameters.color) !== 'undefined') {
+        this.util.setFillColor(layer, parameters.color);
+      } 
+      return layer;
+    },
+    //
+    // Create a text layer
+    // Valid types for doc is Object
+    // Valid types for container is Object
+    // Valid types for parameters is Array
+    //
+    "textLayer": function (doc, container, parameters) {
+      var textLayer = Library.create.layer(container, "text", parameters);
+      // deselect all selected layers
+      doc.currentPage().deselectAllLayers()
+      // textlayer vertically centered
+      var midY = container.absoluteRect().midY();
+      var targetY = Math.ceil(midY - textLayer.frame().height() / 2);
+      textLayer.absoluteRect().setY(targetY);
+      // textlayer horizontally centered
+      var midX = container.absoluteRect().midX();
+      var targetX = Math.ceil(midX - textLayer.frame().width() / 2);
+      textLayer.absoluteRect().setX(targetX);
+      // select the text layer
+      [textLayer select:true byExpandingSelection:true];
+      // set the font-size
+      textLayer.fontSize = 24;
 
-    for (var i=0 ; i < [list count]; i++)
-    {
-      if (list[i].unicode == unicode) {
-        result.alias = list[i]["id"];
-        result.unicode = list[i]["unicode"];
+      // zoom to the icon
+      // var view = doc.currentView();
+      // view.zoomToSelection();
+      
+      if (typeof(parameters.text) !== 'undefined') {
+        textLayer.stringValue = parameters.text;
+        if (typeof(parameters.name) == 'undefined') {
+          textLayer.name = parameters.text;
+        }
       }
-    }
-
-    // if we had an icon id, show it in a window.
-    if (result.alias == "" || result.alias == undefined) {
-      this.components.alert('Select a ' + fontname + ' icon','It is not a ' + fontname + ' icon. We did not find its name.');
-    }
-
-    return result;
+      if (typeof(parameters.fontSize) !== 'undefined') textLayer.fontSize = parameters.fontSize;
+      textLayer.adjustFrameToFit();
+      return textLayer;
+    },
   },
-  //
-  // Search Alias in Icon List
-  // valid types for alias is 'text'
-  // valid types for icon_list is 'JSON'
-  //
-  "searchAlias": function(name,icon_list) {
-    var result = [[NSObject alloc] init];
-    var list = [icon_list objectForKey:@"icons"];
+  "fetch": {
+    //
+    // Get json with source
+    // Valid types for source is String
+    //
+    "json": function(source,plugin) {
+      var source      = plugin.urlForResourceNamed(source)
+      var json        = [NSData dataWithContentsOfFile: source]
 
-    for (var i=0 ; i < [list count]; i++)
-    {
-      if (list[i]["id"] == @""+name) {
-        result.alias = list[i]["id"];
-        result.unicode = list[i]["unicode"];
+      return [NSJSONSerialization JSONObjectWithData:json options:nil error:nil]
+    },
+    //
+    // Get font properties with fontname
+    // Valid types for fontname is String
+    // Valid types for plugin is Object
+    //
+    "font": function(fontname,plugin) {
+      var json        = Library.fetch.json("fonts.json",plugin)
+      var fonts       = [json objectForKey:@"fonts"]
+      var escapedname = fontname.replace(/^\s*|\s*$/g,'').toLowerCase()
+
+      return fonts[escapedname]
+    },
+    //
+    // Find mathed icon with char or name
+    // Valid types for type is String
+    // Valid types for text is String
+    // Valid types for icons is Array
+    //
+    "icon": function(type,text,icons) {
+      var result    = NSObject.alloc().init()
+      var list      = [icons objectForKey:@"icons"]
+      var matcher   = ""
+
+      for (var i=0; i < list.count(); i++) {
+        if (type=="unicode") {
+          matcher = list[i].unicode
+        } else {
+          matcher = list[i]["id"]
+        }
+          
+        if (matcher == @""+text) {
+          result.alias = list[i]["id"]
+          result.unicode = list[i]["unicode"]
+        }
       }
-    }
 
-    return result;
-  },
-  // Adds a new layer as a child of `container` with the given type
-  // Valid types are 'group', 'text', 'image' and 'rectangle'
-  // parameters is an optional dictionary containing zero or more of the
-  // following keys:
-  //  name (a string)
-  //  rect (an NSRect)
-  //  color (an MSColor)
-  // returns the newly created layer
-  "addLayer": function (container, type, parameters) {
-    var layer = container.addLayerOfType(type);
-    if (typeof(parameters.name) !== 'undefined') layer.name = parameters.name;
-    if (typeof(parameters.rect) !== 'undefined') layer.rect = parameters.rect;
-    if (typeof(parameters.color) !== 'undefined') {
-      this.util.setFillColor(layer, parameters.color);
-    } 
-    return layer;
-  },
-  // Adds a new group (MSLayerGroup) as a child of `container`
-  // See `addLayer` for a discussion of `parameters`
-  // returns the newly created group
-  "addLayerGroup": function (container, parameters) {
-    return this.addLayer(container, "group", parameters);
-  },
-  // Adds a new text layer (MSTextLayer) as a child of `container`
-  // In addition to the keys described in `addLayer`, `parameters` may also
-  // contain the following keys:
-  //  text (a string)
-  //  fontSize (a number)
-  // returns the newly created text layer
-  "addTextLayer": function (doc,container, parameters) {
-    var textLayer = this.addLayer(container, "text", parameters);
-    // deselect all selected layers
-    [[doc currentPage] deselectAllLayers];
-    // textlayer vertically centered
-    var midY = container.absoluteRect().midY();
-    var targetY = Math.ceil(midY - textLayer.frame().height() / 2);
-    textLayer.absoluteRect().setY(targetY);
-    // textlayer horizontally centered
-    var midX = container.absoluteRect().midX();
-    var targetX = Math.ceil(midX - textLayer.frame().width() / 2);
-    textLayer.absoluteRect().setX(targetX);
-    // select the text layer
-    [textLayer select:true byExpandingSelection:true];
-    // set the font-size
-    textLayer.fontSize = 24;
-
-    // zoom to the icon
-    // var view = doc.currentView();
-    // view.zoomToSelection();
-    
-    if (typeof(parameters.text) !== 'undefined') {
-      textLayer.stringValue = parameters.text;
-      if (typeof(parameters.name) == 'undefined') {
-        textLayer.name = parameters.text;
+      // no result error
+      if (result.alias == "" || result.alias == undefined) {
+        return false
       }
-    }
-    if (typeof(parameters.fontSize) !== 'undefined') textLayer.fontSize = parameters.fontSize;
-    textLayer.adjustFrameToFit();
-    return textLayer;
+
+      return result
+    },
   },
-  "components": {
-    "window": function (title, subtitle) {
-      // create a wrapper window
-      var wrapper = [[NSWindow alloc] init]
+  "parse": {
+    //
+    // Find new icons with q
+    // Valid types for q is String
+    // Valid types for icons is Array
+    //
+    "research": function(q,icons) {
+      result          = NSObject.alloc().init()
+      result.unicodes = []
+      result.names    = []
+
+      for (var i=0 ; i < [icons count]; i++) {
+          icon = icons[i]["name"]
+
+          if (icon.lowercaseString().indexOf(q) > -1) {
+            result.names.push(icons[i]["id"])
+            result.unicodes.push(Library.parse.escape('\\u' + icons[i]["unicode"]))
+          }
+      }
+
+      return result
+    },
+    //
+    // Parse unicode to get char
+    // Valid types for unicode is String
+    //
+    "escape": function(unicode) {
+      var r = /\\u([\d\w]{4})/gi;
+      x = unicode.replace(r, function (match, grp) {
+          return String.fromCharCode(parseInt(grp, 16)); } 
+      );
+      return unescape(x);
+    },
+    //
+    // Parse text layer to get unicode
+    // Valid types for text is String
+    //
+    "unicode": function(text) {
+      var code        = text.charCodeAt(0)
+      var unicode     = code.toString(16)
+
+      while (unicode.length < 4) {
+        unicode       = '0' + unicode
+      }
+
+      return unicode
+    },
+  },
+  "Widgets": {
+    //
+    // Build a window
+    // Valid types for title is String
+    //
+    "window": function (title,subtitle) {
+      // create a window
+      var wrapper = NSWindow.alloc().init()
       [wrapper setFrame:NSMakeRect(0, 0, 600, 420) display:false]
-      [wrapper setBackgroundColor:NSColor.whiteColor()]
-      [wrapper setTitle:@""+title];
-      var x = 0;
-      var y = 0;
+      wrapper.setBackgroundColor(NSColor.whiteColor())
+      wrapper.setTitle(title)
 
       // create a body
-      var body = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 600, 480)]
+      body = NSView.alloc().initWithFrame(NSMakeRect(0, 0, 600, 480))
       body.setWantsLayer(true)
 
-      // create a header
-      var header = [[NSView alloc] initWithFrame:NSMakeRect(x, 350, 600, 48)]
-      header.setWantsLayer(true)
-
-      // create a content area
-      var content = [[NSView alloc] initWithFrame:NSMakeRect(x, y, 600, 440)]
-      content.setWantsLayer(true)
-
-      // create a layer to content
-      var contentLayer = [CALayer layer]
-      [contentLayer setBackgroundColor:CGColorCreateGenericRGB(255/255, 255/255, 255/255, 1.0)] //RGB plus Alpha Channel
-      [contentLayer setMasksToBounds: true]
-      [contentLayer setCornerRadius: 6.0]
-      [content setLayer:contentLayer]
-
-      // content append to body
-      [body addSubview:content]
-
-      // set body as content view of wrapper
-      [wrapper setContentView:body];
+      // create a main area
+      main = NSView.alloc().initWithFrame(NSMakeRect(0, 0, 600, 480))
+      main.setWantsLayer(true)
 
       // subtitle in window
-      var subTitleField = Library.components.title(subtitle,22,[NSColor blackColor],NSMakeRect(x+25, 355, 300, 30));
-      [[wrapper contentView] addSubview:subTitleField]
+      if (subtitle!=nil) {
+        subtitle = Library.Widgets.subtitle(subtitle,22,NSColor.blackColor(),NSMakeRect(25, 355, 300, 30))
+        body.addSubview(subtitle)
+      }
 
-      // create a cancel button
-      var cancelbuttonimage = [NSImage imageNamed:NSImageNameStopProgressTemplate];
-      // call custom function to build cancel button
-      var cancelButton = Library.components.custombutton(cancelbuttonimage,NSMakeRect(556, 5, 36, 36));
-      [cancelButton setCOSJSTargetFunction:function(sender) {
-          [wrapper orderOut:nil]
-          [NSApp stopModal]
-      }];
+      // main area append to body
+      body.addSubview(main)
 
-      [header addSubview:cancelButton]
+      // construct header with internal function
+      header = Library.Widgets.header(wrapper)
 
-      // create a help button
-      var helpbuttonimage = [NSImage imageNamed:NSImageNameBookmarksTemplate];
-      // call custom function to build help button
-      var helpButton = Library.components.custombutton(helpbuttonimage,NSMakeRect(520, 5, 36, 36));
-      [helpButton setCOSJSTargetFunction:function(sender) {
-          var url = [NSURL URLWithString:@"https://github.com/keremciu/sketch-iconfont/blob/master/HELP.md"]
-          if( ![[NSWorkspace sharedWorkspace] openURL:url] ){
-              sketchLog(@"Failed to open url:" + [url description])
-          }    
-      }];
-      [header addSubview:helpButton]
+      // header append to body
+      body.addSubview(header)
 
-      [wrapper setAlphaValue:0.95]
+      // set body to wrapper
+      wrapper.setContentView(body)
+      wrapper.setAlphaValue(0.95)
 
-      // push buttons view to wrapper
-      [[wrapper contentView] addSubview:header];
+      result          = NSObject.alloc().init()
+      result.window   = wrapper
+      result.main     = main
+      return result
+    },
+    "header": function(wrapper) {
+      // create a header
+      header = NSView.alloc().initWithFrame(NSMakeRect(0, 350, 600, 48))
+      header.setWantsLayer(true)
 
-      return [wrapper, content];
+      // call an icon from OS for exit button
+      var exit_icon = NSImage.imageNamed(NSImageNameStopProgressTemplate)
+
+      // build exit button
+      var exit = Library.Widgets.button(exit_icon,NSMakeRect(556, 5, 36, 36))
+      exit.setCOSJSTargetFunction(function(sender) {
+        wrapper.orderOut(nil)
+        NSApp.stopModal()
+      })
+
+      // call an icon from OS for help button
+      var help_icon = NSImage.imageNamed(NSImageNameBookmarksTemplate)
+
+      // build help button
+      var help = Library.Widgets.button(help_icon,NSMakeRect(520, 5, 36, 36))
+      help.setCOSJSTargetFunction(function(sender) {
+        var url = NSURL.URLWithString(@"https://github.com/keremciu/sketch-iconfont/blob/master/HELP.md")
+        if (!NSWorkspace.sharedWorkspace().openURL(url)) {
+            log(@"Failed to open url:" + url.description())
+        }
+      })
+
+      header.addSubview(help)
+      header.addSubview(exit)
+
+      return header
     },
-    "copy": function (copied,rect) {
-      var copyButton = [[NSButton alloc] initWithFrame:rect]
-      [copyButton setTitle:"Copy It"]
-      [copyButton setBezelStyle:NSRoundedBezelStyle]
-      [copyButton setCOSJSTargetFunction:function(sender) {
-        Library.components.clipboard.set(copied);
-      }];
-      [copyButton setAction:"callAction:"]
-      return copyButton;
+    //
+    // Build a title field
+    // Valid types for title is String
+    // Valid types for fontsize is Number
+    // Valid types for color is NSCOlor
+    // Valid types for rect is NSMakeRect Object
+    //
+    "subtitle": function(title,fontsize,color,rect) {
+      subtitle = [[NSTextField alloc] initWithFrame:rect]
+      subtitle.setEditable(false)
+      subtitle.setBordered(false)
+      subtitle.setDrawsBackground(false)
+      subtitle.setFont(NSFont.systemFontOfSize(fontsize))
+      subtitle.setTextColor(color)
+      subtitle.setStringValue(title)
+
+      return subtitle
     },
-    "submit": function (title,rect) {
-      var copyButton = [[NSButton alloc] initWithFrame:rect]
-      [copyButton setTitle:title]
-      [copyButton setAction:"callAction:"]
-      return copyButton;
+    //
+    // Build a button
+    // Valid types for image is String
+    // Valid types for rect is NSMakeRect Object
+    //
+    "button": function(image,rect) {
+      button = NSButton.alloc().initWithFrame(rect)
+      buttonCell = button.cell()
+      buttonCell.setImage(image)
+      buttonCell.setImageScaling(NSScaleProportionally)
+
+      button.setTitle(nil)
+      button.setBordered(false)
+      button.setBezelStyle(NSCircularBezelStyle)
+      button.setAlphaValue(0.8)
+      button.setAction("callAction:")
+
+      return button
     },
-    "alert": function (title, text) {
-      var app = [NSApplication sharedApplication];
-      [app displayDialog:text withTitle:title]
-    },
-    "custombutton": function(image,rect) {
-      customButton = [[NSButton alloc] initWithFrame:rect]
-      customButtonCell = [customButton cell]
-      [customButtonCell setImage:image]
-      [customButtonCell setImageScaling:NSScaleProportionally]
-      [customButton setTitle:nil]
-      [customButton setBordered:false]
-      [customButton setBezelStyle:NSCircularBezelStyle]
-      [customButton setAlphaValue:0.8]
-      [customButton setAction:"callAction:"]
-      return customButton;
-    },
-    "title": function(title,fontsize,color,rect) {
-      var titlearea = [[NSTextField alloc] initWithFrame:rect]
-      [titlearea setEditable:false]
-      [titlearea setBordered:false]
-      [titlearea setDrawsBackground:false]
-      [titlearea setFont:[NSFont systemFontOfSize:fontsize]]
-      [titlearea setTextColor:color];
-      [titlearea setStringValue:title]
-      return titlearea;
-    },
+    //
+    // Construct a clipboard
+    // Valid types for text is String
+    //
     "clipboard": {
       init : function()
       {
@@ -296,55 +315,40 @@ var Library = {
  
         if( !this.pasteBoard )
           this.init();
-       
+
         this.pasteBoard.declareTypes_owner( [ NSPasteboardTypeString ], null );
         this.pasteBoard.setString_forType( text, NSPasteboardTypeString );
        
         return true;
       }
     },
-  },
-  "util": {
-    // Returns an MSImageData object for `image` (NSImage)
-    "imageDataFromImage": function(container, image) {
-      var imageCollection = [[container documentData] images];
-      return [imageCollection addImage:image convertColourspace:false];
+    //
+    // Build a copy button
+    // Valid types for text is String
+    // Valid types for rect is NSMakeRect Object
+    //
+    "copy": function(text,rect) {
+      var button = NSButton.alloc().initWithFrame(rect)
+      button.setTitle("Copy It")
+      button.setBezelStyle(NSRoundedBezelStyle)
+      button.setAction("callAction:")
+
+      button.setCOSJSTargetFunction(function() {
+        Library.widgets.clipboard.set(text)
+      })
+
+      return button
+    },
+    //
+    // Show an alert
+    // Valid types for title is String
+    // Valid types for text is String
+    //
+    "alert": function (title, text) {
+      // var app = [NSApplication sharedApplication];
+      // [app withTitle:title displayDialog:text]
     },
 
-    // Returns an MSImageData object for `url` (NSURL)
-    "imageDataFromURL": function(container, url) {
-      var image = [[NSImage alloc] initWithContentsOfURL:url];
-      var imageData = undefined;
-      if (typeof(image) !== 'undefined') {
-        imageData = this.imageDataFromImage(container, image);
-      }
-      return imageData;
-    },
+  }, 
 
-    // Centers `layer` at `point`. If point is not specified `layer`
-    // is centered at the origin (0,0)
-    "centerLayer": function(layer, point) {
-      var center = (typeof(point) !== 'undefined') ? point : CGPointMake(0,0);
-      var rect = [layer rect];
-      rect.origin.x = center.x-(CGRectGetWidth(rect)/2.0);
-      rect.origin.y = center.y-(CGRectGetHeight(rect)/2.0);
-      [layer setRect:rect];
-    },
-    
-    // Sets the fill color for `layer` to `color` (MSColor)
-    "setFillColor": function(layer, color) {
-      var fill = [[[layer style] fills] addNewStylePart];
-      [fill setColor: color];
-    },
-    "releaseButtonsInView": function(view) {
-      var subviews = [view subviews]
-      for (var i = 0; i < [subviews count]; i++) {
-        var subview = subviews[i]
-        if ([subview isKindOfClass:[NSButton class]] || [subview isKindOfClass:[NSCell class]]) {
-          [subview setCOSJSTargetFunction:nil]
-        }
-        Library.util.releaseButtonsInView(subview)
-      }
-    }
-  }
 };

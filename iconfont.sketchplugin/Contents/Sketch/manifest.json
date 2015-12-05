@@ -1,60 +1,60 @@
 {
-  "name" : "Icon Fonts",
-  "description" : "Its a nice plugin to use icon fonts in Sketch for developers and designers.",
-  "version" : "1.2.1",
+  "name" : "Icon Font",
+  "description" : "Use icon fonts like a boss in Sketch!",
+  "version" : "2.0.0",
+  "identifier" : "com.keremciu.sketch.iconfont",
+  "author" : "Kerem Sevencan",
+  "authorEmail" : "info@kerem.ws",
   "commands" : [
     {
-      "script" : "learn_icon_name.cocoascript",
+      "script" : "learn.cocoascript",
       "handler" : "onRun",
       "shortcut" : "cmd ctrl u",
-      "name" : "What is the icon's name?",
-      "identifier" : "learn_icon_name"
+      "name" : "Use Selected Icon",
+      "identifier" : "learn"
     },
     {
-      "script" : "add_icon.cocoascript",
+      "script" : "add.cocoascript",
       "handler" : "onRun",
       "shortcut" : "cmd ctrl i",
-      "name" : "Add an icon with name",
-      "identifier" : "add_icon"
+      "name" : "Add Icon",
+      "identifier" : "add"
     },
     {
-      "script" : "add_icon_grid.cocoascript",
+      "script" : "add_grid.cocoascript",
       "handler" : "onFontawesome",
       "shortcut" : "cmd ctrl alt f",
       "name" : "Font Awesome",
-      "identifier" : "awesome_add_icon_radiolist"
+      "identifier" : "awesome_add_grid"
     },
     {
-      "script" : "add_icon_grid.cocoascript",
+      "script" : "add_grid.cocoascript",
       "handler" : "onMaterial",
       "shortcut" : "cmd ctrl alt m",
       "name" : "Material",
-      "identifier" : "material_add_icon_radiolist"
+      "identifier" : "material_add_grid"
     },
     {
-      "script" : "add_icon_grid.cocoascript",
+      "script" : "add_grid.cocoascript",
       "handler" : "onIon",
       "shortcut" : "cmd ctrl alt i",
       "name" : "Ion Icons",
-      "identifier" : "ion_add_icon_radiolist"
+      "identifier" : "ion_add_grid"
     },
   ],
   "menu": {
-    "title" : "Icon Fonts",
+    "title" : "Icon Font",
     "items": [
-      "learn_icon_name",
-      "add_icon",
+      "learn",
+      "add",
       {
-        "title" : "Add an icon with grid",
+        "title" : "Add Icon on Grid",
         "items" : [
-          "awesome_add_icon_radiolist",
-          "material_add_icon_radiolist",
-          "ion_add_icon_radiolist"
+          "awesome_add_grid",
+          "material_add_grid",
+          "ion_add_grid"
         ]
       },
     ],
   },
-  "identifier" : "com.keremciu.sketch.iconfont",
-  "author" : "Kerem Sevencan",
-  "authorEmail" : "info@kerem.ws",
 }
