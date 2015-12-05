@@ -1,14 +1,12 @@
 [![Latest Version](https://img.shields.io/github/release/keremciu/sketch-iconfont.svg?style=flat-square)](https://github.com/keremciu/sketch-iconfont/releases)
 [![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Its a nice plugin to use icon fonts in Sketch for developers and designers.
+Use icon fonts like a boss in Sketch!
 
-<<<<<<< HEAD
 =======
 #### New Update: You can search an icon in grid view.
 https://pbs.twimg.com/tweet_video/CTKBEtoUwAQ3DC0.mp4
 
->>>>>>> 8d4f63a9e572a693a3b4dd52bc5ac986bc511c2b
 ##### Big Update: You can add an icon with one click.
 
 ![demo][quick-gif] 
@@ -74,22 +72,18 @@ You can follow me on twitter to get updates about new icon fonts.
 
 # Note
 
-<<<<<<< HEAD
 I've started to develop this plugin after https://github.com/keremciu/sketch-use-fontawesome this plugin. I'd like to add more icon font support. If you want to use a different icon font, you can create an issue about it. I hope you like it :)
 =======
 I've started to develop this plugin after https://github.com/keremciu/sketch-use-fontawesome this plugin. 
 
 I'm trying to add custom icon-fonts in this plugin, I will share it soon.
->>>>>>> 8d4f63a9e572a693a3b4dd52bc5ac986bc511c2b
 
 # License
 
 MIT
 
-<<<<<<< HEAD
 =======
 If you want you can buy me a beer guys, https://www.paypal.me/keremsevencan :)
 
->>>>>>> 8d4f63a9e572a693a3b4dd52bc5ac986bc511c2b
 [demo-image]: http://i.imgur.com/EBGmlSe.gif
 [quick-gif]: http://i.imgur.com/nYLJhIE.gif
