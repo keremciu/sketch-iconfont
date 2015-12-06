@@ -1,10 +1,5 @@
 {
-  "name" : "Icon Font",
-  "description" : "Use icon fonts like a boss in Sketch!",
-  "version" : "2.0.0",
-  "identifier" : "com.keremciu.sketch.iconfont",
   "author" : "Kerem Sevencan",
-  "authorEmail" : "info@kerem.ws",
   "commands" : [
     {
       "script" : "learn.cocoascript",
@@ -22,39 +17,58 @@
     },
     {
       "script" : "add_grid.cocoascript",
-      "handler" : "onFontawesome",
+      "handler" : "handleFont",
       "shortcut" : "cmd ctrl alt f",
-      "name" : "Font Awesome",
+      "name" : "fontawesome",
       "identifier" : "awesome_add_grid"
     },
     {
       "script" : "add_grid.cocoascript",
-      "handler" : "onMaterial",
+      "handler" : "handleFont",
       "shortcut" : "cmd ctrl alt m",
-      "name" : "Material",
+      "name" : "MaterialIcons-Regular",
       "identifier" : "material_add_grid"
     },
     {
       "script" : "add_grid.cocoascript",
-      "handler" : "onIon",
+      "handler" : "handleFont",
       "shortcut" : "cmd ctrl alt i",
-      "name" : "Ion Icons",
+      "name" : "ionicons",
       "identifier" : "ion_add_grid"
     },
+    {
+      "script" : "import.cocoascript",
+      "handler" : "onRun",
+      "name" : "Import a Font",
+      "identifier" : "import"
+    },
+    {
+      "script" : "add_grid.cocoascript",
+      "handler" : "handleFont",
+      "name" : "flaticon",
+      "identifier" : "7_add_grid"
+    }
   ],
-  "menu": {
+  "menu" : {
     "title" : "Icon Font",
-    "items": [
-      "learn",
-      "add",
+    "items" : [
       {
         "title" : "Add Icon on Grid",
         "items" : [
           "awesome_add_grid",
           "material_add_grid",
-          "ion_add_grid"
+          "ion_add_grid",
+          "7_add_grid"
         ]
       },
-    ],
+      "add",
+      "learn",
+      "import"
+    ]
   },
+  "identifier" : "com.keremciu.sketch.iconfont",
+  "version" : "2.0.0",
+  "description" : "Use icon fonts like a boss in Sketch!",
+  "name" : "Icon Font",
+  "authorEmail" : "info@kerem.ws"
 }

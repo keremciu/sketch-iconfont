@@ -1,16 +1,20 @@
 {
-    "fonts": {
-        "fontawesome": {
-            "path": "fontawesome.json",
-            "container": "<i class='fa fa-*****'></i>"
-        },
-        "ionicons": {
-            "path": "ion.json",
-            "container": "<i class='ion-*****'></i>"
-        },
-        "materialicons-regular": {
-            "path": "material.json",
-            "container": "<i class='material-icons'>*****</i>"
-        }
+  "fonts" : {
+    "flaticon" : {
+      "path" : "customs/flaticon.json",
+      "container" : "<i class='flaticon-*****'></i>"
+    },
+    "fontawesome" : {
+      "path" : "fontawesome.json",
+      "container" : "<i class='fa fa-*****'></i>"
+    },
+    "ionicons" : {
+      "path" : "ion.json",
+      "container" : "<i class='ion-*****'></i>"
+    },
+    "MaterialIcons-Regular" : {
+      "path" : "material.json",
+      "container" : "<i class='material-icons'>*****</i>"
     }
+  }
 }

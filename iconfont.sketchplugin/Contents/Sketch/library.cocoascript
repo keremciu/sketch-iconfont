@@ -7,6 +7,14 @@
 
 var Library = {
   "create": {
+    "file": function(json,path) {
+      jsonData = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil]
+      parsed = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]
+      sanitized = [parsed stringByReplacingOccurrencesOfString:@"\\/" withString:"/"];
+      var t = [NSString stringWithFormat:@"%@", sanitized]
+      f = [NSString stringWithFormat:@"%@", path]
+      [t writeToFile:f atomically:true encoding:NSUTF8StringEncoding error:nil]
+    },
     //
     // Create icon layer
     // Valid types for doc is Object
@@ -86,15 +94,39 @@ var Library = {
     },
   },
   "fetch": {
+    file: function(filePath) {
+      var fileManager = [NSFileManager defaultManager];
+      if([fileManager fileExistsAtPath:filePath]) {
+        return [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+      }
+      return nil;
+    },
+    selectFont: function(title) {
+      // display the open panel
+      var openPanel = [NSOpenPanel openPanel];
+      [openPanel setTitle:title];
+      [openPanel setCanCreateDirectories:false];
+      [openPanel setCanChooseFiles:true];
+      [openPanel setCanChooseDirectories:false];
+      [openPanel setAllowsMultipleSelection:false];
+      [openPanel setShowsHiddenFiles:false];
+      [openPanel setExtensionHidden:false];
+      [[NSApplication sharedApplication] activateIgnoringOtherApps:true];
+      var openPanelButtonPressed = [openPanel runModal];
+      if (openPanelButtonPressed == NSFileHandlingPanelOKButton) {
+        allowedUrl = [openPanel URL];
+      }
+      return allowedUrl;
+    },
     //
     // Get json with source
     // Valid types for source is String
     //
     "json": function(source,plugin) {
       var source      = plugin.urlForResourceNamed(source)
-      var json        = [NSData dataWithContentsOfFile: source]
+      var json        = [NSData dataWithContentsOfFile:source]
 
-      return [NSJSONSerialization JSONObjectWithData:json options:nil error:nil]
+      return [NSJSONSerialization JSONObjectWithData:json options:0 error:nil]
     },
     //
     // Get font properties with fontname
@@ -104,7 +136,7 @@ var Library = {
     "font": function(fontname,plugin) {
       var json        = Library.fetch.json("fonts.json",plugin)
       var fonts       = [json objectForKey:@"fonts"]
-      var escapedname = fontname.replace(/^\s*|\s*$/g,'').toLowerCase()
+      var escapedname = fontname.replace(/^\s*|\s*$/g,'')
 
       return fonts[escapedname]
     },

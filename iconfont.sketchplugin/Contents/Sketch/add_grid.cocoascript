@@ -1,21 +1,11 @@
 @import "library.cocoascript";
 
-var onFontawesome = function(context) {
-  var font        = Library.fetch.font("fontawesome",context.plugin)
+var handleFont = function(context) {
+  var handler  = context.command.name()
+  var font     = Library.fetch.font(handler,context.plugin)
+  
   // onRun function with context, json file path, title and font name.
-  onRun(context,font.path,"fontawesome");
-}
-
-var onMaterial = function(context) {
-  var font        = Library.fetch.font("materialicons-regular",context.plugin)
-  // onRun function with context, json file path and font name.
-  onRun(context,font.path,"MaterialIcons-Regular");
-}
-
-var onIon = function(context) {
-  var font        = Library.fetch.font("ionicons",context.plugin)
-  // onRun function with context, json file path and font name.
-  onRun(context,font.path,"ionicons");
+  onRun(context,font.path,handler);
 }
 
 var onRun = function(context,path,fontname) {
