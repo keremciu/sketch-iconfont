@@ -6,6 +6,8 @@ Use icon fonts like a boss in Sketch!
 =======
 #### Update: 6 December
 You can import all icon-fonts to use it on Sketch! I'm still developing it for updatable version thats why this update on a new branch.
+![demo][update]
+
 
 #### Update: 5 December
 The codes rewritten, you can read them easily. Soon custom-iconfont support is coming.
@@ -78,4 +80,5 @@ MIT
 If you want you can buy me a beer guys, https://www.paypal.me/keremsevencan :)
 
 [demo-image]: http://i.imgur.com/EBGmlSe.gif
+[update]:https://pbs.twimg.com/media/CVi0yPCUsAAwo5c.png
 [quick-gif]: http://i.imgur.com/nYLJhIE.gif
