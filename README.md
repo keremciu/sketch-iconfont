@@ -4,16 +4,19 @@
 Use icon fonts like a boss in Sketch!
 
 =======
+#### Update: 6 December
+Added black tie and font awesome brands support.
+
 #### Update: 5 December
 The codes rewritten, you can read them easily. Soon custom-iconfont support is coming.
 
 ##### Update: You can search an icon in grid view.
 https://pbs.twimg.com/tweet_video/CTKBEtoUwAQ3DC0.mp4
 
-![demo][quick-gif] 
+![demo][quick-gif]
 (sorry for bad quality, I'll add a video gif)
 
-Now it supports **font awesome, material and ion icons** but sure, I would like to add more. 
+Now it supports **font awesome, material and ion icons** but sure, I would like to add more.
 Maybe we can create a custom icon font uploader, it would be so cool.
 
 ## Demo
@@ -23,11 +26,12 @@ Maybe we can create a custom icon font uploader, it would be so cool.
 # Features
 
 > `A Problem of the Designer:` 
+> `A Problem of the Designer:`
 > When you want to add an icon from icon fonts, you don't need to find a cheatsheet to copy it in your design.
 
 - You can easily add it now in sketch.
 
-> `A Problem of the Developer:` 
+> `A Problem of the Developer:`
 > When you want to learn name of the icon which is added from a designer, you don't need to look too much icons to find it.
 
 - You can easily learn it now in sketch.
@@ -44,6 +48,13 @@ https://github.com/driftyco/ionicons/raw/master/fonts/ionicons.ttf
 
 For material icons:
 https://github.com/google/material-design-icons/raw/master/iconfont/MaterialIcons-Regular.ttf
+
+For font awesome brands icons:
+https://github.com/Fonticons/Font-Awesome-Brands/raw/master/fonts/FontAwesomeBrands-Regular.otf
+
+`PAID`
+For black tie icons:
+http://blacktie.io
 
 # Install
 

@@ -18,6 +18,36 @@ var onIon = function(context) {
   onRun(context,font.path,"ionicons");
 }
 
+var onBts = function(context) {
+  var font        = Library.fetch.font("bts",context.plugin)
+  // onRun function with context, json file path, title and font name.
+  onRun(context,font.path,"BlackTie-Solid");
+}
+
+var onBtb = function(context) {
+  var font        = Library.fetch.font("btb",context.plugin)
+  // onRun function with context, json file path, title and font name.
+  onRun(context,font.path,"BlackTie-Bold");
+}
+
+var onBtr = function(context) {
+  var font        = Library.fetch.font("btr",context.plugin)
+  // onRun function with context, json file path, title and font name.
+  onRun(context,font.path,"BlackTie-Regular");
+}
+
+var onBtl = function(context) {
+  var font        = Library.fetch.font("btl",context.plugin)
+  // onRun function with context, json file path, title and font name.
+  onRun(context,font.path,"BlackTie-Light");
+}
+
+var onFab = function(context) {
+  var font        = Library.fetch.font("fontawesomebrands",context.plugin)
+  // onRun function with context, json file path, title and font name.
+  onRun(context,font.path,"font awesome brands");
+}
+
 var onRun = function(context,path,fontname) {
 
   var plugin        = context.plugin

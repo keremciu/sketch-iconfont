@@ -11,6 +11,26 @@
         "materialicons-regular": {
             "path": "material.json",
             "container": "<i class='material-icons'>*****</i>"
+        },
+        "bts": {
+            "path": "blacktie.json",
+            "container": "<i class='bts bt-*****'></i>"
+        },
+        "btb": {
+            "path": "blacktie.json",
+            "container": "<i class='btb bt-*****'></i>"
+        },
+        "btr": {
+            "path": "blacktie.json",
+            "container": "<i class='btr bt-*****'></i>"
+        },
+        "btl": {
+            "path": "blacktie.json",
+            "container": "<i class='btl bt-*****'></i>"
+        },
+        "fontawesomebrands": {
+            "path": "fontawesomebrands.json",
+            "container": "<i class='fab fab-*****'></i>"
         }
     }
 }

@@ -1,7 +1,7 @@
 {
   "name" : "Icon Font",
   "description" : "Use icon fonts like a boss in Sketch!",
-  "version" : "2.0.0",
+  "version" : "2.0.1",
   "identifier" : "com.keremciu.sketch.iconfont",
   "author" : "Kerem Sevencan",
   "authorEmail" : "info@kerem.ws",
@@ -41,6 +41,41 @@
       "name" : "Ion Icons",
       "identifier" : "ion_add_grid"
     },
+    {
+      "script" : "add_grid.cocoascript",
+      "handler" : "onBts",
+      "shortcut" : "cmd ctrl alt s",
+      "name" : "Blacktie Solid",
+      "identifier" : "bts_add_grid"
+    },
+    {
+      "script" : "add_grid.cocoascript",
+      "handler" : "onBtb",
+      "shortcut" : "cmd ctrl alt b",
+      "name" : "Blacktie Bold",
+      "identifier" : "btb_add_grid"
+    },
+    {
+      "script" : "add_grid.cocoascript",
+      "handler" : "onBtr",
+      "shortcut" : "cmd ctrl alt r",
+      "name" : "Blacktie Regular",
+      "identifier" : "btr_add_grid"
+    },
+    {
+      "script" : "add_grid.cocoascript",
+      "handler" : "onBtl",
+      "shortcut" : "cmd ctrl alt l",
+      "name" : "Blacktie Light",
+      "identifier" : "btl_add_grid"
+    },
+    {
+      "script" : "add_grid.cocoascript",
+      "handler" : "onFab",
+      "shortcut" : "cmd ctrl alt a",
+      "name" : "Font Awesome Brands",
+      "identifier" : "fab_add_grid"
+    }
   ],
   "menu": {
     "title" : "Icon Font",
@@ -52,7 +87,12 @@
         "items" : [
           "awesome_add_grid",
           "material_add_grid",
-          "ion_add_grid"
+          "ion_add_grid",
+          "bts_add_grid",
+          "btb_add_grid",
+          "btr_add_grid",
+          "btl_add_grid",
+          "fab_add_grid"
         ]
       },
     ],
