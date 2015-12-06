@@ -1,0 +1,1264 @@
+{
+  "icons": [
+    {
+      "created": 1, 
+      "id": "bars", 
+      "name": "Bars", 
+      "unicode": "f000"
+    }, 
+    {
+      "created": 1, 
+      "id": "envelope", 
+      "name": "Envelope", 
+      "unicode": "f001"
+    }, 
+    {
+      "created": 1, 
+      "id": "search", 
+      "name": "Search", 
+      "unicode": "f002"
+    }, 
+    {
+      "created": 1, 
+      "id": "search-plus", 
+      "name": "Search Plus", 
+      "unicode": "f003"
+    }, 
+    {
+      "created": 1, 
+      "id": "search-minus", 
+      "name": "Search Minus", 
+      "unicode": "f004"
+    }, 
+    {
+      "created": 1, 
+      "id": "phone", 
+      "name": "Phone", 
+      "unicode": "f005"
+    }, 
+    {
+      "created": 1, 
+      "id": "comment", 
+      "name": "Comment", 
+      "unicode": "f007"
+    }, 
+    {
+      "created": 1, 
+      "id": "commenting", 
+      "name": "Commenting", 
+      "unicode": "f008"
+    }, 
+    {
+      "created": 1, 
+      "id": "comments", 
+      "name": "Comments", 
+      "unicode": "f009"
+    }, 
+    {
+      "created": 1, 
+      "id": "rss", 
+      "name": "Rss", 
+      "unicode": "f00a"
+    }, 
+    {
+      "created": 1, 
+      "id": "times", 
+      "name": "Times", 
+      "unicode": "f00c"
+    }, 
+    {
+      "created": 1, 
+      "id": "times-circle", 
+      "name": "Times Circle", 
+      "unicode": "f00d"
+    }, 
+    {
+      "created": 1, 
+      "id": "clock", 
+      "name": "Clock", 
+      "unicode": "f00e"
+    }, 
+    {
+      "created": 1, 
+      "id": "star", 
+      "name": "Star", 
+      "unicode": "f010"
+    }, 
+    {
+      "created": 1, 
+      "id": "star-half", 
+      "name": "Star Half", 
+      "unicode": "f011"
+    }, 
+    {
+      "created": 1, 
+      "id": "check", 
+      "name": "Check", 
+      "unicode": "f012"
+    }, 
+    {
+      "created": 1, 
+      "id": "check-circle", 
+      "name": "Check Circle", 
+      "unicode": "f013"
+    }, 
+    {
+      "created": 1, 
+      "id": "check-square", 
+      "name": "Check Square", 
+      "unicode": "f014"
+    }, 
+    {
+      "created": 1, 
+      "id": "th", 
+      "name": "Th", 
+      "unicode": "f015"
+    }, 
+    {
+      "created": 1, 
+      "id": "th-large", 
+      "name": "Th Large", 
+      "unicode": "f016"
+    }, 
+    {
+      "created": 1, 
+      "id": "heart", 
+      "name": "Heart", 
+      "unicode": "f017"
+    }, 
+    {
+      "created": 1, 
+      "id": "heart-half", 
+      "name": "Heart Half", 
+      "unicode": "f018"
+    }, 
+    {
+      "created": 1, 
+      "id": "calendar", 
+      "name": "Calendar", 
+      "unicode": "f019"
+    }, 
+    {
+      "created": 1, 
+      "id": "shopping-cart", 
+      "name": "Shopping Cart", 
+      "unicode": "f01a"
+    }, 
+    {
+      "created": 1, 
+      "id": "plus", 
+      "name": "Plus", 
+      "unicode": "f01b"
+    }, 
+    {
+      "created": 1, 
+      "id": "plus-circle", 
+      "name": "Plus Circle", 
+      "unicode": "f01c"
+    }, 
+    {
+      "created": 1, 
+      "id": "plus-square", 
+      "name": "Plus Square", 
+      "unicode": "f01d"
+    }, 
+    {
+      "created": 1, 
+      "id": "pen", 
+      "name": "Pen", 
+      "unicode": "f01e"
+    }, 
+    {
+      "created": 1, 
+      "id": "minus", 
+      "name": "Minus", 
+      "unicode": "f021"
+    }, 
+    {
+      "created": 1, 
+      "id": "minus-circle", 
+      "name": "Minus Circle", 
+      "unicode": "f022"
+    }, 
+    {
+      "created": 1, 
+      "id": "minus-square", 
+      "name": "Minus Square", 
+      "unicode": "f023"
+    }, 
+    {
+      "created": 1, 
+      "id": "pencil", 
+      "name": "Pencil", 
+      "unicode": "f024"
+    }, 
+    {
+      "created": 1, 
+      "id": "edit", 
+      "name": "Edit", 
+      "unicode": "f025"
+    }, 
+    {
+      "created": 1, 
+      "id": "thumbs-up", 
+      "name": "Thumbs Up", 
+      "unicode": "f026"
+    }, 
+    {
+      "created": 1, 
+      "id": "thumbs-down", 
+      "name": "Thumbs Down", 
+      "unicode": "f027"
+    }, 
+    {
+      "created": 1, 
+      "id": "gear", 
+      "name": "Gear", 
+      "unicode": "f028"
+    }, 
+    {
+      "created": 1, 
+      "id": "trash", 
+      "name": "Trash", 
+      "unicode": "f029"
+    }, 
+    {
+      "created": 1, 
+      "id": "file", 
+      "name": "File", 
+      "unicode": "f02a"
+    }, 
+    {
+      "created": 1, 
+      "id": "info-circle", 
+      "name": "Info Circle", 
+      "unicode": "f02b"
+    }, 
+    {
+      "created": 1, 
+      "id": "label", 
+      "name": "Label", 
+      "unicode": "f02c"
+    }, 
+    {
+      "created": 1, 
+      "id": "rocket", 
+      "name": "Rocket", 
+      "unicode": "f02d"
+    }, 
+    {
+      "created": 1, 
+      "id": "book", 
+      "name": "Book", 
+      "unicode": "f02e"
+    }, 
+    {
+      "created": 1, 
+      "id": "book-open", 
+      "name": "Book Open", 
+      "unicode": "f02f"
+    }, 
+    {
+      "created": 1, 
+      "id": "notebook", 
+      "name": "Notebook", 
+      "unicode": "f030"
+    }, 
+    {
+      "created": 1, 
+      "id": "camera", 
+      "name": "Camera", 
+      "unicode": "f031"
+    }, 
+    {
+      "created": 1, 
+      "id": "folder", 
+      "name": "Folder", 
+      "unicode": "f032"
+    }, 
+    {
+      "created": 1, 
+      "id": "quote-left", 
+      "name": "Quote Left", 
+      "unicode": "f036"
+    }, 
+    {
+      "created": 1, 
+      "id": "quote-right", 
+      "name": "Quote Right", 
+      "unicode": "f037"
+    }, 
+    {
+      "created": 1, 
+      "id": "eye", 
+      "name": "Eye", 
+      "unicode": "f038"
+    }, 
+    {
+      "created": 1, 
+      "id": "lock", 
+      "name": "Lock", 
+      "unicode": "f039"
+    }, 
+    {
+      "created": 1, 
+      "id": "lock-open", 
+      "name": "Lock Open", 
+      "unicode": "f03a"
+    }, 
+    {
+      "created": 1, 
+      "id": "gift", 
+      "name": "Gift", 
+      "unicode": "f03b"
+    }, 
+    {
+      "created": 1, 
+      "id": "spinner-clock", 
+      "name": "Spinner Clock", 
+      "unicode": "f03c"
+    }, 
+    {
+      "created": 1, 
+      "id": "spinner", 
+      "name": "Spinner", 
+      "unicode": "f03d"
+    }, 
+    {
+      "created": 1, 
+      "id": "wrench", 
+      "name": "Wrench", 
+      "unicode": "f03e"
+    }, 
+    {
+      "created": 1, 
+      "id": "cloud", 
+      "name": "Cloud", 
+      "unicode": "f040"
+    }, 
+    {
+      "created": 1, 
+      "id": "cloud-upload", 
+      "name": "Cloud Upload", 
+      "unicode": "f041"
+    }, 
+    {
+      "created": 1, 
+      "id": "cloud-download", 
+      "name": "Cloud Download", 
+      "unicode": "f042"
+    }, 
+    {
+      "created": 1, 
+      "id": "sync", 
+      "name": "Sync", 
+      "unicode": "f043"
+    }, 
+    {
+      "created": 1, 
+      "id": "question-circle", 
+      "name": "Question Circle", 
+      "unicode": "f044"
+    }, 
+    {
+      "created": 1, 
+      "id": "share", 
+      "name": "Share", 
+      "unicode": "f045"
+    }, 
+    {
+      "created": 1, 
+      "id": "briefcase", 
+      "name": "Briefcase", 
+      "unicode": "f046"
+    }, 
+    {
+      "created": 1, 
+      "id": "money", 
+      "name": "Money", 
+      "unicode": "f047"
+    }, 
+    {
+      "created": 1, 
+      "id": "megaphone", 
+      "name": "Megaphone", 
+      "unicode": "f048"
+    }, 
+    {
+      "created": 1, 
+      "id": "sign-in", 
+      "name": "Sign In", 
+      "unicode": "f049"
+    }, 
+    {
+      "created": 1, 
+      "id": "sign-out", 
+      "name": "Sign Out", 
+      "unicode": "f04a"
+    }, 
+    {
+      "created": 1, 
+      "id": "film", 
+      "name": "Film", 
+      "unicode": "f04b"
+    }, 
+    {
+      "created": 1, 
+      "id": "trophy", 
+      "name": "Trophy", 
+      "unicode": "f04c"
+    }, 
+    {
+      "created": 1, 
+      "id": "code", 
+      "name": "Code", 
+      "unicode": "f04d"
+    }, 
+    {
+      "created": 1, 
+      "id": "light-bulb", 
+      "name": "Light Bulb", 
+      "unicode": "f04e"
+    }, 
+    {
+      "created": 1, 
+      "id": "print", 
+      "name": "Print", 
+      "unicode": "f050"
+    }, 
+    {
+      "created": 1, 
+      "id": "fax", 
+      "name": "Fax", 
+      "unicode": "f051"
+    }, 
+    {
+      "created": 1, 
+      "id": "video", 
+      "name": "Video", 
+      "unicode": "f052"
+    }, 
+    {
+      "created": 1, 
+      "id": "signal", 
+      "name": "Signal", 
+      "unicode": "f053"
+    }, 
+    {
+      "created": 1, 
+      "id": "sitemap", 
+      "name": "Sitemap", 
+      "unicode": "f054"
+    }, 
+    {
+      "created": 1, 
+      "id": "upload", 
+      "name": "Upload", 
+      "unicode": "f055"
+    }, 
+    {
+      "created": 1, 
+      "id": "download", 
+      "name": "Download", 
+      "unicode": "f056"
+    }, 
+    {
+      "created": 1, 
+      "id": "key", 
+      "name": "Key", 
+      "unicode": "f057"
+    }, 
+    {
+      "created": 1, 
+      "id": "mug", 
+      "name": "Mug", 
+      "unicode": "f058"
+    }, 
+    {
+      "created": 1, 
+      "id": "bookmark", 
+      "name": "Bookmark", 
+      "unicode": "f059"
+    }, 
+    {
+      "created": 1, 
+      "id": "flag", 
+      "name": "Flag", 
+      "unicode": "f05a"
+    }, 
+    {
+      "created": 1, 
+      "id": "external-link", 
+      "name": "External Link", 
+      "unicode": "f05b"
+    }, 
+    {
+      "created": 1, 
+      "id": "smile", 
+      "name": "Smile", 
+      "unicode": "f05c"
+    }, 
+    {
+      "created": 1, 
+      "id": "frown", 
+      "name": "Frown", 
+      "unicode": "f05d"
+    }, 
+    {
+      "created": 1, 
+      "id": "meh", 
+      "name": "Meh", 
+      "unicode": "f05e"
+    }, 
+    {
+      "created": 1, 
+      "id": "magic", 
+      "name": "Magic", 
+      "unicode": "f060"
+    }, 
+    {
+      "created": 1, 
+      "id": "bolt", 
+      "name": "Bolt", 
+      "unicode": "f061"
+    }, 
+    {
+      "created": 1, 
+      "id": "exclamation-triangle", 
+      "name": "Exclamation Triangle", 
+      "unicode": "f062"
+    }, 
+    {
+      "created": 1, 
+      "id": "exclamation-circle", 
+      "name": "Exclamation Circle", 
+      "unicode": "f063"
+    }, 
+    {
+      "created": 1, 
+      "id": "flask", 
+      "name": "Flask", 
+      "unicode": "f064"
+    }, 
+    {
+      "created": 1, 
+      "id": "music", 
+      "name": "Music", 
+      "unicode": "f065"
+    }, 
+    {
+      "created": 1, 
+      "id": "push-pin", 
+      "name": "Push Pin", 
+      "unicode": "f066"
+    }, 
+    {
+      "created": 1, 
+      "id": "shield", 
+      "name": "Shield", 
+      "unicode": "f067"
+    }, 
+    {
+      "created": 1, 
+      "id": "sort", 
+      "name": "Sort", 
+      "unicode": "f068"
+    }, 
+    {
+      "created": 1, 
+      "id": "reply", 
+      "name": "Reply", 
+      "unicode": "f069"
+    }, 
+    {
+      "created": 1, 
+      "id": "forward", 
+      "name": "Forward", 
+      "unicode": "f06a"
+    }, 
+    {
+      "created": 1, 
+      "id": "reply-all", 
+      "name": "Reply All", 
+      "unicode": "f06b"
+    }, 
+    {
+      "created": 1, 
+      "id": "forward-all", 
+      "name": "Forward All", 
+      "unicode": "f06c"
+    }, 
+    {
+      "created": 1, 
+      "id": "bell", 
+      "name": "Bell", 
+      "unicode": "f06d"
+    }, 
+    {
+      "created": 1, 
+      "id": "bell-off", 
+      "name": "Bell Off", 
+      "unicode": "f06e"
+    }, 
+    {
+      "created": 1, 
+      "id": "ban", 
+      "name": "Ban", 
+      "unicode": "f070"
+    }, 
+    {
+      "created": 1, 
+      "id": "database", 
+      "name": "Database", 
+      "unicode": "f071"
+    }, 
+    {
+      "created": 1, 
+      "id": "hard-drive", 
+      "name": "Hard Drive", 
+      "unicode": "f072"
+    }, 
+    {
+      "created": 1, 
+      "id": "merge", 
+      "name": "Merge", 
+      "unicode": "f073"
+    }, 
+    {
+      "created": 1, 
+      "id": "fork", 
+      "name": "Fork", 
+      "unicode": "f074"
+    }, 
+    {
+      "created": 1, 
+      "id": "wifi", 
+      "name": "Wifi", 
+      "unicode": "f075"
+    }, 
+    {
+      "created": 1, 
+      "id": "paper-plane", 
+      "name": "Paper Plane", 
+      "unicode": "f076"
+    }, 
+    {
+      "created": 1, 
+      "id": "inbox", 
+      "name": "Inbox", 
+      "unicode": "f077"
+    }, 
+    {
+      "created": 1, 
+      "id": "fire", 
+      "name": "Fire", 
+      "unicode": "f078"
+    }, 
+    {
+      "created": 1, 
+      "id": "play", 
+      "name": "Play", 
+      "unicode": "f079"
+    }, 
+    {
+      "created": 1, 
+      "id": "pause", 
+      "name": "Pause", 
+      "unicode": "f07a"
+    }, 
+    {
+      "created": 1, 
+      "id": "stop", 
+      "name": "Stop", 
+      "unicode": "f08b"
+    }, 
+    {
+      "created": 1, 
+      "id": "play-circle", 
+      "name": "Play Circle", 
+      "unicode": "f07b"
+    }, 
+    {
+      "created": 1, 
+      "id": "next", 
+      "name": "Next", 
+      "unicode": "f07c"
+    }, 
+    {
+      "created": 1, 
+      "id": "previous", 
+      "name": "Previous", 
+      "unicode": "f07d"
+    }, 
+    {
+      "created": 1, 
+      "id": "repeat", 
+      "name": "Repeat", 
+      "unicode": "f07e"
+    }, 
+    {
+      "created": 1, 
+      "id": "fast-forward", 
+      "name": "Fast Forward", 
+      "unicode": "f080"
+    }, 
+    {
+      "created": 1, 
+      "id": "fast-reverse", 
+      "name": "Fast Reverse", 
+      "unicode": "f081"
+    }, 
+    {
+      "created": 1, 
+      "id": "volume", 
+      "name": "Volume", 
+      "unicode": "f082"
+    }, 
+    {
+      "created": 1, 
+      "id": "volume-off", 
+      "name": "Volume Off", 
+      "unicode": "f083"
+    }, 
+    {
+      "created": 1, 
+      "id": "volume-up", 
+      "name": "Volume Up", 
+      "unicode": "f084"
+    }, 
+    {
+      "created": 1, 
+      "id": "volume-down", 
+      "name": "Volume Down", 
+      "unicode": "f085"
+    }, 
+    {
+      "created": 1, 
+      "id": "maximize", 
+      "name": "Maximize", 
+      "unicode": "f086"
+    }, 
+    {
+      "created": 1, 
+      "id": "minimize", 
+      "name": "Minimize", 
+      "unicode": "f087"
+    }, 
+    {
+      "created": 1, 
+      "id": "closed-captions", 
+      "name": "Closed Captions", 
+      "unicode": "f088"
+    }, 
+    {
+      "created": 1, 
+      "id": "shuffle", 
+      "name": "Shuffle", 
+      "unicode": "f089"
+    }, 
+    {
+      "created": 1, 
+      "id": "triangle", 
+      "name": "Triangle", 
+      "unicode": "f08a"
+    }, 
+    {
+      "created": 1, 
+      "id": "square", 
+      "name": "Square", 
+      "unicode": "f08b"
+    }, 
+    {
+      "created": 1, 
+      "id": "circle", 
+      "name": "Circle", 
+      "unicode": "f08c"
+    }, 
+    {
+      "created": 1, 
+      "id": "hexagon", 
+      "name": "Hexagon", 
+      "unicode": "f08d"
+    }, 
+    {
+      "created": 1, 
+      "id": "octagon", 
+      "name": "Octagon", 
+      "unicode": "f08e"
+    }, 
+    {
+      "created": 1, 
+      "id": "angle-up", 
+      "name": "Angle Up", 
+      "unicode": "f090"
+    }, 
+    {
+      "created": 1, 
+      "id": "angle-down", 
+      "name": "Angle Down", 
+      "unicode": "f091"
+    }, 
+    {
+      "created": 1, 
+      "id": "angle-left", 
+      "name": "Angle Left", 
+      "unicode": "f092"
+    }, 
+    {
+      "created": 1, 
+      "id": "angle-right", 
+      "name": "Angle Right", 
+      "unicode": "f093"
+    }, 
+    {
+      "created": 1, 
+      "id": "angles-up", 
+      "name": "Angles Up", 
+      "unicode": "f094"
+    }, 
+    {
+      "created": 1, 
+      "id": "angles-down", 
+      "name": "Angles Down", 
+      "unicode": "f095"
+    }, 
+    {
+      "created": 1, 
+      "id": "angles-left", 
+      "name": "Angles Left", 
+      "unicode": "f096"
+    }, 
+    {
+      "created": 1, 
+      "id": "angles-right", 
+      "name": "Angles Right", 
+      "unicode": "f097"
+    }, 
+    {
+      "created": 1, 
+      "id": "arrow-up", 
+      "name": "Arrow Up", 
+      "unicode": "f098"
+    }, 
+    {
+      "created": 1, 
+      "id": "arrow-down", 
+      "name": "Arrow Down", 
+      "unicode": "f099"
+    }, 
+    {
+      "created": 1, 
+      "id": "arrow-left", 
+      "name": "Arrow Left", 
+      "unicode": "f09a"
+    }, 
+    {
+      "created": 1, 
+      "id": "arrow-right", 
+      "name": "Arrow Right", 
+      "unicode": "f09b"
+    }, 
+    {
+      "created": 1, 
+      "id": "bar-chart", 
+      "name": "Bar Chart", 
+      "unicode": "f09c"
+    }, 
+    {
+      "created": 1, 
+      "id": "pie-chart", 
+      "name": "Pie Chart", 
+      "unicode": "f09d"
+    }, 
+    {
+      "created": 1, 
+      "id": "circle-arrow-up", 
+      "name": "Circle Arrow Up", 
+      "unicode": "f0a0"
+    }, 
+    {
+      "created": 1, 
+      "id": "circle-arrow-down", 
+      "name": "Circle Arrow Down", 
+      "unicode": "f0a1"
+    }, 
+    {
+      "created": 1, 
+      "id": "circle-arrow-left", 
+      "name": "Circle Arrow Left", 
+      "unicode": "f0a2"
+    }, 
+    {
+      "created": 1, 
+      "id": "circle-arrow-right", 
+      "name": "Circle Arrow Right", 
+      "unicode": "f0a3"
+    }, 
+    {
+      "created": 1, 
+      "id": "caret-up", 
+      "name": "Caret Up", 
+      "unicode": "f0a4"
+    }, 
+    {
+      "created": 1, 
+      "id": "caret-down", 
+      "name": "Caret Down", 
+      "unicode": "f0a5"
+    }, 
+    {
+      "created": 1, 
+      "id": "caret-left", 
+      "name": "Caret Left", 
+      "unicode": "f0a6"
+    }, 
+    {
+      "created": 1, 
+      "id": "caret-right", 
+      "name": "Caret Right", 
+      "unicode": "f0a7"
+    }, 
+    {
+      "created": 1, 
+      "id": "long-arrow-up", 
+      "name": "Long Arrow Up", 
+      "unicode": "f0a8"
+    }, 
+    {
+      "created": 1, 
+      "id": "long-arrow-down", 
+      "name": "Long Arrow Down", 
+      "unicode": "f0a9"
+    }, 
+    {
+      "created": 1, 
+      "id": "long-arrow-left", 
+      "name": "Long Arrow Left", 
+      "unicode": "f0aa"
+    }, 
+    {
+      "created": 1, 
+      "id": "long-arrow-right", 
+      "name": "Long Arrow Right", 
+      "unicode": "f0ab"
+    }, 
+    {
+      "created": 1, 
+      "id": "Bold", 
+      "name": "Bold", 
+      "unicode": "f0ac"
+    }, 
+    {
+      "created": 1, 
+      "id": "italic", 
+      "name": "Italic", 
+      "unicode": "f0ad"
+    }, 
+    {
+      "created": 1, 
+      "id": "underline", 
+      "name": "Underline", 
+      "unicode": "f0ae"
+    }, 
+    {
+      "created": 1, 
+      "id": "link", 
+      "name": "Link", 
+      "unicode": "f0b0"
+    }, 
+    {
+      "created": 1, 
+      "id": "paper-clip", 
+      "name": "Paper Clip", 
+      "unicode": "f0b1"
+    }, 
+    {
+      "created": 1, 
+      "id": "align-left", 
+      "name": "Align Left", 
+      "unicode": "f0b2"
+    }, 
+    {
+      "created": 1, 
+      "id": "align-center", 
+      "name": "Align Center", 
+      "unicode": "f0b3"
+    }, 
+    {
+      "created": 1, 
+      "id": "align-right", 
+      "name": "Align Right", 
+      "unicode": "f0b4"
+    }, 
+    {
+      "created": 1, 
+      "id": "align-justify", 
+      "name": "Align Justify", 
+      "unicode": "f0b5"
+    }, 
+    {
+      "created": 1, 
+      "id": "cut", 
+      "name": "Cut", 
+      "unicode": "f0b6"
+    }, 
+    {
+      "created": 1, 
+      "id": "copy", 
+      "name": "Copy", 
+      "unicode": "f0b7"
+    }, 
+    {
+      "created": 1, 
+      "id": "paste", 
+      "name": "Paste", 
+      "unicode": "f0b8"
+    }, 
+    {
+      "created": 1, 
+      "id": "photo", 
+      "name": "Photo", 
+      "unicode": "f0b9"
+    }, 
+    {
+      "created": 1, 
+      "id": "table", 
+      "name": "Table", 
+      "unicode": "f0ba"
+    }, 
+    {
+      "created": 1, 
+      "id": "ulist", 
+      "name": "Ulist", 
+      "unicode": "f0bb"
+    }, 
+    {
+      "created": 1, 
+      "id": "olist", 
+      "name": "Olist", 
+      "unicode": "f0bc"
+    }, 
+    {
+      "created": 1, 
+      "id": "indent", 
+      "name": "Indent", 
+      "unicode": "f0bd"
+    }, 
+    {
+      "created": 1, 
+      "id": "outdent", 
+      "name": "Outdent", 
+      "unicode": "f0be"
+    }, 
+    {
+      "created": 1, 
+      "id": "undo", 
+      "name": "Undo", 
+      "unicode": "f0c0"
+    }, 
+    {
+      "created": 1, 
+      "id": "redo", 
+      "name": "Redo", 
+      "unicode": "f0c1"
+    }, 
+    {
+      "created": 1, 
+      "id": "sup", 
+      "name": "Sup", 
+      "unicode": "f0c2"
+    }, 
+    {
+      "created": 1, 
+      "id": "sub", 
+      "name": "Sub", 
+      "unicode": "f0c3"
+    }, 
+    {
+      "created": 1, 
+      "id": "text-size", 
+      "name": "Text Size", 
+      "unicode": "f0c4"
+    }, 
+    {
+      "created": 1, 
+      "id": "text-color", 
+      "name": "Text Color", 
+      "unicode": "f0c5"
+    }, 
+    {
+      "created": 1, 
+      "id": "remove-formatting", 
+      "name": "Remove Formatting", 
+      "unicode": "f0c6"
+    }, 
+    {
+      "created": 1, 
+      "id": "blockquote", 
+      "name": "Blockquote", 
+      "unicode": "f036"
+    }, 
+    {
+      "created": 1, 
+      "id": "globe", 
+      "name": "Globe", 
+      "unicode": "f0c7"
+    }, 
+    {
+      "created": 1, 
+      "id": "map", 
+      "name": "Map", 
+      "unicode": "f0c8"
+    }, 
+    {
+      "created": 1, 
+      "id": "map-arrow", 
+      "name": "Map Arrow", 
+      "unicode": "f0c9"
+    }, 
+    {
+      "created": 1, 
+      "id": "map-marker", 
+      "name": "Map Marker", 
+      "unicode": "f0ca"
+    }, 
+    {
+      "created": 1, 
+      "id": "map-pin", 
+      "name": "Map Pin", 
+      "unicode": "f0cb"
+    }, 
+    {
+      "created": 1, 
+      "id": "home", 
+      "name": "Home", 
+      "unicode": "f0cc"
+    }, 
+    {
+      "created": 1, 
+      "id": "building", 
+      "name": "Building", 
+      "unicode": "f0cd"
+    }, 
+    {
+      "created": 1, 
+      "id": "industry", 
+      "name": "Industry", 
+      "unicode": "f0ce"
+    }, 
+    {
+      "created": 1, 
+      "id": "desktop", 
+      "name": "Desktop", 
+      "unicode": "f0d0"
+    }, 
+    {
+      "created": 1, 
+      "id": "laptop", 
+      "name": "Laptop", 
+      "unicode": "f0d1"
+    }, 
+    {
+      "created": 1, 
+      "id": "tablet", 
+      "name": "Tablet", 
+      "unicode": "f0d2"
+    }, 
+    {
+      "created": 1, 
+      "id": "mobile", 
+      "name": "Mobile", 
+      "unicode": "f0d3"
+    }, 
+    {
+      "created": 1, 
+      "id": "tv", 
+      "name": "Tv", 
+      "unicode": "f0d4"
+    }, 
+    {
+      "created": 1, 
+      "id": "radio-checked", 
+      "name": "Radio Checked", 
+      "unicode": "f0d5"
+    }, 
+    {
+      "created": 1, 
+      "id": "radio-unchecked", 
+      "name": "Radio Unchecked", 
+      "unicode": "f08c"
+    }, 
+    {
+      "created": 1, 
+      "id": "checkbox-checked", 
+      "name": "Checkbox Checked", 
+      "unicode": "f014"
+    }, 
+    {
+      "created": 1, 
+      "id": "checkbox-unchecked", 
+      "name": "Checkbox Unchecked", 
+      "unicode": "f08b"
+    }, 
+    {
+      "created": 1, 
+      "id": "checkbox-intermediate", 
+      "name": "Checkbox Intermediate", 
+      "unicode": "f023"
+    }, 
+    {
+      "created": 1, 
+      "id": "user", 
+      "name": "User", 
+      "unicode": "f0d6"
+    }, 
+    {
+      "created": 1, 
+      "id": "user-male", 
+      "name": "User Male", 
+      "unicode": "f0d6"
+    }, 
+    {
+      "created": 1, 
+      "id": "user-female", 
+      "name": "User Female", 
+      "unicode": "f0d7"
+    }, 
+    {
+      "created": 1, 
+      "id": "crown", 
+      "name": "Crown", 
+      "unicode": "f0d8"
+    }, 
+    {
+      "created": 1, 
+      "id": "credit-card", 
+      "name": "Credit Card", 
+      "unicode": "f0d9"
+    }, 
+    {
+      "created": 1, 
+      "id": "strikethrough", 
+      "name": "Strikethrough", 
+      "unicode": "f0da"
+    }, 
+    {
+      "created": 1, 
+      "id": "eject", 
+      "name": "Eject", 
+      "unicode": "f0db"
+    }, 
+    {
+      "created": 1, 
+      "id": "ellipsis-h", 
+      "name": "Ellipsis H", 
+      "unicode": "f0dc"
+    }, 
+    {
+      "created": 1, 
+      "id": "ellipsis-v", 
+      "name": "Ellipsis V", 
+      "unicode": "f0dd"
+    }
+  ]
+}
