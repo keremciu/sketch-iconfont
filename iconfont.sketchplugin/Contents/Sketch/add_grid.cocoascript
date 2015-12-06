@@ -21,6 +21,7 @@ var onRun = function(context,path,fontname) {
   // 2. create list properties
   json              = Library.fetch.json(path,plugin)
   icons             = [json objectForKey:@"icons"]
+  unfilter          = [json objectForKey:@"icons"]
   count             = icons.count()
   width             = 545
   col_size          = Math.ceil(width / 50)
@@ -72,7 +73,8 @@ var onRun = function(context,path,fontname) {
   searchbox.setTarget(self)
   searchbox.setAction("callAction:")
   searchbox.setCOSJSTargetFunction(function(sender) {
-    filtered = true
+    if (filtered == true)
+      icons = unfilter
     // get filter
     var q               = searchbox.stringValue()
     // search icons with filter
@@ -99,6 +101,7 @@ var onRun = function(context,path,fontname) {
       newCell.setTitle(icons.unicodes[i])
       newCell.setTag(i)
     }
+    filtered = true
   }];
 
   wrapper.main.addSubview(searchbox)
