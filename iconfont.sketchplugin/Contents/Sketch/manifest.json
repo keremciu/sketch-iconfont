@@ -41,12 +41,6 @@
       "handler" : "onRun",
       "name" : "Import a Font",
       "identifier" : "import"
-    },
-    {
-      "script" : "add_grid.cocoascript",
-      "handler" : "handleFont",
-      "name" : "flaticon",
-      "identifier" : "7_add_grid"
     }
   ],
   "menu" : {
@@ -58,7 +52,6 @@
           "awesome_add_grid",
           "material_add_grid",
           "ion_add_grid",
-          "7_add_grid"
         ]
       },
       "add",

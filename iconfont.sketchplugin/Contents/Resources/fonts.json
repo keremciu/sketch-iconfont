@@ -1,9 +1,5 @@
 {
   "fonts" : {
-    "flaticon" : {
-      "path" : "customs/flaticon.json",
-      "container" : "<i class='flaticon-*****'></i>"
-    },
     "fontawesome" : {
       "path" : "fontawesome.json",
       "container" : "<i class='fa fa-*****'></i>"
