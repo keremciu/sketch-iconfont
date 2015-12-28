@@ -1,5 +1,4 @@
 {
-  "author" : "Kerem Sevencan",
   "commands" : [
     {
       "script" : "learn.cocoascript",
@@ -38,18 +37,27 @@
       "handler" : "onRun",
       "name" : "Remove a Font",
       "identifier" : "remove"
-    }
+    },
   ],
   "menu" : {
     "title" : "Icon Font",
     "items" : [
-      "install",
-      "import"
+      {
+        "title" : "Grid Insert",
+        "items" : [
+        ]
+      },
+      "add",
+      "learn",
+      {
+        "title" : "Install / Remove",
+        "items" : [
+          "install",
+          "export",
+          "import",
+          "remove"
+        ]
+      }
     ]
   },
-  "identifier" : "com.keremciu.sketch.iconfont",
-  "version" : "3.0.0",
-  "description" : "Use icon-fonts like a boss.",
-  "name" : "Icon Font",
-  "authorEmail" : "info@kerem.ws"
 }

@@ -1,4 +1,4 @@
-@import "library.cocoascript";
+@import "const/library.cocoascript";
 
 var onRun = function(context) {
 
@@ -51,7 +51,7 @@ var onRun = function(context) {
 
   submit.setLayer(submit_text)
   wrapper.main.addSubview(submit)
- 
+
   // 5. build window
   var response = NSApp.runModalForWindow(wrapper.window)
 

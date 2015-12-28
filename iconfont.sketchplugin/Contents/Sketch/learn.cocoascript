@@ -1,4 +1,4 @@
-@import "library.cocoascript"
+@import "const/library.cocoascript"
 
 var onRun = function(context) {
 
@@ -17,7 +17,7 @@ var onRun = function(context) {
     // 5. Get font properties with font name
     var font        = Library.fetch.font(fontname,plugin)
     // 6. Get icon list
-    var icons       = Library.fetch.json(font.path,plugin)
+    var icons       = Library.fetch.json("bundle/" + font.path,plugin)
     // 7. Find matched icon
     var matched     = Library.fetch.icon("unicode",unicode,icons)
     // 7.1. container of matched icon
