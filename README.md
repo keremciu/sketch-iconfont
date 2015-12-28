@@ -50,16 +50,10 @@ Grid Insert 			| Insert an icon from the grid which is searchable.
 Name Insert 			| Insert an icon with its name.
 HTML of Selected Icon   | If you want to use an icon on web or mobile you need to select it and run this command.
 
-## Demo
-
-![demo][demo-image]
-
 ### Minimum Dependencies
 
 - OSX El Capitan.
 - Sketch 3.4.4.
-
-
 
 You can follow me on twitter to get updates.
 http://twitter.com/keremciu
@@ -76,4 +70,6 @@ MIT
 
 If you want you can buy me a beer guys, https://www.paypal.me/keremsevencan :)
 
-[demo-image]: http://i.imgur.com/EBGmlSe.gif
+#### Old version
+
+If you want to see old version of this plugin, you can go for it: http://i.imgur.com/EBGmlSe.gif
