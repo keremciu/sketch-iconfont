@@ -61,7 +61,7 @@ HTML of Selected Icon   | If you want to use an icon on web or mobile you need t
 
 
 
-You can follow me on twitter to get updates about new icon fonts.
+You can follow me on twitter to get updates.
 http://twitter.com/keremciu
 
 #### License
