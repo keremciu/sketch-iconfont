@@ -1,11 +1,11 @@
-@import "library.cocoascript";
+@import "const/library.cocoascript";
 
 var handleFont = function(context) {
   var handler  = context.command.name()
   var font     = Library.fetch.font(handler,context.plugin)
-  
+
   // onRun function with context, json file path, title and font name.
-  onRun(context,font.path,handler);
+  onRun(context,"/bundle/" + font.path,handler);
 }
 
 var onRun = function(context,path,fontname) {
@@ -115,7 +115,7 @@ var onRun = function(context,path,fontname) {
 
   selected                = matrix.selectedCell().tag()
   icon                    = matrix.selectedCell().title()
-  
+
   if (filtered) {
     name                  = icons.names[selected] + ' - ' + fontname
   } else {
