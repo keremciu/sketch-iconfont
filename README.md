@@ -1,58 +1,29 @@
 [![Latest Version](https://img.shields.io/github/release/keremciu/sketch-iconfont.svg?style=flat-square)](https://github.com/keremciu/sketch-iconfont/releases)
 [![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Use icon fonts like a boss in Sketch!
+## Use Icon-Fonts in Sketch
+
+This plugin helps you to add/manage icons with a nice way.
 
 =======
 
-#### Update: 6 December (on different branch https://github.com/keremciu/sketch-iconfont/tree/customfonts)
-
-###### You can import all icon-fonts to use it on Sketch! I'm still developing it for updatable version thats why this update on a new branch.
-=======
-![demo][update]
-
-##### Update: 5 December
-The codes rewritten, you can read them easily. Soon custom-iconfont support is coming.
-
-##### Update: You can search an icon in grid view.
-https://pbs.twimg.com/tweet_video/CTKBEtoUwAQ3DC0.mp4
-
-![demo][quick-gif] 
-(sorry for bad quality, I'll add a video gif)
-
-Now it supports **font awesome, material and ion icons** but sure, I would like to add more. 
-Maybe we can create a custom icon font uploader, it would be so cool.
-
-## Demo
-
-![demo][demo-image]
-
-# Features
+### - Features
+###### Why you need to use
 
 > `A Problem of the Designer:` 
-> When you want to add an icon from icon fonts, you don't need to find a cheatsheet to copy it in your design.
+> When a designer wants to add an icon from icon fonts (like material, fontawesome, etc.) you need to find a cheatsheet to copy it in your design file or need to use a another application.
 
-- You can easily add it now in sketch.
+- You can easily add all icons without another application!
 
 > `A Problem of the Developer:` 
-> When you want to learn name of the icon which is added from a designer, you don't need to look too much icons to find it.
+> When a developer wants to learn name of the icon which is added by designer, you need to look too much icons to find it.
 
-- You can easily learn it now in sketch.
+- You can easily learn it without any search.
 
-# Dependencies
+=======
 
-You need to install icon fonts to your OS:
-
-For fontawesome:
-https://github.com/FortAwesome/Font-Awesome/raw/master/fonts/FontAwesome.otf
-
-For ion icons:
-https://github.com/driftyco/ionicons/raw/master/fonts/ionicons.ttf
-
-For material icons:
-https://github.com/google/material-design-icons/raw/master/iconfont/MaterialIcons-Regular.ttf
-
-# Install
+### - Install
+###### It needs to be clear.
 
 ### with Sketch Toolbox
 
@@ -64,23 +35,45 @@ https://github.com/google/material-design-icons/raw/master/iconfont/MaterialIcon
 2. Extract and rename folder to what would you like.
 3. Put the folder in your Sketch plugin folder (Use `Plugins > Reveal Plugins Folder` to find the plugin folder).
 
-# Next Steps
+=======
 
-~~- I'd like to add a search area in "add icon with list" command to easily find an icon.~~ Added.
-- I'm trying to build a svg icon font parser to use custom icon fonts in sketch.
+### - Documentation
+###### Its a little documentation about commands 
+
+Command             	| Description
+----------------------- | -----------------------------------------------------------------------------------------------
+Install a Font-Bundle   | This is the first command of plugin. You need to install a font-bundle first with this command.
+Export your Font-Bundle | Export or backup all of your icon-fonts which ones installed by you. If you have too much custom-icon fonts or you want to install new version, you need to backup fonts.
+Install a Font          | If you want to use a icon-font, you need to install it with its svg file.
+Remove a Font 			| If you want to remove a font, you need to select it with this command.
+Grid Insert 			| Insert an icon from the grid which is searchable.
+Name Insert 			| Insert an icon with its name.
+HTML of Selected Icon   | If you want to use an icon on web or mobile you need to select it and run this command.
+
+## Demo
+
+![demo][demo-image]
+
+### Minimum Dependencies
+
+- OSX El Capitan.
+- Sketch 3.4.4.
+
+
 
 You can follow me on twitter to get updates about new icon fonts.
+http://twitter.com/keremciu
 
-# License
+#### License
 
 MIT
 
 =======
+
+#### Donate
 
 :beers:
 
 If you want you can buy me a beer guys, https://www.paypal.me/keremsevencan :)
 
 [demo-image]: http://i.imgur.com/EBGmlSe.gif
-[update]:https://pbs.twimg.com/media/CVi0yPCUsAAwo5c.png
-[quick-gif]: http://i.imgur.com/nYLJhIE.gif
