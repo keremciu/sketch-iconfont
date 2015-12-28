@@ -5,6 +5,8 @@
 
 This plugin helps you to add/manage icons with a nice way.
 
+##### You can use every fonts/icons now.
+
 =======
 
 ### - Features
