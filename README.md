@@ -6,6 +6,7 @@
 This plugin helps you to add/manage icons with a nice way.
 
 ##### You can use every fonts/icons now.
+It has no font, now you install which one you want but I suggest the popular ones, you can find them below: https://github.com/keremciu/font-bundles
 
 =======
 
