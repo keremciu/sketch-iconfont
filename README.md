@@ -55,7 +55,7 @@ Grid Insert 			| Insert an icon from the grid which is searchable.
 Name Insert 			| Insert an icon with its name.
 HTML of Selected Icon   | If you want to use an icon on web or mobile you need to select it and run this command.
 
-### Minimum Dependencies
+### - Minimum Dependencies
 
 - OSX El Capitan.
 - Sketch 3.4.4.
