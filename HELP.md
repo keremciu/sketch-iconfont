@@ -1,4 +1,4 @@
-If you don't see any icons, please be sure about the font installed.
+If you don't see any icons, please make sure you have installed your icon fonts.
 
 =======
 
@@ -6,10 +6,10 @@ If you don't see any icons, please be sure about the font installed.
 
 Command             	| Description
 ----------------------- | -----------------------------------------------------------------------------------------------
-Install a Font-Bundle   | This is the first command of plugin. You need to install a font-bundle first with this command.
-Export your Font-Bundle | Export or backup all of your icon-fonts which ones installed by you. If you have too much custom-icon fonts or you want to install new version, you need to backup fonts.
-Install a Font          | If you want to use a icon-font, you need to install it with its svg file.
-Remove a Font 			| If you want to remove a font, you need to select it with this command.
-Grid Insert 			| Insert an icon from the grid which is searchable.
-Name Insert 			| Insert an icon with its name.
-HTML of Selected Icon   | If you want to use an icon on web or mobile you need to select it and run this command.
+Install a Font-Bundle   | Install a newly downloaded font bundle.
+Export your Font-Bundle | Export or backup all icon fonts previously installed by you. Recommended before installing a new version of the plugin.
+Install a Font          | Install a newly downloaded icon font - containing an svg font file.
+Remove a Font 			| Remove a previously downloaded icon font.
+Grid Insert 			| Insert an icon by searching a table grid of all icons.
+Name Insert 			| Insert an icon by its name.
+HTML of Selected Icon   | To use an icon on web or mobile, select it and run this command.
