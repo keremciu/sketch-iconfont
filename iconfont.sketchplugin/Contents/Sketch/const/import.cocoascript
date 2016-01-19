@@ -16,6 +16,8 @@ var onRun = function(context) {
 
     if (fontname == "fontawesomeregular")
         fontname = "FontAwesome"
+    if (fontname == "batch_iconsregular")
+        fontname = "Batch"
 
     // 2. Create Window
     var wrapper     	= Library.Widgets.window("Import Font",fontname)
@@ -31,14 +33,28 @@ var onRun = function(context) {
 	})
 	wrapper.main.addSubview(container)
 
+    // 3.1. Create a shortcut
+    var shortcut     = [[NSTextField alloc] initWithFrame:NSMakeRect(200,145,200,24)]
+  shortcut.setBackgroundColor(NSColor.clearColor())
+  shortcut.setPlaceholderString(@"Write command shortcut here")
+  shortcut.setTarget(self)
+  shortcut.setCOSJSTargetFunction(function(sender){
+    wrapper.window.orderOut(nil)
+    NSApp.stopModalWithCode(NSOKButton)
+  })
+  wrapper.main.addSubview(shortcut)
+
 	hint = Library.Widgets.subtitle("You need to write like this: <i class='fa fa-*****'></i>",14,NSColor.grayColor(),NSMakeRect(130, 220, 500, 30))
 	wrapper.main.addSubview(hint)
 
 	hint2 = Library.Widgets.subtitle("It will be like this: <i class='fa fa-iconname'></i>",14,NSColor.grayColor(),NSMakeRect(145, 190, 500, 30))
 	wrapper.main.addSubview(hint2)
 
-	// 3.1. Create a button to start import
-	var submit = [[NSButton alloc] initWithFrame:NSMakeRect(230, 100, 200, 50)]
+  hint3 = Library.Widgets.subtitle("You need to write like this: cmd ctrl f",14,NSColor.grayColor(),NSMakeRect(170, 100, 500, 30))
+  wrapper.main.addSubview(hint3)
+
+	// 3.2. Create a button to start import
+	var submit = [[NSButton alloc] initWithFrame:NSMakeRect(230, 30, 200, 50)]
   	submit.setTitle("")
   	submit.setAction("callAction:")
   	submit.setWantsLayer(true)
@@ -57,7 +73,7 @@ var onRun = function(context) {
 	submit.setLayer(submit_text)
 	wrapper.main.addSubview(submit)
 
-    // 3. Parse Glyphs of Font
+    // 3.3 Parse Glyphs of Font
     glyphs = svg.match(/<glyph[^>]*?>/g)
 
     var list = {"icons": []}
@@ -70,13 +86,15 @@ var onRun = function(context) {
             name = "icon"+i
         }
 
-        unicode = glyph.match(/unicode=".+?"/)[0].split('"')[1]
-        sliced = unicode.slice(3,7)
+        if (glyph.match(/unicode=".+?"/)) {
+          unicode = glyph.match(/unicode=".+?"/)[0].split('"')[1]
+          sliced = unicode.slice(3,7)
 
-        icon = {"name":name,"id":name,"unicode":sliced,"created":1}
+          icon = {"name":name,"id":name,"unicode":sliced,"created":1}
 
-        if (glyph.match(/d=".+?"/)) {
-          list.icons.push(icon)
+          if (glyph.match(/d=".+?"/)) {
+            list.icons.push(icon)
+          }
         }
     }
 
@@ -102,7 +120,6 @@ var onRun = function(context) {
     manifest = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil]
 
     // 10. Add a command to manifest.json
-
     count = manifest.commands.length()
 
     if (manifest.menu.items.length() < 3) {
@@ -114,26 +131,46 @@ var onRun = function(context) {
         count = 7;
     }
 
-   	  nextid = count +1
-     	command = {
-     		"script": "add_grid.cocoascript",
-          	"handler": "handleFont",
-          	"name": fontname,
-          	"identifier": nextid + "_add_grid"
-     	}
-
- 	    // add command to manifest
-      menu = [manifest objectForKey:@"menu"]
-      items = [menu objectForKey:@"items"]
-      first = [items objectAtIndex:0]
-
- 	    [[manifest objectForKey:@"commands"] addObject:command]
- 	    [[first objectForKey:@"items"] addObject:@""+nextid + "_add_grid"]
 
  	var response = NSApp.runModalForWindow(wrapper.window)
 
  	// if is the response is ok, import font
     if (response == NSOKButton) {
+
+      // Create shortcut for new font
+      writed_shortcut = shortcut.stringValue()
+
+      if (!(writed_shortcut && writed_shortcut.length() > 0)) {
+        writed_shortcut = nil
+      }
+
+      // add command to manifest
+      menu = [manifest objectForKey:@"menu"]
+      items = [menu objectForKey:@"items"]
+      first = [items objectAtIndex:0]
+      firstlist = [first objectForKey:@"items"]
+
+      // put nextid
+      nextid = count +1
+
+      // search nextid is true?
+      for (i = 0; i < firstlist.length(); i++) {
+        item = firstlist[i]
+        if (item == nextid + "_add_grid") {
+          nextid = count+30
+        }
+      }
+
+      command = {
+        "script": "add_grid.cocoascript",
+            "handler": "handleFont",
+            "name": fontname,
+            "identifier": nextid + "_add_grid",
+            "shortcut": writed_shortcut
+      }
+
+      [[manifest objectForKey:@"commands"] addObject:command]
+      [[first objectForKey:@"items"] addObject:@""+nextid + "_add_grid"]
 
         // 10/2. Write font data to json file
         var t = [NSString stringWithFormat:@"%@", json]
