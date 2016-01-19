@@ -1,21 +1,11 @@
-@import "library.cocoascript";
+@import "const/library.cocoascript";
 
-var onFontawesome = function(context) {
-  var font        = Library.fetch.font("fontawesome",context.plugin)
+var handleFont = function(context) {
+  var handler  = context.command.name()
+  var font     = Library.fetch.font(handler,context.plugin)
+
   // onRun function with context, json file path, title and font name.
-  onRun(context,font.path,"fontawesome");
-}
-
-var onMaterial = function(context) {
-  var font        = Library.fetch.font("materialicons-regular",context.plugin)
-  // onRun function with context, json file path and font name.
-  onRun(context,font.path,"MaterialIcons-Regular");
-}
-
-var onIon = function(context) {
-  var font        = Library.fetch.font("ionicons",context.plugin)
-  // onRun function with context, json file path and font name.
-  onRun(context,font.path,"ionicons");
+  onRun(context,"/bundle/" + font.path,handler);
 }
 
 var onRun = function(context,path,fontname) {
@@ -31,6 +21,7 @@ var onRun = function(context,path,fontname) {
   // 2. create list properties
   json              = Library.fetch.json(path,plugin)
   icons             = [json objectForKey:@"icons"]
+  unfilter          = [json objectForKey:@"icons"]
   count             = icons.count()
   width             = 545
   col_size          = Math.ceil(width / 50)
@@ -82,7 +73,8 @@ var onRun = function(context,path,fontname) {
   searchbox.setTarget(self)
   searchbox.setAction("callAction:")
   searchbox.setCOSJSTargetFunction(function(sender) {
-    filtered = true
+    if (filtered == true)
+      icons = unfilter
     // get filter
     var q               = searchbox.stringValue()
     // search icons with filter
@@ -109,6 +101,7 @@ var onRun = function(context,path,fontname) {
       newCell.setTitle(icons.unicodes[i])
       newCell.setTag(i)
     }
+    filtered = true
   }];
 
   wrapper.main.addSubview(searchbox)
@@ -122,7 +115,7 @@ var onRun = function(context,path,fontname) {
 
   selected                = matrix.selectedCell().tag()
   icon                    = matrix.selectedCell().title()
-  
+
   if (filtered) {
     name                  = icons.names[selected] + ' - ' + fontname
   } else {

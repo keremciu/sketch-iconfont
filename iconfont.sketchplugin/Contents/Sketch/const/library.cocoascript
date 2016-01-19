@@ -7,6 +7,14 @@
 
 var Library = {
   "create": {
+    "file": function(json,path) {
+      jsonData = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:nil]
+      parsed = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]
+      sanitized = [parsed stringByReplacingOccurrencesOfString:@"\\/" withString:"/"];
+      var t = [NSString stringWithFormat:@"%@", sanitized]
+      f = [NSString stringWithFormat:@"%@", path]
+      [t writeToFile:f atomically:true encoding:NSUTF8StringEncoding error:nil]
+    },
     //
     // Create icon layer
     // Valid types for doc is Object
@@ -44,7 +52,7 @@ var Library = {
       if (typeof(parameters.rect) !== 'undefined') layer.rect = parameters.rect;
       if (typeof(parameters.color) !== 'undefined') {
         this.util.setFillColor(layer, parameters.color);
-      } 
+      }
       return layer;
     },
     //
@@ -73,7 +81,7 @@ var Library = {
       // zoom to the icon
       // var view = doc.currentView();
       // view.zoomToSelection();
-      
+
       if (typeof(parameters.text) !== 'undefined') {
         textLayer.stringValue = parameters.text;
         if (typeof(parameters.name) == 'undefined') {
@@ -86,15 +94,48 @@ var Library = {
     },
   },
   "fetch": {
+    file: function(filePath) {
+      var fileManager = [NSFileManager defaultManager];
+      if([fileManager fileExistsAtPath:filePath]) {
+        return [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+      }
+      return nil;
+    },
+    selectPanel: function(title,type) {
+      // display the open panel
+      var openPanel = [NSOpenPanel openPanel]
+      [openPanel setTitle:title]
+      [openPanel setCanCreateDirectories:true]
+      if (type == "folder") {
+        [openPanel setCanChooseFiles:false]
+        [openPanel setCanChooseDirectories:true]
+      } else {
+        [openPanel setCanChooseFiles:true]
+        [openPanel setCanChooseDirectories:false]
+      }
+      [openPanel setAllowsMultipleSelection:false]
+      [openPanel setShowsHiddenFiles:false]
+      [openPanel setExtensionHidden:false]
+      [[NSApplication sharedApplication] activateIgnoringOtherApps:true]
+      var openPanelButtonPressed = [openPanel runModal]
+      if (openPanelButtonPressed == NSFileHandlingPanelOKButton) {
+        if (![openPanel URL]) {
+          log("File not selected.")
+        } else {
+          allowedUrl = [openPanel URL]
+        }
+      }
+      return allowedUrl
+    },
     //
     // Get json with source
     // Valid types for source is String
     //
     "json": function(source,plugin) {
       var source      = plugin.urlForResourceNamed(source)
-      var json        = [NSData dataWithContentsOfFile: source]
+      var json        = [NSData dataWithContentsOfFile:source]
 
-      return [NSJSONSerialization JSONObjectWithData:json options:nil error:nil]
+      return [NSJSONSerialization JSONObjectWithData:json options:0 error:nil]
     },
     //
     // Get font properties with fontname
@@ -104,7 +145,7 @@ var Library = {
     "font": function(fontname,plugin) {
       var json        = Library.fetch.json("fonts.json",plugin)
       var fonts       = [json objectForKey:@"fonts"]
-      var escapedname = fontname.replace(/^\s*|\s*$/g,'').toLowerCase()
+      var escapedname = fontname.replace(/^\s*|\s*$/g,'')
 
       return fonts[escapedname]
     },
@@ -125,7 +166,7 @@ var Library = {
         } else {
           matcher = list[i]["id"]
         }
-          
+
         if (matcher == @""+text) {
           result.alias = list[i]["id"]
           result.unicode = list[i]["unicode"]
@@ -169,7 +210,7 @@ var Library = {
     "escape": function(unicode) {
       var r = /\\u([\d\w]{4})/gi;
       x = unicode.replace(r, function (match, grp) {
-          return String.fromCharCode(parseInt(grp, 16)); } 
+          return String.fromCharCode(parseInt(grp, 16)); }
       );
       return unescape(x);
     },
@@ -312,13 +353,13 @@ var Library = {
       },
       "set": function(text) {
         if( typeof text === 'undefined' ) return null;
- 
+
         if( !this.pasteBoard )
           this.init();
 
         this.pasteBoard.declareTypes_owner( [ NSPasteboardTypeString ], null );
         this.pasteBoard.setString_forType( text, NSPasteboardTypeString );
-       
+
         return true;
       }
     },
@@ -349,6 +390,6 @@ var Library = {
       // [app withTitle:title displayDialog:text]
     },
 
-  }, 
+  },
 
 };
