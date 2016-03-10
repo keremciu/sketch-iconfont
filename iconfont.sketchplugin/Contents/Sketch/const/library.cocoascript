@@ -63,14 +63,22 @@ var Library = {
     //
     "textLayer": function (doc, container, parameters) {
       var textLayer = Library.create.layer(container, "text", parameters);
-      // deselect all selected layers
-      doc.currentPage().deselectAllLayers()
-      // textlayer vertically centered
-      var midY = container.absoluteRect().midY();
+      // center function construct values
+      zoomValue = doc.zoomValue();
+      scrollOrigin = doc.scrollOrigin();
+      // view frame
+      var view = doc.currentView();
+      viewFrame = [view frame];
+      viewHeight = viewFrame.size.height;
+      viewWidth = viewFrame.size.width;
+
+      // textlayer vertically center
+      var midY = (viewHeight / 2 - scrollOrigin.y) / zoomValue;
       var targetY = Math.ceil(midY - textLayer.frame().height() / 2);
       textLayer.absoluteRect().setY(targetY);
-      // textlayer horizontally centered
-      var midX = container.absoluteRect().midX();
+
+      // textlayer horizontally center
+      var midX = (viewWidth / 2 - scrollOrigin.x) / zoomValue;
       var targetX = Math.ceil(midX - textLayer.frame().width() / 2);
       textLayer.absoluteRect().setX(targetX);
       // select the text layer
@@ -78,9 +86,8 @@ var Library = {
       // set the font-size
       textLayer.fontSize = 24;
 
-      // zoom to the icon
-      // var view = doc.currentView();
-      // view.zoomToSelection();
+      // deselect all selected layers
+      doc.currentPage().deselectAllLayers()
 
       if (typeof(parameters.text) !== 'undefined') {
         textLayer.stringValue = parameters.text;
