@@ -55,7 +55,7 @@ HTML of Selected Icon   | To use an icon on web or mobile, select it and use thi
 
 ### - Minimum Dependencies
 
-- OSX El Capitan & Yosemite ([#44](https://github.com/keremciu/sketch-iconfont/issues/44)
+- OSX El Capitan & Yosemite ([#44](https://github.com/keremciu/sketch-iconfont/issues/44))
 - Sketch 3.4.4.
 
 You can follow me on twitter to get updates.
