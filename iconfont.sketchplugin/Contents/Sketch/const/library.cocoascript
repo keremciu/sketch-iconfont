@@ -382,7 +382,7 @@ var Library = {
       button.setAction("callAction:")
 
       button.setCOSJSTargetFunction(function() {
-        Library.widgets.clipboard.set(text)
+        Library.Widgets.clipboard.set(text)
       })
 
       return button
