@@ -94,7 +94,8 @@ var onRun = function(context,path,fontname) {
     [matrix setFrame:newFrame];
     [matrix renewRows:newRows columns:newCol];
 
-    for (var i=0; i < newCount; i++) {
+    for (var i=0; i < newCount; i++)
+    {
       newCell = cellArray.objectAtIndex(i)
       [matrix setToolTip:@""+ icons.names[i] forCell:newCell];
       newCell.setTitle(icons.unicodes[i])
