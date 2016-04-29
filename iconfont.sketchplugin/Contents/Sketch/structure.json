@@ -1,0 +1,70 @@
+{
+  "commands" : [
+    {
+      "script" : "learn.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "cmd ctrl u",
+      "name" : "HTML of Selected Icon",
+      "identifier" : "learn"
+    },
+    {
+      "script" : "convert.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "cmd ctrl u",
+      "name" : "Convert Icons [Outlines]",
+      "identifier" : "convert"
+    },
+    {
+      "script" : "add.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "cmd ctrl i",
+      "name" : "Name Insert",
+      "identifier" : "add"
+    },
+    {
+      "script" : "const/install.cocoascript",
+      "handler" : "onRun",
+      "name" : "Install a Font-Bundle",
+      "identifier" : "install"
+    },
+    {
+      "script" : "const/export.cocoascript",
+      "handler" : "onRun",
+      "name" : "Export your Font-Bundle",
+      "identifier" : "export"
+    },
+    {
+      "script" : "const/import.cocoascript",
+      "handler" : "onRun",
+      "name" : "Install a Font",
+      "identifier" : "import"
+    },
+    {
+      "script" : "const/remove.cocoascript",
+      "handler" : "onRun",
+      "name" : "Remove a Font",
+      "identifier" : "remove"
+    },
+  ],
+  "menu" : {
+    "title" : "Icon Font",
+    "items" : [
+      {
+        "title" : "Grid Insert",
+        "items" : [
+        ]
+      },
+      "add",
+      "learn",
+      {
+        "title" : "Install / Remove",
+        "items" : [
+          "install",
+          "export",
+          "import",
+          "remove"
+        ]
+      }
+    ]
+  },
+}
