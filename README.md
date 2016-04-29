@@ -1,6 +1,13 @@
 [![Latest Version](https://img.shields.io/github/release/keremciu/sketch-iconfont.svg?style=flat-square)](https://github.com/keremciu/sketch-iconfont/releases)
 [![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+### New Feature - 29 April 2016
+![demo][demo-image]
+
+Your teammates don't have your icon-fonts? don't worry now you can convert all icons with one command then share it.
+
+[demo-image]: http://g.recordit.co/TU3az70acC.gif
+
 ## Use Icon Fonts in Sketch
 
 This plugin helps you easily insert and manage icons from icon fonts - such as FontAwesome, Ion or Material Design Icons - in your Sketch designs.
@@ -55,11 +62,7 @@ HTML of Selected Icon   | To use an icon on web or mobile, select it and use thi
 
 ### - Minimum Dependencies
 
-<<<<<<< HEAD
-- OSX El Capitan.
-=======
 - OSX El Capitan & Yosemite ([#44](https://github.com/keremciu/sketch-iconfont/issues/44))
->>>>>>> 89a08fae005b6db0c5fbe0fa244fe0420e1304f3
 - Sketch 3.4.4.
 
 You can follow me on twitter to get updates.
