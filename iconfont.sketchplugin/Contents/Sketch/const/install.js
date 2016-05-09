@@ -77,7 +77,7 @@ var onRun = function(context) {
     // 11. Add a command to manifest.json
     for (item in folder_data.fonts) {
         command = {
-            "script": "add_grid.cocoascript",
+            "script": "add_grid.js",
             "handler": "handleFont",
             "name": item,
             "identifier": nextid + "_add_grid"

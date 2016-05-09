@@ -164,7 +164,7 @@ var onRun = function(context) {
       }
 
       command = {
-        "script": "add_grid.cocoascript",
+        "script": "add_grid.js",
             "handler": "handleFont",
             "name": fontname,
             "identifier": nextid + "_add_grid",
