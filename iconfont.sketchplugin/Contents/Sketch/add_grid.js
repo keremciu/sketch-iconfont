@@ -1,4 +1,4 @@
-@import "const/library.cocoascript";
+@import "const/library.js";
 
 var handleFont = function(context) {
   var handler  = context.command.name()

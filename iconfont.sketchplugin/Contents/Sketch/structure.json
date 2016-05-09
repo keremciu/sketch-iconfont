@@ -1,46 +1,46 @@
 {
   "commands" : [
     {
-      "script" : "learn.cocoascript",
+      "script" : "learn.js",
       "handler" : "onRun",
       "shortcut" : "cmd ctrl u",
       "name" : "HTML of Selected Icon",
       "identifier" : "learn"
     },
     {
-      "script" : "convert.cocoascript",
+      "script" : "convert.js",
       "handler" : "onRun",
       "shortcut" : "cmd ctrl u",
       "name" : "Convert Icons [Outlines]",
       "identifier" : "convert"
     },
     {
-      "script" : "add.cocoascript",
+      "script" : "add.js",
       "handler" : "onRun",
       "shortcut" : "cmd ctrl i",
       "name" : "Name Insert",
       "identifier" : "add"
     },
     {
-      "script" : "const/install.cocoascript",
+      "script" : "const/install.js",
       "handler" : "onRun",
       "name" : "Install a Font-Bundle",
       "identifier" : "install"
     },
     {
-      "script" : "const/export.cocoascript",
+      "script" : "const/export.js",
       "handler" : "onRun",
       "name" : "Export your Font-Bundle",
       "identifier" : "export"
     },
     {
-      "script" : "const/import.cocoascript",
+      "script" : "const/import.js",
       "handler" : "onRun",
       "name" : "Install a Font",
       "identifier" : "import"
     },
     {
-      "script" : "const/remove.cocoascript",
+      "script" : "const/remove.js",
       "handler" : "onRun",
       "name" : "Remove a Font",
       "identifier" : "remove"

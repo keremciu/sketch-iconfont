@@ -1,4 +1,4 @@
-@import "library.cocoascript";
+@import "library.js";
 
 var onRun = function(context) {
 

@@ -1,6 +1,13 @@
 [![Latest Version](https://img.shields.io/github/release/keremciu/sketch-iconfont.svg?style=flat-square)](https://github.com/keremciu/sketch-iconfont/releases)
 [![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+### New Feature - 29 April 2016
+![demo][demo-image]
+
+Your teammates don't have your icon-fonts? don't worry now you can convert all icons with one command then share it.
+
+[demo-image]: http://g.recordit.co/TU3az70acC.gif
+
 ## Use Icon Fonts in Sketch
 
 This plugin helps you easily insert and manage icons from icon fonts - such as FontAwesome, Ion or Material Design Icons - in your Sketch designs.
@@ -13,12 +20,12 @@ The plugin itself has no font built-in. You will need to download and install th
 ### - Features
 ###### Why you need to use it
 
-> `For The Designer:` 
+> `For The Designer:`
 > When a designer wants to add an icon from an icon font - such as material design, fontawesome, etc. - they usually need to find a cheatsheet containing all the font's icons, and then manually copy+paste each one they wish to use into their design - or use a third-party application. Time consuming and cumbersome.
 
 - You can now easily view and add any icon directly Sketch!
 
-> `For The Developer:` 
+> `For The Developer:`
 > When a developer wants to find out the name of an icon that was used by the Designer, they need to search through a lengthy list of icons, until they find it. Time consuming and cumbersome.
 
 - You can now easily find out an icon's name directly in Sketch, without needing to perform a search!
@@ -30,7 +37,7 @@ The plugin itself has no font built-in. You will need to download and install th
 ### Using Sketch Toolbox
 
 1. Install 'Sketch Iconfont' plugin directly from Sketch Toolbox.
-2. Install a font containing an svg font file, or install a font bundle - such as the one provided here: https://github.com/keremciu/font-bundles 
+2. Install a font containing an svg font file, or install a font bundle - such as the one provided here: https://github.com/keremciu/font-bundles
 
 ### Manually
 
@@ -41,7 +48,7 @@ The plugin itself has no font built-in. You will need to download and install th
 =======
 
 ### - Documentation
-###### Its a little documentation about commands 
+###### Its a little documentation about commands
 
 Command             	| Description
 ----------------------- | -----------------------------------------------------------------------------------------------
@@ -55,11 +62,7 @@ HTML of Selected Icon   | To use an icon on web or mobile, select it and use thi
 
 ### - Minimum Dependencies
 
-<<<<<<< HEAD
-- OSX El Capitan.
-=======
 - OSX El Capitan & Yosemite ([#44](https://github.com/keremciu/sketch-iconfont/issues/44))
->>>>>>> 89a08fae005b6db0c5fbe0fa244fe0420e1304f3
 - Sketch 3.4.4.
 
 You can follow me on twitter to get updates.
