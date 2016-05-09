@@ -56,6 +56,7 @@
       },
       "add",
       "learn",
+      "convert"
       {
         "title" : "Install / Remove",
         "items" : [
