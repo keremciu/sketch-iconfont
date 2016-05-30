@@ -16,6 +16,8 @@ var onRun = function(context) {
 
     if (fontname == "fontawesomeregular")
         fontname = "FontAwesome"
+    if (fontname == "mfg_labs_iconsetregular")
+        fontname = "MFG Labs Iconset"
     if (fontname == "batch_iconsregular")
         fontname = "Batch"
     if (fontname == "weather_iconsregular")
