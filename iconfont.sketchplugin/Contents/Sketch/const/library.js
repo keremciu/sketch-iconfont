@@ -203,12 +203,20 @@ var Library = {
         shape.style = layer.style()
         var style = shape.style()
         if(!style.fill()) {
-            var fill=style.fills().addNewStylePart()
+            var fill = style.addStylePartOfType(0)
             fill.color = MSColor.colorWithNSColor(layer.style().textStyle().attributes().NSColor)
         }
 
-        shape.frame().x = 0
-        shape.frame().y = 0
+        // shape horizontally center
+        var shapewidth = shape.frame().width()
+        var shapex = Math.ceil((size - shapewidth) / 2)
+
+        // shape vertically center
+        var shapeheight = shape.frame().height()
+        var shapey = Math.ceil((size - shapeheight) / 2)
+
+        shape.frame().x = shapex
+        shape.frame().y = shapey
         shape.name = name
         parent.removeLayer(layer)
 
