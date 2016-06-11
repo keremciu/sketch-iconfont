@@ -47,9 +47,28 @@ var Library = {
     // Valid types for parameters is Array
     //
     "layer": function (container, type, parameters) {
-      var layer = container.addLayerOfType(type);
+      var layer
+    	switch(type) {
+    		case "rectangle":
+    			var rectangleShape = MSRectangleShape.alloc().init()
+          if (typeof(parameters.rect) !== 'undefined')
+            rectangleShape.frame = MSRect.rectWithRect(parameters.rect)
+          else
+    			  rectangleShape.frame = MSRect.rectWithRect(NSMakeRect(0, 0, 50, 50))
+    			layer = MSShapeGroup.shapeWithPath(rectangleShape)
+    			container.addLayers([layer])
+    			break
+    		case "group":
+    			layer = [[MSLayerGroup alloc] init]
+    			[container addLayers:[layer]]
+    			break
+        case "text":
+          layer = [[MSTextLayer alloc] init]
+          [container addLayers:[layer]]
+    		default:
+    			break
+    	}
       if (typeof(parameters.name) !== 'undefined') layer.name = parameters.name;
-      if (typeof(parameters.rect) !== 'undefined') layer.rect = parameters.rect;
       if (typeof(parameters.color) !== 'undefined') {
         this.util.setFillColor(layer, parameters.color);
       }
@@ -244,6 +263,7 @@ var Library = {
       result          = NSObject.alloc().init()
       result.unicodes = []
       result.names    = []
+      result.number   = []
 
       for (var i=0 ; i < [icons count]; i++) {
           icon = icons[i]["name"]
@@ -251,6 +271,7 @@ var Library = {
           if (icon.lowercaseString().indexOf(q) > -1) {
             result.names.push(icons[i]["id"])
             result.unicodes.push(Library.parse.escape('\\u' + icons[i]["unicode"]))
+            result.number.push(i)
           }
       }
 
@@ -445,4 +466,46 @@ var Library = {
 
   },
 
+};
+
+var tools = {
+	appVersion: "4.0.1",
+	versionComponents : function() {
+		var info = [[NSBundle mainBundle] infoDictionary];
+		var items = [[(info["CFBundleShortVersionString"]) componentsSeparatedByString:"."] mutableCopy];
+
+		while([items count] < 3)
+			[items addObject:"0"];
+
+		return items;
+	},
+	majorVersion : function() {
+		var items = tools.versionComponents();
+
+		return items[0];
+	},
+	minorVersion : function() {
+		var items = tools.versionComponents();
+
+		return items[1];
+	},
+	getJSONFromURL: function(url) {
+		var request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]],
+			response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil],
+			responseObj = [NSJSONSerialization JSONObjectWithData:response options:nil error:nil]
+		return responseObj
+	},
+	checkPluginUpdate: function(){
+		try{
+			var response = this.getJSONFromURL('https://raw.githubusercontent.com/keremciu/sketch-iconfont/master/iconfont.sketchplugin/Contents/Sketch/manifest.json')
+			if(response && response.version) {
+				var rgx = new RegExp("\\d","g");
+				var removeVersion = parseFloat(response.version.match(rgx).join(""))
+				var installedVersion = parseFloat(this.appVersion.match(rgx).join(""))
+				if (removeVersion > installedVersion) [doc showMessage:"New plugin update is available! Visit github.com/keremciu/sketch-iconfont"]
+			}
+		}catch(e){
+			log(e);
+		}
+	}
 };

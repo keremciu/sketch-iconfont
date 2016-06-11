@@ -45,6 +45,13 @@
       "name" : "Remove a Font",
       "identifier" : "remove"
     },
+    {
+      "script" : "add_all.js",
+      "handler" : "onRun",
+      "shortcut" : "cmd ctrl a",
+      "name" : "All Insert",
+      "identifier" : "add_all"
+    }
   ],
   "menu" : {
     "title" : "Icon Font",
@@ -54,6 +61,7 @@
         "items" : [
         ]
       },
+      "add_all",
       "add",
       "learn",
       "convert",

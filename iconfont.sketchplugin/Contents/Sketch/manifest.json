@@ -2,18 +2,18 @@
   "author" : "Kerem Sevencan",
   "commands" : [
     {
-      "script" : "convert.js",
-      "handler" : "onRun",
-      "shortcut" : "cmd ctrl l",
-      "name" : "Convert Icons [Outlines]",
-      "identifier" : "convert"
-    },
-    {
       "script" : "learn.js",
       "handler" : "onRun",
       "shortcut" : "cmd ctrl u",
       "name" : "HTML of Selected Icon",
       "identifier" : "learn"
+    },
+    {
+      "script" : "convert.js",
+      "handler" : "onRun",
+      "shortcut" : "cmd ctrl u",
+      "name" : "Convert Icons [Outlines]",
+      "identifier" : "convert"
     },
     {
       "script" : "add.js",
@@ -45,6 +45,12 @@
       "handler" : "onRun",
       "name" : "Remove a Font",
       "identifier" : "remove"
+    },
+    {
+      "script" : "add_all.js",
+      "handler" : "onRun",
+      "name" : "All Insert",
+      "identifier" : "add_all"
     }
   ],
   "menu" : {
@@ -55,8 +61,8 @@
     ]
   },
   "identifier" : "com.keremciu.sketch.iconfont",
-  "version" : "3.3.2",
-  "description" : "Use icon-fonts like a boss.",
-  "name" : "Icon Font",
+  "version" : "4.0.1",
+  "description" : "Use icons like a boss.",
+  "name" : "Icons",
   "authorEmail" : "info@kerem.ws"
 }

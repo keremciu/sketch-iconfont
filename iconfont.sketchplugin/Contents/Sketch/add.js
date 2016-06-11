@@ -60,7 +60,7 @@ var onRun = function(context) {
     writed_icon       = icon_name.stringValue()
     selected_font     = selectbox.objectValueOfSelectedItem()
     font              = fonts[selected_font]
-    icons             = Library.fetch.json(font.path,plugin)
+    icons             = Library.fetch.json("/bundle/" + font.path,plugin)
 
     // 6. Find matched icon
     var matched       = Library.fetch.icon("alias",writed_icon.lowercaseString(),icons)
