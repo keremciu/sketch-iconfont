@@ -10,6 +10,9 @@ var handleFont = function(context) {
 
 var onRun = function(context,path,fontname) {
 
+  // check updates
+  tools.checkPluginUpdate(context)
+
   var plugin        = context.plugin
   var doc           = context.document
   var selection     = context.selection.firstObject()
@@ -126,7 +129,5 @@ var onRun = function(context,path,fontname) {
   if (response == NSOKButton) {
     Library.create.icon(doc,selection,fontname,name,icon)
   }
-
-  tools.checkPluginUpdate()
 
 };

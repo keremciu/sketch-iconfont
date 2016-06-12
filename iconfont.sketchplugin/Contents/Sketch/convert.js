@@ -2,6 +2,9 @@
 
 var onRun = function(context) {
 
+  // check updates
+  tools.checkPluginUpdate(context)
+
   var plugin        = context.plugin
   var doc           = context.document
   var page          = doc.currentPage()

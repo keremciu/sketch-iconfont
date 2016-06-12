@@ -19,7 +19,7 @@ var onRun = function(context) {
   var fonts         = [json objectForKey:@"fonts"]
 
   // 1. create a wrapper windows
-  var wrapper       = Library.Widgets.window("Add an icon - ", "Select an icon")
+  var wrapper       = Library.Widgets.window("Add an icon from all", "Select an icon")
 
   // 2. create list properties
   var allIcons = [NSMutableArray array];

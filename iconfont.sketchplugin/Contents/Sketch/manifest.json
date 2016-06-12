@@ -49,6 +49,7 @@
     {
       "script" : "add_all.js",
       "handler" : "onRun",
+      "shortcut" : "cmd ctrl a",
       "name" : "All Insert",
       "identifier" : "add_all"
     }
@@ -61,7 +62,7 @@
     ]
   },
   "identifier" : "com.keremciu.sketch.iconfont",
-  "version" : "4.0.1",
+  "version" : "4.0.5",
   "description" : "Use icons like a boss.",
   "name" : "Icons",
   "authorEmail" : "info@kerem.ws"

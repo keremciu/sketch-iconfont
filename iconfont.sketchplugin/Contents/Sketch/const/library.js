@@ -469,7 +469,6 @@ var Library = {
 };
 
 var tools = {
-	appVersion: "4.0.1",
 	versionComponents : function() {
 		var info = [[NSBundle mainBundle] infoDictionary];
 		var items = [[(info["CFBundleShortVersionString"]) componentsSeparatedByString:"."] mutableCopy];
@@ -495,16 +494,26 @@ var tools = {
 			responseObj = [NSJSONSerialization JSONObjectWithData:response options:nil error:nil]
 		return responseObj
 	},
-	checkPluginUpdate: function(){
-		try{
+	checkPluginUpdate: function(context) {
+    var doc        = context.document
+    var scriptFullPath 	= context.scriptPath
+    var directoryPlugin = [scriptFullPath stringByDeletingLastPathComponent]
+
+    // 9. Fetch data of manifest.json
+    var manifestPath = directoryPlugin + "/manifest.json"
+    var data = [NSData dataWithContentsOfFile:manifestPath]
+    manifest = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil]
+
+		try {
 			var response = this.getJSONFromURL('https://raw.githubusercontent.com/keremciu/sketch-iconfont/master/iconfont.sketchplugin/Contents/Sketch/manifest.json')
+      var pluginVersion = manifest.version.toString()
 			if(response && response.version) {
 				var rgx = new RegExp("\\d","g");
 				var removeVersion = parseFloat(response.version.match(rgx).join(""))
-				var installedVersion = parseFloat(this.appVersion.match(rgx).join(""))
-				if (removeVersion > installedVersion) [doc showMessage:"New plugin update is available! Visit github.com/keremciu/sketch-iconfont"]
+				var installedVersion = parseFloat(pluginVersion.match(rgx).join(""))
+				if (removeVersion > installedVersion) [doc showMessage:"New plugin update " + response.version + " is available! Visit github.com/keremciu/sketch-iconfont"]
 			}
-		}catch(e){
+		} catch(e){
 			log(e);
 		}
 	}
