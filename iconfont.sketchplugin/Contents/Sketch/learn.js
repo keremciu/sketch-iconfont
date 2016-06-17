@@ -2,9 +2,6 @@
 
 var onRun = function(context) {
 
-  // check updates
-  tools.checkPluginUpdate(context)
-
   // 1. Get selected layer
   var plugin        = context.plugin
   var doc           = context.document

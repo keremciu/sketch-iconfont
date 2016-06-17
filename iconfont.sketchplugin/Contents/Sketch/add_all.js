@@ -180,7 +180,7 @@ var onRun = function(context) {
 
   // if is the response is ok, add icon
   if (response == NSOKButton) {
-    Library.create.icon(doc,selection,fontname,name,icon)
+    Library.create.icon(plugin,doc,selection,fontname,name,icon)
   }
 
 };

@@ -5,7 +5,7 @@
       "script" : "learn.js",
       "handler" : "onRun",
       "shortcut" : "cmd ctrl u",
-      "name" : "HTML of Selected Icon",
+      "name" : "Details of Selected Icon",
       "identifier" : "learn"
     },
     {
@@ -45,6 +45,13 @@
       "handler" : "onRun",
       "name" : "Remove a Font",
       "identifier" : "remove"
+    },
+    {
+      "script" : "const/config.js",
+      "handler" : "onRun",
+      "shortcut" : "cmd ctrl alt c",
+      "name" : "Configuration",
+      "identifier" : "config"
     },
     {
       "script" : "add_all.js",

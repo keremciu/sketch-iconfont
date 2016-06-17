@@ -23,22 +23,34 @@ var Library = {
     // Valid types for name is String
     // Valid types for icon is String
     //
-    "icon": function(doc, selection, fontname, name, icon) {
+    "icon": function(plugin, doc, selection, fontname, name, icon) {
       var page          = doc.currentPage()
       var artboard      = page.currentArtboard() || page
 
-      if (selection && selection.isKindOfClass(MSTextLayer)) {
+      // 2. Fetch fonts.json file
+      var json          = Library.fetch.json("config.json", plugin)
+      var configs       = [json objectForKey:@"icon"]
+      var zoom         = configs["Zoom"].value
+      var fontsize      = configs["Size"].value
+      var color         = configs["Color"].value
+      var centered      = configs["Centered"].value
+      var replace       = configs["Replace"].value
+      color             = MSColor.colorWithSVGString(color);
+
+
+      if (replace == 1 && selection && selection.isKindOfClass(MSTextLayer)) {
         // set icon
         selection.setStringValue(icon)
         // set icon name
         selection.setName(name)
       } else {
         // create a text layer contains the icon
-        selection = Library.create.textLayer(doc, artboard, {"text": icon, "name": name});
+        selection = Library.create.textLayer(doc, artboard, {"text": icon, "name": name, "zoom": zoom, "centered": centered});
       }
 
       // 8. set selected font
-      selection.setFont([NSFont fontWithName:@""+fontname size:20.0])
+      selection.setFont([NSFont fontWithName:@""+fontname size:fontsize])
+      selection.setTextColor(color)
     },
     //
     // Create a layer
@@ -70,7 +82,7 @@ var Library = {
     	}
       if (typeof(parameters.name) !== 'undefined') layer.name = parameters.name;
       if (typeof(parameters.color) !== 'undefined') {
-        this.util.setFillColor(layer, parameters.color);
+        Library.util.setFillColor(layer, parameters.color);
       }
       return layer;
     },
@@ -82,31 +94,42 @@ var Library = {
     //
     "textLayer": function (doc, container, parameters) {
       var textLayer = Library.create.layer(container, "text", parameters);
+
       // center function construct values
       zoomValue = doc.zoomValue();
       scrollOrigin = doc.scrollOrigin();
-      // view frame
-      var view = doc.currentView();
-      viewFrame = [view frame];
-      viewHeight = viewFrame.size.height;
-      viewWidth = viewFrame.size.width;
 
-      // textlayer vertically center
-      var midY = (viewHeight / 2 - scrollOrigin.y) / zoomValue;
-      var targetY = Math.ceil(midY - textLayer.frame().height() / 2);
-      textLayer.absoluteRect().setY(targetY);
+      if (parameters.centered == 1) {
+        // view frame
+        var view = doc.currentView();
+        viewFrame = [view frame];
+        viewHeight = viewFrame.size.height;
+        viewWidth = viewFrame.size.width;
 
-      // textlayer horizontally center
-      var midX = (viewWidth / 2 - scrollOrigin.x) / zoomValue;
-      var targetX = Math.ceil(midX - textLayer.frame().width() / 2);
-      textLayer.absoluteRect().setX(targetX);
+        // textlayer vertically center
+        var midY = (viewHeight / 2 - scrollOrigin.y) / zoomValue;
+        var targetY = Math.ceil(midY - textLayer.frame().height() / 2);
+        textLayer.absoluteRect().setY(targetY);
+
+        // textlayer horizontally center
+        var midX = (viewWidth / 2 - scrollOrigin.x) / zoomValue;
+        var targetX = Math.ceil(midX - textLayer.frame().width() / 2);
+        textLayer.absoluteRect().setX(targetX);
+      }
+
+      // deselect all selected layers
+      doc.currentPage().deselectAllLayers()
+
       // select the text layer
       [textLayer select:true byExpandingSelection:true];
       // set the font-size
       textLayer.fontSize = 24;
 
-      // deselect all selected layers
-      doc.currentPage().deselectAllLayers()
+      if (parameters.zoom == 1) {
+        // zoom to the icon
+        var view = doc.currentView();
+        view.zoomToSelection();
+      }
 
       if (typeof(parameters.text) !== 'undefined') {
         textLayer.stringValue = parameters.text;
@@ -206,6 +229,14 @@ var Library = {
 
       return result
     },
+  },
+  "util": {
+    // Sets the fill color for `layer` to `color` (MSColor)
+    "setFillColor": function(layer, color) {
+      var fill = layer.style().addStylePartOfType(0);
+      fill.setFillType(0);
+      fill.color = color;
+    }
   },
   "parse": {
     "outline": function(layer) {
@@ -356,8 +387,11 @@ var Library = {
       var exit_icon = NSImage.imageNamed(NSImageNameStopProgressTemplate)
 
       // build exit button
+      var userClickedCancel = false
       var exit = Library.Widgets.button(exit_icon,NSMakeRect(556, 5, 36, 36))
+      [exit setKeyEquivalent:@"\033"]
       exit.setCOSJSTargetFunction(function(sender) {
+        userClickedCancel = true
         wrapper.orderOut(nil)
         NSApp.stopModal()
       })
@@ -497,7 +531,7 @@ var tools = {
 	checkPluginUpdate: function(context) {
     var doc        = context.document
     var scriptFullPath 	= context.scriptPath
-    var directoryPlugin = [scriptFullPath stringByDeletingLastPathComponent]
+    var directoryPlugin = [[scriptFullPath stringByDeletingLastPathComponent] stringByDeletingLastPathComponent]
 
     // 9. Fetch data of manifest.json
     var manifestPath = directoryPlugin + "/manifest.json"

@@ -1,0 +1,29 @@
+{
+  "icon" : {
+    "Color" : {
+      "value" : "#000000",
+      "type" : "string",
+      "hint" : "Default icon color"
+    },
+    "Replace" : {
+      "value" : "1",
+      "type" : "boolean",
+      "hint" : "When insert an icon replace the selected text"
+    },
+    "Centered" : {
+      "value" : "1",
+      "type" : "boolean",
+      "hint" : "When insert an icon put it to the center of the view"
+    },
+    "Size" : {
+      "value" : "20",
+      "type" : "string",
+      "hint" : "Inserted icon size"
+    },
+    "Zoom" : {
+      "value" : "0",
+      "type" : "boolean",
+      "hint" : "When insert an icon zoom to it"
+    }
+  }
+}

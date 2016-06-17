@@ -4,7 +4,7 @@
       "script" : "learn.js",
       "handler" : "onRun",
       "shortcut" : "cmd ctrl u",
-      "name" : "HTML of Selected Icon",
+      "name" : "Details of Selected Icon",
       "identifier" : "learn"
     },
     {

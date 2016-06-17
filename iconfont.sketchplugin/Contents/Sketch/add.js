@@ -70,7 +70,7 @@ var onRun = function(context) {
       name = matched.alias + ' - ' + selected_font
       icon = Library.parse.escape('\\u' + matched.unicode)
 
-      Library.create.icon(doc,selection,selected_font,name,icon)
+      Library.create.icon(plugin,doc,selection,selected_font,name,icon)
 
     } else {
       // Show an error when user write a wrong icon name.
