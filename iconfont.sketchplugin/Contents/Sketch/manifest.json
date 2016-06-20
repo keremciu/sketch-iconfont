@@ -47,18 +47,18 @@
       "identifier" : "remove"
     },
     {
-      "script" : "const/config.js",
-      "handler" : "onRun",
-      "shortcut" : "cmd ctrl alt c",
-      "name" : "Configuration",
-      "identifier" : "config"
-    },
-    {
       "script" : "add_all.js",
       "handler" : "onRun",
       "shortcut" : "cmd ctrl a",
       "name" : "All Insert",
       "identifier" : "add_all"
+    },
+    {
+      "script" : "const/config.js",
+      "handler" : "onRun",
+      "shortcut" : "cmd ctrl alt c",
+      "name" : "Configuration",
+      "identifier" : "config"
     }
   ],
   "menu" : {
@@ -69,7 +69,7 @@
     ]
   },
   "identifier" : "com.keremciu.sketch.iconfont",
-  "version" : "4.0.5",
+  "version" : "4.1.0",
   "description" : "Use icons like a boss.",
   "name" : "Icons",
   "authorEmail" : "info@kerem.ws"

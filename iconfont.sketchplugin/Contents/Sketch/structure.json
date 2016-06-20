@@ -51,6 +51,13 @@
       "shortcut" : "cmd ctrl a",
       "name" : "All Insert",
       "identifier" : "add_all"
+    },
+    {
+      "script" : "const/config.js",
+      "handler" : "onRun",
+      "shortcut" : "cmd ctrl alt c",
+      "name" : "Configuration",
+      "identifier" : "config"
     }
   ],
   "menu" : {
@@ -68,6 +75,7 @@
       {
         "title" : "Install / Remove",
         "items" : [
+          "config",
           "install",
           "export",
           "import",

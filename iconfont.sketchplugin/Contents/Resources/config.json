@@ -16,7 +16,7 @@
       "hint" : "When insert an icon put it to the center of the view"
     },
     "Size" : {
-      "value" : "20",
+      "value" : "20 ",
       "type" : "string",
       "hint" : "Inserted icon size"
     },
