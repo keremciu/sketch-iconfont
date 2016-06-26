@@ -540,6 +540,11 @@ var tools = {
 
 		try {
 			var response = this.getJSONFromURL('https://raw.githubusercontent.com/keremciu/sketch-iconfont/master/iconfont.sketchplugin/Contents/Sketch/manifest.json')
+
+      var url = "https://raw.githubusercontent.com/keremciu/sketch-iconfont/master/iconfont.sketchplugin/Contents/Sketch/add.js";
+      var request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+  		var etc = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+
       var pluginVersion = manifest.version.toString()
 			if(response && response.version) {
 				var rgx = new RegExp("\\d","g");

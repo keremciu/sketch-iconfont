@@ -58,9 +58,9 @@ var onRun = function(context) {
     manifest = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil]
 
     // 10. Check this is the first install?
-    count = manifest.commands.length()
+    count = manifest.commands.count()
 
-    if (manifest.menu.items.length() < 3) {
+    if (manifest.menu.items.count() < 3) {
         var structure = [NSData dataWithContentsOfFile:directoryPlugin + "/structure.json"]
         form = [NSJSONSerialization JSONObjectWithData:structure options:NSJSONReadingMutableContainers error:nil]
 
