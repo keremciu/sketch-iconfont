@@ -65,8 +65,6 @@ var Library = {
     // Valid types for parameters is Array
     //
     "layer": function (container, type, parameters) {
-      log("naber");
-      log(parameters);
       if (parameters.sketchVersion > 370) {
         var layer
       	switch(type) {
@@ -245,15 +243,23 @@ var Library = {
   "util": {
     // Sets the fill color for `layer` to `color` (MSColor)
     "setFillColor": function(layer, color) {
-      var fill = layer.style().addStylePartOfType(0);
-      fill.setFillType(0);
+      var sketchVersion = tools.getSketchVersionNumber()
+
+      if (sketchVersion > 370) {
+        var fill = layer.style().addStylePartOfType(0);
+      } else {
+        var fill = layer.style().fills().addNewStylePart();
+        fill.setFillType(0);
+      }
       fill.color = color;
+
     }
   },
   "parse": {
     "outline": function(layer) {
         if(!layer.isKindOfClass(MSTextLayer)) return
 
+        var sketchVersion = tools.getSketchVersionNumber()
         var parent = layer.parentGroup()
         var size = layer.fontSize()
         var x = layer.frame().x()
@@ -264,8 +270,14 @@ var Library = {
 
         shape.style = layer.style()
         var style = shape.style()
+
         if(!style.fill()) {
-            var fill = style.addStylePartOfType(0)
+            if (sketchVersion > 370) {
+              var fill = style.addStylePartOfType(0)
+            } else {
+              var fill = style.fills().addNewStylePart()
+              fill.setFillType(0)
+            }
             fill.color = MSColor.colorWithNSColor(layer.style().textStyle().attributes().NSColor)
         }
 

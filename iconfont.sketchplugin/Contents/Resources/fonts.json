@@ -1,5 +1,20 @@
 {
   "fonts" : {
-
+    "simple-line-icons" : {
+      "path" : "simple-line-icons.json",
+      "container" : "<i class='icon-*****'></i>"
+    },
+    "Ionicons" : {
+      "path" : "Ionicons.json",
+      "container" : "<i class='icon ion-*****'></i>"
+    },
+    "FontAwesome" : {
+      "path" : "FontAwesome.json",
+      "container" : "<i class='fa fa-*****'></i>"
+    },
+    "MaterialIcons-Regular" : {
+      "path" : "MaterialIcons-Regular.json",
+      "container" : "<i class='material-icons'>*****</i>"
+    }
   }
 }
