@@ -24,6 +24,7 @@ var Library = {
     // Valid types for icon is String
     //
     "icon": function(plugin, doc, selection, fontname, name, icon) {
+      var sketchVersion = tools.getSketchVersionNumber()
       var page          = doc.currentPage()
       var artboard      = page.currentArtboard() || page
 
@@ -45,11 +46,16 @@ var Library = {
         selection.setName(name)
       } else {
         // create a text layer contains the icon
-        selection = Library.create.textLayer(doc, artboard, {"text": icon, "name": name, "zoom": zoom, "centered": centered});
+        selection = Library.create.textLayer(doc, artboard, {"text": icon, "name": name, "zoom": zoom, "fontSize": fontsize, "centered": centered, "sketchVersion": sketchVersion});
       }
 
       // 8. set selected font
-      selection.setFont([NSFont fontWithName:@""+fontname size:fontsize])
+      if (sketchVersion > 370) {
+        selection.setFont([NSFont fontWithName:@""+fontname size:fontsize])
+      } else {
+        [selection setFontPostscriptName:@""+fontname];
+      }
+
       selection.setTextColor(color)
     },
     //
@@ -59,27 +65,33 @@ var Library = {
     // Valid types for parameters is Array
     //
     "layer": function (container, type, parameters) {
-      var layer
-    	switch(type) {
-    		case "rectangle":
-    			var rectangleShape = MSRectangleShape.alloc().init()
-          if (typeof(parameters.rect) !== 'undefined')
-            rectangleShape.frame = MSRect.rectWithRect(parameters.rect)
-          else
-    			  rectangleShape.frame = MSRect.rectWithRect(NSMakeRect(0, 0, 50, 50))
-    			layer = MSShapeGroup.shapeWithPath(rectangleShape)
-    			container.addLayers([layer])
-    			break
-    		case "group":
-    			layer = [[MSLayerGroup alloc] init]
-    			[container addLayers:[layer]]
-    			break
-        case "text":
-          layer = [[MSTextLayer alloc] init]
-          [container addLayers:[layer]]
-    		default:
-    			break
-    	}
+      log("naber");
+      log(parameters);
+      if (parameters.sketchVersion > 370) {
+        var layer
+      	switch(type) {
+      		case "rectangle":
+      			var rectangleShape = MSRectangleShape.alloc().init()
+            if (typeof(parameters.rect) !== 'undefined')
+              rectangleShape.frame = MSRect.rectWithRect(parameters.rect)
+            else
+      			  rectangleShape.frame = MSRect.rectWithRect(NSMakeRect(0, 0, 50, 50))
+      			layer = MSShapeGroup.shapeWithPath(rectangleShape)
+      			container.addLayers([layer])
+      			break
+      		case "group":
+      			layer = [[MSLayerGroup alloc] init]
+      			[container addLayers:[layer]]
+      			break
+          case "text":
+            layer = [[MSTextLayer alloc] init]
+            [container addLayers:[layer]]
+      		default:
+      			break
+      	}
+      } else {
+        var layer = container.addLayerOfType(type)
+      }
       if (typeof(parameters.name) !== 'undefined') layer.name = parameters.name;
       if (typeof(parameters.color) !== 'undefined') {
         Library.util.setFillColor(layer, parameters.color);
@@ -122,7 +134,7 @@ var Library = {
 
       // select the text layer
       [textLayer select:true byExpandingSelection:true];
-      // set the font-size
+      // set the default font-size
       textLayer.fontSize = 24;
 
       if (parameters.zoom == 1) {
@@ -503,6 +515,14 @@ var Library = {
 };
 
 var tools = {
+  getSketchVersionNumber : function() {
+    const version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
+    var versionNumber = version.stringByReplacingOccurrencesOfString_withString(".", "") + ""
+    while(versionNumber.length != 3) {
+        versionNumber += "0"
+    }
+    return parseInt(versionNumber)
+  },
 	versionComponents : function() {
 		var info = [[NSBundle mainBundle] infoDictionary];
 		var items = [[(info["CFBundleShortVersionString"]) componentsSeparatedByString:"."] mutableCopy];
