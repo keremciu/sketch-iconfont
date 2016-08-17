@@ -1,3 +1,13 @@
+=======
+
+### First Install
+
+First use? you need to watch this ([gif](http://g.recordit.co/fuMlPcmSCI.gif))
+
+![demo][install-image]
+
+[install-image]: http://g.recordit.co/fuMlPcmSCI.gif
+
 If you don't see any icons, please make sure you have installed your icon fonts.
 
 =======
