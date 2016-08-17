@@ -60,13 +60,13 @@ var onRun = function(context) {
     // 10. Check this is the first install?
     count = manifest.commands.count()
 
-    if (manifest.menu.items.count() < 3) {
+    if (manifest.menu.items.count() < 4) {
         var structure = [NSData dataWithContentsOfFile:directoryPlugin + "/structure.json"]
         form = [NSJSONSerialization JSONObjectWithData:structure options:NSJSONReadingMutableContainers error:nil]
 
         [manifest setValue:[form objectForKey:@"menu"] forKeyPath:@"menu"];
         [manifest setValue:[form objectForKey:@"commands"] forKeyPath:@"commands"];
-        count = 7;
+        count = 8;
     }
 
     menu = [manifest objectForKey:@"menu"]

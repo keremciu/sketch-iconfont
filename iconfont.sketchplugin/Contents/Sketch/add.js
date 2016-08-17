@@ -4,7 +4,7 @@ var onRun = function(context) {
 
   var plugin        = context.plugin
   var doc           = context.document
-  var selection     = context.selection.firstObject()
+  var selection     = context.selection
 
   // 1. create a wrapper window
   var wrapper       = Library.Widgets.window("Add an icon with its name","Firstly select font")

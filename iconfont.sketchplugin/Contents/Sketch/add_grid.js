@@ -12,7 +12,7 @@ var onRun = function(context,path,fontname) {
 
   var plugin        = context.plugin
   var doc           = context.document
-  var selection     = context.selection.firstObject()
+  var selection     = context.selection
   var filtered      = false
 
   // 1. create a wrapper window

@@ -37,7 +37,7 @@
     {
       "script" : "const/import.js",
       "handler" : "onRun",
-      "name" : "Install a Font",
+      "name" : "Install a Font [SVG]",
       "identifier" : "import"
     },
     {
@@ -59,17 +59,24 @@
       "shortcut" : "cmd ctrl alt c",
       "name" : "Configuration",
       "identifier" : "config"
+    },
+    {
+      "script" : "whatsfontbundle.js",
+      "handler" : "onRun",
+      "name" : "What is a Font Bundle?",
+      "identifier" : "whatsfontbundle"
     }
   ],
   "menu" : {
     "title" : "Icon Font",
     "items" : [
       "install",
+      "whatsfontbundle",
       "import"
     ]
   },
   "identifier" : "com.keremciu.sketch.iconfont",
-  "version" : "4.3.0",
+  "version" : "4.4.0",
   "description" : "Use icons like a boss.",
   "name" : "Icons",
   "authorEmail" : "info@kerem.ws"

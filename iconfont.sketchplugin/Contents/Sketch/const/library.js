@@ -38,25 +38,40 @@ var Library = {
       var replace       = configs["Replace"].value
       color             = MSColor.colorWithSVGString(color);
 
+      /*
+      * config replace check
+      * if replace is checked, change selection texts
+      */
+      if (replace == 1 && selection && selection.count() >= 1) {
 
-      if (replace == 1 && selection && selection.isKindOfClass(MSTextLayer)) {
-        // set icon
-        selection.setStringValue(icon)
-        // set icon name
-        selection.setName(name)
+        for (var j=0; j < selection.count(); j++) {
+				  selected = selection[j]
+          // set icon
+          selected.setStringValue(icon)
+          // set icon name
+          selected.setName(name)
+
+          // 8. set selected font
+          if (sketchVersion > 370) {
+            selected.setFont([NSFont fontWithName:@""+fontname size:fontsize])
+          } else {
+            [selected setFontPostscriptName:@""+fontname];
+          }
+        }
+
       } else {
         // create a text layer contains the icon
         selection = Library.create.textLayer(doc, artboard, {"text": icon, "name": name, "zoom": zoom, "fontSize": fontsize, "centered": centered, "sketchVersion": sketchVersion});
-      }
 
-      // 8. set selected font
-      if (sketchVersion > 370) {
-        selection.setFont([NSFont fontWithName:@""+fontname size:fontsize])
-      } else {
-        [selection setFontPostscriptName:@""+fontname];
-      }
+        // 8. set selected font
+        if (sketchVersion > 370) {
+          selection.setFont([NSFont fontWithName:@""+fontname size:fontsize])
+        } else {
+          [selection setFontPostscriptName:@""+fontname];
+        }
 
-      selection.setTextColor(color)
+        selection.setTextColor(color)
+      }
     },
     //
     // Create a layer
@@ -432,7 +447,17 @@ var Library = {
         }
       })
 
+      // build help text
+      var helptext = NSTextField.alloc().initWithFrame(NSMakeRect(480, 16, 48, 16))
+      helptext.setEditable(false)
+      helptext.setBordered(false)
+      helptext.setDrawsBackground(false)
+      helptext.setFont(NSFont.systemFontOfSize(12))
+      helptext.setTextColor(NSColor.grayColor())
+      helptext.setStringValue("HELP >")
+
       header.addSubview(help)
+      header.addSubview(helptext)
       header.addSubview(exit)
 
       return header
@@ -445,7 +470,7 @@ var Library = {
     // Valid types for rect is NSMakeRect Object
     //
     "subtitle": function(title,fontsize,color,rect) {
-      subtitle = [[NSTextField alloc] initWithFrame:rect]
+      subtitle = NSTextField.alloc().initWithFrame(rect)
       subtitle.setEditable(false)
       subtitle.setBordered(false)
       subtitle.setDrawsBackground(false)

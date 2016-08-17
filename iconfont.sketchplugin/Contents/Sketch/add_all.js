@@ -13,7 +13,7 @@ var onRun = function(context) {
 
   var plugin        = context.plugin
   var doc           = context.document
-  var selection     = context.selection.firstObject()
+  var selection     = context.selection
   var filtered      = false
   var json          = Library.fetch.json("fonts.json",plugin)
   var fonts         = [json objectForKey:@"fonts"]

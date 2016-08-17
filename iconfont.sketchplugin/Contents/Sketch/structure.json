@@ -36,7 +36,7 @@
     {
       "script" : "const/import.js",
       "handler" : "onRun",
-      "name" : "Install a Font",
+      "name" : "Install a Font [SVG]",
       "identifier" : "import"
     },
     {
@@ -58,6 +58,12 @@
       "shortcut" : "cmd ctrl alt c",
       "name" : "Configuration",
       "identifier" : "config"
+    },
+    {
+      "script" : "whatsfontbundle.js",
+      "handler" : "onRun",
+      "name" : "What is a Font Bundle?",
+      "identifier" : "whatsfontbundle"
     }
   ],
   "menu" : {

@@ -124,9 +124,9 @@ var onRun = function(context) {
     manifest = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil]
 
     // 10. Add a command to manifest.json
-    count = manifest.commands.length()
+    count = manifest.commands.count()
 
-    if (manifest.menu.items.length() < 3) {
+    if (manifest.menu.items.count() < 4) {
         var structure = [NSData dataWithContentsOfFile:directoryPlugin + "/structure.json"]
         form = [NSJSONSerialization JSONObjectWithData:structure options:NSJSONReadingMutableContainers error:nil]
 
@@ -158,7 +158,7 @@ var onRun = function(context) {
       nextid = count +1
 
       // search nextid is true?
-      for (i = 0; i < firstlist.length(); i++) {
+      for (i = 0; i < firstlist.count(); i++) {
         item = firstlist[i]
         if (item == nextid + "_add_grid") {
           nextid = count+30
