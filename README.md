@@ -9,7 +9,7 @@ Also we've new features like multiple text change, I will share gifs about them 
 
 ### First Install
 
-First use? you need to watch ([THIS VIDEO](https://s3.amazonaws.com/img0.recordit.co/2PMTB04Jav.mp4?AWSAccessKeyId=AKIAINSRFOQXTN4DT46A&Expires=1471428676&Signature=T%2BfMepwF3zCAl7BpVd%2F5Ef3bPj8%3D))
+First use? you need to watch ([THIS VIDEO](http://recordit.co/2PMTB04Jav))
 ##### Please if you have an issue, first watch the video.
 
 ### New Feature - Convert Command - 29 April 2016
