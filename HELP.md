@@ -2,11 +2,11 @@
 
 ### First Install
 
-First use? you need to watch this ([gif](http://g.recordit.co/fuMlPcmSCI.gif))
+First use? you need to watch this ([gif](http://g.recordit.co/2PMTB04Jav.gif))
 
 ![demo][install-image]
 
-[install-image]: http://g.recordit.co/fuMlPcmSCI.gif
+[install-image]: http://g.recordit.co/2PMTB04Jav.gif
 
 If you don't see any icons, please make sure you have installed your icon fonts.
 
