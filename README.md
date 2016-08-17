@@ -1,7 +1,13 @@
 [![Latest Version](https://img.shields.io/github/release/keremciu/sketch-iconfont.svg?style=flat-square)](https://github.com/keremciu/sketch-iconfont/releases)
 [![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-### New Feature - 29 April 2016
+### New Features and Fixes - 17 August 2016
+
+Hey guys, I've fixed the problem with 3.91 version of Sketch. 
+
+Also we've new features like multiple text change, I will share gifs about them soon. Before sharing gifs, you can find and use them :)
+
+### New Feature - Convert Command - 29 April 2016
 ![demo][demo-image]
 
 Your teammates don't have your icon-fonts? don't worry now you can convert all icons with one command then share it.
