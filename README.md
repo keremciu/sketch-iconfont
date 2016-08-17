@@ -7,6 +7,14 @@ Hey guys, I've fixed the problem with 3.91 version of Sketch.
 
 Also we've new features like multiple text change, I will share gifs about them soon. Before sharing gifs, you can find and use them :)
 
+### First Install
+
+First use? you need to watch this ([gif](http://g.recordit.co/2PMTB04Jav.gif))
+
+![demo][install-image]
+
+[install-image]: http://g.recordit.co/2PMTB04Jav.gif
+
 ### New Feature - Convert Command - 29 April 2016
 ![demo][demo-image]
 
