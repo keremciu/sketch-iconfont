@@ -9,11 +9,9 @@ Also we've new features like multiple text change, I will share gifs about them 
 
 ### First Install
 
-First use? you need to watch this ([gif](http://g.recordit.co/2PMTB04Jav.gif))
+First use? you need to watch ([THIS GIF](http://g.recordit.co/2PMTB04Jav.gif))
+##### Please if you have an issue, first watch the gif.
 
-![demo][install-image]
-
-[install-image]: http://g.recordit.co/2PMTB04Jav.gif
 
 ### New Feature - Convert Command - 29 April 2016
 ![demo][demo-image]
