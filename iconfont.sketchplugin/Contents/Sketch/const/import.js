@@ -22,6 +22,8 @@ var onRun = function(context) {
         fontname = "Batch"
     if (fontname == "weather_iconsregular")
         fontname = "Weather Icons"
+    if (fontname == "black_tielight")
+        fontname = "Black Tie Light"
 
     // 2. Create Window
     var wrapper     	= Library.Widgets.window("Import Font",fontname)
