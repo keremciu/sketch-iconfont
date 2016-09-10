@@ -24,6 +24,12 @@ var onRun = function(context) {
         fontname = "Weather Icons"
     if (fontname == "black_tielight")
         fontname = "Black Tie Light"
+    if (fontname == "black_tieregular")
+        fontname = "Black Tie Regular"
+    if (fontname == "black_tiebold")
+        fontname = "Black Tie Bold"
+    if (fontname == "black_tiesolid")
+        fontname = "Black Tie Solid"
 
     // 2. Create Window
     var wrapper     	= Library.Widgets.window("Import Font",fontname)
