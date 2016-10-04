@@ -2,6 +2,10 @@
 [![Latest Version](https://img.shields.io/github/release/keremciu/sketch-iconfont.svg?style=flat-square)](https://github.com/keremciu/sketch-iconfont/releases)
 [![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+##### Non-text layer selection problem fixed - 4  October 2016 (Version 4.4.2)
+
+Problem here https://twitter.com/mwstrmnn/status/782979129780146178
+
 ### New Features and Fixes - 17 August 2016 (Version 4.4.0)
 
 Hey guys, I've fixed the problem with 3.91 version of Sketch. 
