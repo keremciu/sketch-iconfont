@@ -37,15 +37,38 @@ var Library = {
       var centered      = configs["Centered"].value
       var replace       = configs["Replace"].value
       color             = MSColor.colorWithSVGString(color);
+      
+      /*
+      * create new layer
+      * if user select non-text layer or replace config is checked, create a new layer for icon
+      */
+      function createNew() {
+        // create a text layer contains the icon
+        selection = Library.create.textLayer(doc, artboard, {"text": icon, "name": name, "zoom": zoom, "fontSize": fontsize, "centered": centered, "sketchVersion": sketchVersion});
+
+        // 8. set selected font
+        if (sketchVersion > 370) {
+          selection.setFont([NSFont fontWithName:@""+fontname size:fontsize])
+        } else {
+          [selection setFontPostscriptName:@""+fontname];
+        }
+
+        selection.setTextColor(color)
+      }
 
       /*
       * config replace check
       * if replace is checked, change selection texts
       */
-      if (replace == 1 && selection && selection.count() >= 1) {
+      if (replace == 1 && selection && selection.length >= 1) {
+        for (var j=0; j < selection.length; j++) {
+	  selected = selection[j]
 
-        for (var j=0; j < selection.count(); j++) {
-				  selected = selection[j]
+          if (selected.class() != "MSTextLayer") {
+            createNew()
+            continue;
+          }
+
           // set icon
           selected.setStringValue(icon)
           // set icon name
@@ -60,17 +83,7 @@ var Library = {
         }
 
       } else {
-        // create a text layer contains the icon
-        selection = Library.create.textLayer(doc, artboard, {"text": icon, "name": name, "zoom": zoom, "fontSize": fontsize, "centered": centered, "sketchVersion": sketchVersion});
-
-        // 8. set selected font
-        if (sketchVersion > 370) {
-          selection.setFont([NSFont fontWithName:@""+fontname size:fontsize])
-        } else {
-          [selection setFontPostscriptName:@""+fontname];
-        }
-
-        selection.setTextColor(color)
+        createNew()
       }
     },
     //
