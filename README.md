@@ -1,7 +1,23 @@
+ [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations]
 [![Latest Version](https://img.shields.io/github/release/keremciu/sketch-iconfont.svg?style=flat-square)](https://github.com/keremciu/sketch-iconfont/releases)
 [![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-### New Feature - 29 April 2016
+##### Non-text layer selection problem fixed - 4  October 2016 (Version 4.4.2)
+
+Problem here https://twitter.com/mwstrmnn/status/782979129780146178
+
+### New Features and Fixes - 17 August 2016 (Version 4.4.0)
+
+Hey guys, I've fixed the problem with 3.91 version of Sketch. 
+
+Also we've new features like multiple text change, I will share gifs about them soon. Before sharing gifs, you can find and use them :)
+
+### First Install
+
+First use? you need to watch ([THIS VIDEO](http://recordit.co/2PMTB04Jav))
+##### Please if you have an issue, first watch the video.
+
+### New Feature - Convert Command - 29 April 2016
 ![demo][demo-image]
 
 Your teammates don't have your icon-fonts? don't worry now you can convert all icons with one command then share it.
@@ -79,6 +95,8 @@ MIT
 :beers:
 
 If you want you can buy me a beer: https://www.paypal.me/keremsevencan :)
+
+[paypal-donations]: https://www.paypal.me/keremsevencan
 
 #### Old version
 

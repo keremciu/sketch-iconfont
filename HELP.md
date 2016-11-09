@@ -1,4 +1,11 @@
-If you don't see any icons, please make sure you have installed your icon fonts.
+=======
+
+### First Install
+
+First use? you need to watch ([THIS VIDEO](http://recordit.co/2PMTB04Jav))
+##### Please if you have an issue, first watch the video.
+
+If you don't see any icons, please make sure you have installed ttf files of your icon fonts.
 
 =======
 

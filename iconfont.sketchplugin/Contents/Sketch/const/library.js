@@ -72,8 +72,6 @@ var Library = {
       var replace       = configs["Replace"].value
       c        = this.hexToRgbPercent(color);
       color             = MSColor.colorWithRed_green_blue_alpha(c.r,c.g,c.b,c.a);
-      // color             = MSColor.colorWithSVGString(color);
-      // var sliceColor = MSColor.colorWithRed_green_blue_alpha(239/255,239/255,239/255,1.0);
 
       function createNew() {
         // create a text layer contains the icon
@@ -96,7 +94,6 @@ var Library = {
       if (replace == 1 && selection && selection.length >= 1) {
         for (var j=0; j < selection.length; j++) {
 				  selected = selection[j]
-          log(selected)
 
           if (selected.class() != "MSTextLayer") {
             createNew()
