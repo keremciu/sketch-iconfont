@@ -15,6 +15,40 @@ var Library = {
       f = [NSString stringWithFormat:@"%@", path]
       [t writeToFile:f atomically:true encoding:NSUTF8StringEncoding error:nil]
     },
+    /**
+        Converts a Hex String value into native RGB
+        @param {string} hexColor Hex Color (with or without #)
+        @return {rgba} rgb returns converted RGB values.
+    */
+    hexToRgb: function(hex) {
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+      result = result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null
+      return result
+    },
+    /**
+        Converts a Hex String value into native RGB Percent color
+        Note: To convert this to true RGB you'll need to multiply each value
+        by 255 (eg: result.r * 255, result.g * 255)
+        @param {string} hexColor Hex Color (with or without #)
+        @return {rgba} rgbaPercent returns converted RGB value in percentage format.
+    */
+    hexToRgbPercent: function(hexColor) {
+      var color = this.hexToRgb(hexColor)
+      var r     = color.r
+      var g     = color.g
+      var b     = color.b
+      var a     = 1
+      return {
+        r: r,
+        g: g,
+        b: b,
+        a: a
+      }
+    },
     //
     // Create icon layer
     // Valid types for doc is Object
@@ -36,16 +70,39 @@ var Library = {
       var color         = configs["Color"].value
       var centered      = configs["Centered"].value
       var replace       = configs["Replace"].value
-      color             = MSColor.colorWithSVGString(color);
+      c        = this.hexToRgbPercent(color);
+      color             = MSColor.colorWithRed_green_blue_alpha(c.r,c.g,c.b,c.a);
+      // color             = MSColor.colorWithSVGString(color);
+      // var sliceColor = MSColor.colorWithRed_green_blue_alpha(239/255,239/255,239/255,1.0);
+
+      function createNew() {
+        // create a text layer contains the icon
+        selection = Library.create.textLayer(doc, artboard, {"text": icon, "name": name, "zoom": zoom, "fontSize": fontsize, "centered": centered, "sketchVersion": sketchVersion});
+
+        // 8. set selected font
+        if (sketchVersion > 370) {
+          selection.setFont([NSFont fontWithName:@""+fontname size:fontsize])
+        } else {
+          [selection setFontPostscriptName:@""+fontname];
+        }
+
+        selection.setTextColor(color)
+      }
 
       /*
       * config replace check
       * if replace is checked, change selection texts
       */
-      if (replace == 1 && selection && selection.count() >= 1) {
-
-        for (var j=0; j < selection.count(); j++) {
+      if (replace == 1 && selection && selection.length >= 1) {
+        for (var j=0; j < selection.length; j++) {
 				  selected = selection[j]
+          log(selected)
+
+          if (selected.class() != "MSTextLayer") {
+            createNew()
+            continue;
+          }
+
           // set icon
           selected.setStringValue(icon)
           // set icon name
@@ -60,17 +117,7 @@ var Library = {
         }
 
       } else {
-        // create a text layer contains the icon
-        selection = Library.create.textLayer(doc, artboard, {"text": icon, "name": name, "zoom": zoom, "fontSize": fontsize, "centered": centered, "sketchVersion": sketchVersion});
-
-        // 8. set selected font
-        if (sketchVersion > 370) {
-          selection.setFont([NSFont fontWithName:@""+fontname size:fontsize])
-        } else {
-          [selection setFontPostscriptName:@""+fontname];
-        }
-
-        selection.setTextColor(color)
+        createNew()
       }
     },
     //
