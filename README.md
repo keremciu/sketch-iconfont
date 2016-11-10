@@ -2,7 +2,7 @@
 [![Latest Version](https://img.shields.io/github/release/keremciu/sketch-iconfont.svg?style=flat-square)](https://github.com/keremciu/sketch-iconfont/releases)
 [![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-##### Version 41 supports - 9 November 2016 (Version 4.5.1)
+## Version 41 supports - 9 November 2016 (Version 4.5.1)
 
 - ColorWithSVGString method deprecated, I fixed it
 
