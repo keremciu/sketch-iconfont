@@ -11,7 +11,7 @@
     {
       "script" : "convert.js",
       "handler" : "onRun",
-      "shortcut" : "cmd ctrl u",
+      "shortcut" : "cmd ctrl o",
       "name" : "Convert Icons [Outlines]",
       "identifier" : "convert"
     },
