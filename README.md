@@ -5,7 +5,7 @@
 ## New version and release video is coming - 19 January 2017
 - I took a video about import custom icons
 
-[![demo](http://kerem.ws/images/videobg.png)](http://recordit.co/2PMTB04Jav/)
+[![demo](http://kerem.ws/images/videobg.png)](http://recordit.co/wy5ihqjPml)
 
 ### Version 41 supports - 9 November 2016 (Version 4.5.1)
 
