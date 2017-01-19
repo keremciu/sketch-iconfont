@@ -3,7 +3,7 @@
 [![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## New version and release video is coming - 19 January 2017
-- I took a video about import custom icons
+- I took a video about import custom icons ([VIDEO](http://recordit.co/wy5ihqjPml))
 
 [![demo](http://kerem.ws/images/videobg.png)](http://recordit.co/wy5ihqjPml)
 
