@@ -104,10 +104,13 @@ var Library = {
           selected.setStringValue(icon)
           // set icon name
           selected.setName(name)
-
-          // 8. set selected font
+		
+          //use same font size
+          var _fontsize = selected.fontSize()
+	  
+	  // 8. set selected font
           if (sketchVersion > 370) {
-            selected.setFont([NSFont fontWithName:@""+fontname size:fontsize])
+            selected.setFont([NSFont fontWithName:@""+fontname size:_fontsize])
           } else {
             [selected setFontPostscriptName:@""+fontname];
           }
