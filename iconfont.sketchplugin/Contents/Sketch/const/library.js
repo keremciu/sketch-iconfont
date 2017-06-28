@@ -104,11 +104,11 @@ var Library = {
           selected.setStringValue(icon)
           // set icon name
           selected.setName(name)
-		
+
           //use same font size
           var _fontsize = selected.fontSize()
-	  
-	  // 8. set selected font
+
+          // 8. set selected font
           if (sketchVersion > 370) {
             selected.setFont([NSFont fontWithName:@""+fontname size:_fontsize])
           } else {
@@ -190,7 +190,7 @@ var Library = {
       }
 
       // deselect all selected layers
-      doc.currentPage().deselectAllLayers()
+      // doc.currentPage().deselectAllLayers()
 
       // select the text layer
       [textLayer select:true byExpandingSelection:true];
@@ -333,7 +333,7 @@ var Library = {
         shape.style = layer.style()
         var style = shape.style()
 
-        if(!style.fill()) {
+        if(style.fill === undefined) {
             if (sketchVersion > 370) {
               var fill = style.addStylePartOfType(0)
             } else {

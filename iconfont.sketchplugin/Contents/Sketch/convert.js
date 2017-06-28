@@ -23,7 +23,7 @@ var onRun = function(context) {
 	var	layerPredicate = NSPredicate.predicateWithFormat(predicate);
 	var layers = [scope filteredArrayUsingPredicate:layerPredicate];
 
-	[[doc currentPage] deselectAllLayers];
+	// [[doc currentPage] deselectAllLayers];
 	var loop = [layers objectEnumerator], layer;
 
 	while (layer = [loop nextObject]) {

@@ -76,8 +76,9 @@
     ]
   },
   "identifier" : "com.keremciu.sketch.iconfont",
-  "version" : "4.5.1",
+  "version" : "4.5.3",
   "description" : "Use icons like a boss.",
   "name" : "Icons",
-  "authorEmail" : "info@kerem.ws"
+  "authorEmail" : "info@kerem.ws",
+  "appcast" : "https://raw.githubusercontent.com/keremciu/sketch-iconfont/version.xml"
 }
