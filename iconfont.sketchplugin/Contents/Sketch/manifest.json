@@ -80,5 +80,5 @@
   "description" : "Use icons like a boss.",
   "name" : "Icons",
   "authorEmail" : "info@kerem.ws",
-  "appcast" : "https://raw.githubusercontent.com/keremciu/sketch-iconfont/version.xml"
+  "appcast" : "https://raw.githubusercontent.com/keremciu/sketch-iconfont/master/version.xml"
 }
