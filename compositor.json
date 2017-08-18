@@ -1,0 +1,85 @@
+{
+  "name": "keremciu/sketch-iconfont",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "Sketch Icons",
+  "branch": "gh-pages",
+  "style": {
+    "name": "Material",
+    "componentSet": {
+      "nav": "nav/DarkAbsoluteNav",
+      "header": "header/GradientHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "Roboto, sans-serif",
+    "heading": {
+      "fontWeight": 500,
+      "letterSpacing": "-0.01em"
+    },
+    "colors": {
+      "text": "#212121",
+      "background": "#fff",
+      "primary": "#2196f3",
+      "secondary": "#1565c0",
+      "highlight": "#ff4081",
+      "border": "#e0e0e0",
+      "muted": "#f5f5f5"
+    },
+    "layout": {
+      "centered": true,
+      "bannerHeight": "80vh",
+      "maxWidth": 896
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/keremciu/sketch-iconfont",
+          "text": "GitHub"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "sketch-iconfont",
+      "subhead": "This plugin helps you easily insert and manage icons from icon fonts.",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "sketch-iconfont: This plugin helps you easily insert and manage icons from icon fonts.",
+          "url": ""
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "keremciu",
+          "repo": "sketch-iconfont"
+        }
+      ]
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<p> <a href=\"https://www.paypal.me/keremsevencan\"><img src=\"https://img.shields.io/badge/%24-paypal-f39c12.svg\"></a>\n<a href=\"https://github.com/keremciu/sketch-iconfont/releases\"><img src=\"https://img.shields.io/github/release/keremciu/sketch-iconfont.svg?style=flat-square\"></a>\n<a href=\"https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\"><img src=\"https://badges.gitter.im/Join%20Chat.svg\"></a></p>\n<h2>New version and release video is coming - 19 January 2017</h2>\n<ul>\n<li>I took a video about import custom icons (<a href=\"http://recordit.co/wy5ihqjPml\">VIDEO</a>)</li>\n</ul>\n<p><a href=\"http://recordit.co/wy5ihqjPml\"><img src=\"http://kerem.ws/images/videobg.png\"></a></p>\n<h3>Version 41 supports - 9 November 2016 (Version 4.5.1)</h3>\n<ul>\n<li>ColorWithSVGString method deprecated, I fixed it</li>\n</ul>\n<h5>Non-text layer selection problem fixed - 4  October 2016 (Version 4.4.2)</h5>\n<p>Problem here <a href=\"https://twitter.com/mwstrmnn/status/782979129780146178\">https://twitter.com/mwstrmnn/status/782979129780146178</a></p>\n<h3>New Features and Fixes - 17 August 2016 (Version 4.4.0)</h3>\n<p>Hey guys, I&apos;ve fixed the problem with 3.91 version of Sketch. </p>\n<p>Also we&apos;ve new features like multiple text change, I will share gifs about them soon. Before sharing gifs, you can find and use them :)</p>\n<h3>First Install</h3>\n<p>First use? you need to watch (<a href=\"http://recordit.co/2PMTB04Jav\">THIS VIDEO</a>)</p>\n<h5>Please if you have an issue, first watch the video.</h5>\n<h3>New Feature - Convert Command - 29 April 2016</h3>\n<p><img src=\"http://g.recordit.co/TU3az70acC.gif\"></p>\n<p>Your teammates don&apos;t have your icon-fonts? don&apos;t worry now you can convert all icons with one command then share it.</p>\n<h2>Use Icon Fonts in Sketch</h2>\n<p>This plugin helps you easily insert and manage icons from icon fonts - such as FontAwesome, Ion or Material Design Icons - in your Sketch designs.</p>\n<h5>Use any icon font.</h5>\n<p>The plugin itself has no font built-in. You will need to download and install the fonts you wish to use directly from the font publisher. The most popular ones, however, have been put into a bundle which you can easily download from here: <a href=\"https://github.com/keremciu/font-bundles\">https://github.com/keremciu/font-bundles</a></p>\n<p>=======</p>\n<h3>- Features</h3>\n<h6>Why you need to use it</h6>\n<blockquote>\n<p><code>For The Designer:</code>\nWhen a designer wants to add an icon from an icon font - such as material design, fontawesome, etc. - they usually need to find a cheatsheet containing all the font&apos;s icons, and then manually copy+paste each one they wish to use into their design - or use a third-party application. Time consuming and cumbersome.</p>\n</blockquote>\n<ul>\n<li>You can now easily view and add any icon directly Sketch!</li>\n</ul>\n<blockquote>\n<p><code>For The Developer:</code>\nWhen a developer wants to find out the name of an icon that was used by the Designer, they need to search through a lengthy list of icons, until they find it. Time consuming and cumbersome.</p>\n</blockquote>\n<ul>\n<li>You can now easily find out an icon&apos;s name directly in Sketch, without needing to perform a search!</li>\n</ul>\n<p>=======</p>\n<h3>- Installation</h3>\n<h3>Using Sketch Toolbox</h3>\n<ol>\n<li>Install &apos;Sketch Iconfont&apos; plugin directly from Sketch Toolbox.</li>\n<li>Install a font containing an svg font file, or install a font bundle - such as the one provided here: <a href=\"https://github.com/keremciu/font-bundles\">https://github.com/keremciu/font-bundles</a></li>\n</ol>\n<h3>Manually</h3>\n<ol>\n<li>Download and extract the ZIP bundle of this plugin from this repo.</li>\n<li>Put the folder into your Sketch plugin folder (Use <code>Plugins &gt; Reveal Plugins Folder</code> to find the plugin folder).</li>\n<li>Install a font containing an svg font file, or install a font bundle - such as the one provided here: <a href=\"https://github.com/keremciu/font-bundles\">https://github.com/keremciu/font-bundles</a></li>\n</ol>\n<p>=======</p>\n<h3>- Documentation</h3>\n<h6>Its a little documentation about commands</h6>\n<table>\n<thead>\n<tr>\n<th>Command</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Install a Font-Bundle</td>\n<td>Install a newly downloaded font bundle.</td>\n</tr>\n<tr>\n<td>Export your Font-Bundle</td>\n<td>Export or backup all of your icon fonts previously installed. Recommended to use before you  install new version of the plugin.</td>\n</tr>\n<tr>\n<td>Install a Font</td>\n<td>Install a newly downloaded font - containing an svg font file.</td>\n</tr>\n<tr>\n<td>Remove a Font</td>\n<td>Remove a previously installed font.</td>\n</tr>\n<tr>\n<td>Grid Insert</td>\n<td>Insert an icon by searching for it in a visual grid table.</td>\n</tr>\n<tr>\n<td>Name Insert</td>\n<td>Insert an icon by name.</td>\n</tr>\n<tr>\n<td>HTML of Selected Icon</td>\n<td>To use an icon on web or mobile, select it and use this command.</td>\n</tr>\n</tbody>\n</table>\n<h3>- Minimum Dependencies</h3>\n<ul>\n<li>OSX El Capitan &amp; Yosemite (<a href=\"https://github.com/keremciu/sketch-iconfont/issues/44\">#44</a>)</li>\n<li>Sketch 3.4.4.</li>\n</ul>\n<p>You can follow me on twitter to get updates.\n<a href=\"http://twitter.com/keremciu\">http://twitter.com/keremciu</a></p>\n<h4>License</h4>\n<p>MIT</p>\n<p>=======</p>\n<h4>Donate</h4>\n<p>:beers:</p>\n<p>If you want you can buy me a beer: <a href=\"https://www.paypal.me/keremsevencan\">https://www.paypal.me/keremsevencan</a> :)</p>\n<h4>Old version</h4>\n<p>You can see an old version of this plugin here: <a href=\"http://i.imgur.com/EBGmlSe.gif\">http://i.imgur.com/EBGmlSe.gif</a> - and you can download it from here: <a href=\"https://github.com/keremciu/sketch-iconfont/tree/oldversion\">https://github.com/keremciu/sketch-iconfont/tree/oldversion</a></p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/keremciu/sketch-iconfont",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/keremciu",
+          "text": "keremciu"
+        }
+      ]
+    }
+  ]
+}
