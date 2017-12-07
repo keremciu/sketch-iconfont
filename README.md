@@ -4,7 +4,7 @@
 
 ### Version 48 supports - 7 December 2017 (Version 4.6.0)
 
-⚠️ BEFORE UPDATE:
+⚠️ **BEFORE UPDATE**:
 If you're using custom icon fonts, please export your font bundle like this: [VIDEO](http://recordit.co/oxABJWnBeT)
 then update the plugin, you can install the your custom-font-bundle without losing your custom fonts.
 
