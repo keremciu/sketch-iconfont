@@ -4,6 +4,10 @@
 
 ### Version 48 supports - 7 December 2017 (Version 4.6.0)
 
+⚠️ BEFORE UPDATE:
+If you're using custom icon fonts, please export your font bundle like this: [VIDEO](http://recordit.co/oxABJWnBeT)
+then update the plugin, you can install the your custom-font-bundle without losing your custom fonts.
+
 Guys, I'm so excited with new updates on Sketch, I will be working on this plugin again to improve your experience! hopefully, we will have a short install process and maybe can add symbol change functionality? mmmh! would be amazing. stay in touch on twitter.
 
 I will share donations here after asking their permissions, it's a motivation thing for me and you, guys. let see what's going on.
