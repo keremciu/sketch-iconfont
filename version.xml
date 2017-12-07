@@ -6,15 +6,15 @@
     <description>Use icons like a boss.</description>
     <language>en</language>
       <item>
-        <title>Version 4.5.3</title>
+        <title>Version 4.6.0</title>
         <description>
           <![CDATA[
             <ul>
-            <li>Fixes for Sketch 45</li>
+            <li>Fixes for Sketch 48</li>
             </ul>
           ]]>
         </description>
-        <enclosure url="https://github.com/keremciu/sketch-iconfont/archive/master.zip" sparkle:version="4.5.3" />
+        <enclosure url="https://github.com/keremciu/sketch-iconfont/archive/master.zip" sparkle:version="4.6.0" />
       </item>
   </channel>
 </rss>

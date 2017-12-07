@@ -29,26 +29,6 @@ var Library = {
       } : null
       return result
     },
-    /**
-        Converts a Hex String value into native RGB Percent color
-        Note: To convert this to true RGB you'll need to multiply each value
-        by 255 (eg: result.r * 255, result.g * 255)
-        @param {string} hexColor Hex Color (with or without #)
-        @return {rgba} rgbaPercent returns converted RGB value in percentage format.
-    */
-    hexToRgbPercent: function(hexColor) {
-      var color = this.hexToRgb(hexColor)
-      var r     = color.r
-      var g     = color.g
-      var b     = color.b
-      var a     = 1
-      return {
-        r: r,
-        g: g,
-        b: b,
-        a: a
-      }
-    },
     //
     // Create icon layer
     // Valid types for doc is Object
@@ -65,13 +45,12 @@ var Library = {
       // 2. Fetch fonts.json file
       var json          = Library.fetch.json("config.json", plugin)
       var configs       = [json objectForKey:@"icon"]
-      var zoom         = configs["Zoom"].value
+      var zoom          = configs["Zoom"].value
       var fontsize      = configs["Size"].value
-      var color         = configs["Color"].value
+      var configColor   = configs["Color"].value
       var centered      = configs["Centered"].value
       var replace       = configs["Replace"].value
-      c        = this.hexToRgbPercent(color);
-      color             = MSColor.colorWithRed_green_blue_alpha(c.r,c.g,c.b,c.a);
+      color = MSImmutableColor.colorWithSVGString(configColor);
 
       function createNew() {
         // create a text layer contains the icon
@@ -83,8 +62,8 @@ var Library = {
         } else {
           [selection setFontPostscriptName:@""+fontname];
         }
-
-        selection.setTextColor(color)
+        
+        selection.textColor = color;
       }
 
       /*
@@ -173,7 +152,7 @@ var Library = {
 
       if (parameters.centered == 1) {
         // view frame
-        var view = doc.currentView();
+        var view = doc.contentDrawView();
         viewFrame = [view frame];
         viewHeight = viewFrame.size.height;
         viewWidth = viewFrame.size.width;
@@ -193,13 +172,13 @@ var Library = {
       // doc.currentPage().deselectAllLayers()
 
       // select the text layer
-      [textLayer select:true byExpandingSelection:true];
+      [textLayer select:true byExtendingSelection:true];
       // set the default font-size
       textLayer.fontSize = 24;
 
       if (parameters.zoom == 1) {
         // zoom to the icon
-        var view = doc.currentView();
+        var view = doc.contentDrawView();
         view.zoomToSelection();
       }
 
@@ -340,7 +319,7 @@ var Library = {
               var fill = style.fills().addNewStylePart()
               fill.setFillType(0)
             }
-            fill.color = MSColor.colorWithNSColor(layer.style().textStyle().attributes().NSColor)
+            fill.color = layer.textColor()
         }
 
         // shape horizontally center
@@ -367,7 +346,7 @@ var Library = {
         layergroup.addLayers([shape,baseLayer])
         parent.addLayers([layergroup])
 
-        layergroup.setIsSelected(true)
+        // layergroup.setIsSelected(true)
 
         return shape;
     },

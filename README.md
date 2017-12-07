@@ -2,6 +2,12 @@
 [![Latest Version](https://img.shields.io/github/release/keremciu/sketch-iconfont.svg?style=flat-square)](https://github.com/keremciu/sketch-iconfont/releases)
 [![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+### Version 48 supports - 7 December 2017 (Version 4.6.0)
+
+Guys, I'm so excited with new updates on Sketch, I will be working on this plugin again to improve your experience! hopefully, we will have a short install process and maybe can add symbol change functionality? mmmh! would be amazing. stay in touch on twitter.
+
+I will share donations here after asking their permissions, it's a motivation thing for me and you, guys. let see what's going on.
+
 ## New version and release video is coming - 19 January 2017
 - I took a video about import custom icons ([VIDEO](http://recordit.co/wy5ihqjPml))
 
