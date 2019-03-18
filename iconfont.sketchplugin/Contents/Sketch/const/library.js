@@ -408,7 +408,6 @@ var Library = {
       // create a window
       var wrapper = NSWindow.alloc().init()
       [wrapper setFrame:NSMakeRect(0, 0, 600, 420) display:false]
-      wrapper.setBackgroundColor(NSColor.whiteColor())
       wrapper.setTitle(title)
 
       // create a body
@@ -421,7 +420,7 @@ var Library = {
 
       // subtitle in window
       if (subtitle!=nil) {
-        subtitle = Library.Widgets.subtitle(subtitle,22,NSColor.blackColor(),NSMakeRect(25, 355, 300, 30))
+        subtitle = Library.Widgets.subtitle(subtitle,22,NSColor.textColor(),NSMakeRect(25, 355, 300, 30))
         body.addSubview(subtitle)
       }
 
