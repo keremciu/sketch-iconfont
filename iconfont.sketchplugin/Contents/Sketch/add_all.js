@@ -109,7 +109,7 @@ var onRun = function(context) {
 
   // 6. create a searchbox to filter icons
   var searchbox   = [[NSTextField alloc] initWithFrame:NSMakeRect(200,357,150,24)]
-  searchbox.setBackgroundColor(NSColor.clearColor())
+  searchbox.setBackgroundColor(NSColor.controlBackgroundColor())
   searchbox.setPlaceholderString(@"Search an icon...")
   searchbox.setTarget(self)
   searchbox.setAction("callAction:")
