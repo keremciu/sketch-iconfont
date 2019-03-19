@@ -113,9 +113,9 @@ MIT
 
 :beers:
 
-If you want you can buy me a beer: https://www.paypal.me/keremsevencan :)
+how about supporting my time-savers? if you'd like to buy me a beer, you can make it on PayPal then I can focus more on this stuff while having a beer 🍺 https://www.paypal.me/ciukerem
 
-[paypal-donations]: https://www.paypal.me/keremsevencan
+[paypal-donations]: https://www.paypal.me/ciukerem
 
 #### Old version
 
