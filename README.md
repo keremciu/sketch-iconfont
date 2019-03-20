@@ -2,15 +2,15 @@
 [![Latest Version](https://img.shields.io/github/release/keremciu/sketch-iconfont.svg?style=flat-square)](https://github.com/keremciu/sketch-iconfont/releases)
 [![Join the chat at https://gitter.im/keremciu/sketch-iconfont](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/keremciu/sketch-iconfont?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+⚠️ **BEFORE UPDATE**:
+If you're using custom icon fonts, please export your font bundle like this: [VIDEO](http://recordit.co/oxABJWnBeT)
+then update the plugin, you can install the your custom-font-bundle without losing your custom fonts.
+
 ### Dark Mode supports - 18 March 2019 (version 4.7.0)
 
 - Adds dark mode support
 
 ### Version 48 supports - 7 December 2017 (Version 4.6.0)
-
-⚠️ **BEFORE UPDATE**:
-If you're using custom icon fonts, please export your font bundle like this: [VIDEO](http://recordit.co/oxABJWnBeT)
-then update the plugin, you can install the your custom-font-bundle without losing your custom fonts.
 
 ## New version and release video is coming - 19 January 2017
 - I took a video about import custom icons ([VIDEO](http://recordit.co/wy5ihqjPml))
